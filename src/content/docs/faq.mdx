@@ -1,56 +1,228 @@
 ---
 title: FAQ
-description: Common questions about the course.
+description: Common questions for students, visitors, and potential course supporters.
 ---
 
-## Do I need prior robotics experience?
+export const faqSections = [
+	{
+		title: 'Enrollment and prerequisites',
+		intro:
+			'Questions students usually ask before deciding whether this course is the right fit.',
+		items: [
+			{
+				question: 'Who should take this course?',
+				answer:
+					'This course is for students who want to build and evaluate robot-learning systems on physical hardware, not only read about them or run simulations. It is a good fit for students interested in robotics, machine learning, embodied AI, controls, computer vision, or practical ML systems engineering.',
+				links: [{ label: 'Read the course overview', href: '/overview/' }],
+			},
+			{
+				question: 'Do I need prior robotics experience?',
+				answer:
+					'Prior robotics experience is helpful but not required. Students should be willing to learn basic hardware handling, calibration, safety habits, and debugging workflows as part of the course.',
+				links: [{ label: 'Review the safety policy', href: '/policies/safety/' }],
+			},
+			{
+				question: 'Do I need prior ML/deep learning experience?',
+				answer:
+					'Some comfort with Python and machine-learning workflows will make the course much smoother. The course will provide scaffolding for the robot-learning stack, but students should expect to read code, run training jobs, inspect model outputs, and debug data issues.',
+				links: [{ label: 'See the assignment progression', href: '/assignments/' }],
+			},
+			{
+				question: 'Is the course suitable for undergraduates?',
+				answer:
+					'Yes, motivated undergraduates can be a strong fit, especially if they have taken relevant systems, robotics, AI, ML, or computer vision coursework. Details about enrollment priorities and prerequisites will be finalized before Fall 2026.',
+			},
+			{
+				question: 'How many students will the course support?',
+				answer:
+					'The first offering is planned around a recommended cap of about 30 students, subject to room, staffing, and hardware capacity. The goal is for teams to have meaningful access to real robot kits rather than only watching demonstrations.',
+			},
+		],
+	},
+	{
+		title: 'Hardware and workload',
+		intro:
+			'How the physical robot work is expected to run, and what students should plan for.',
+		items: [
+			{
+				question: 'Will every team have access to a robot?',
+				answer:
+					'The course is designed around shared SO-101 robot kits for student teams. Exact scheduling and lab-access details will be finalized before Fall 2026, but the intent is that every team has enough hardware access to build, collect data, train, and evaluate.',
+				links: [{ label: 'View the semester arc', href: '/schedule/' }],
+			},
+			{
+				question: 'Do students need to buy hardware?',
+				answer:
+					'No. Students are not expected to purchase robot arms, cameras, or teleoperation hardware for the course. Course hardware is planned as shared instructional infrastructure.',
+			},
+			{
+				question: 'How much work happens outside class?',
+				answer:
+					'Students should expect meaningful lab and team time outside scheduled meetings, especially during data collection, training, evaluation, and demo preparation. The course is project-heavy, so steady weekly progress is much healthier than last-minute robot debugging.',
+				links: [{ label: 'See deadlines and repair tokens', href: '/policies/deadlines/' }],
+			},
+			{
+				question: 'What happens if hardware breaks?',
+				answer:
+					'Teams should report hardware issues quickly and document what happened. Ordinary hardware failures that are honestly reported are part of working with robots; the course uses repair-token and communication policies to separate real infrastructure failures from avoidable last-minute work.',
+				links: [{ label: 'Read the deadlines policy', href: '/policies/deadlines/' }],
+			},
+			{
+				question: 'Can students work in simulation only?',
+				answer:
+					'No. Simulation can be useful for thinking, testing, and debugging, but this is a hands-on physical robot course. The core assignments are built around real robot setup, teleoperation data, policy training, and physical evaluation.',
+				links: [{ label: 'Browse assignments', href: '/assignments/' }],
+			},
+		],
+	},
+	{
+		title: 'Assignments and grading',
+		intro:
+			'How work is evaluated, and what counts as success in a physical robot-learning course.',
+		items: [
+			{
+				question: 'Are there exams?',
+				answer:
+					'No. The course is evaluated through hands-on assignments, participation, peer evaluation where appropriate, and engineering citizenship rather than exams.',
+				links: [{ label: 'See grading policy', href: '/policies/grading/' }],
+			},
+			{
+				question: 'Is there a final project?',
+				answer:
+					'There is no separate open-ended graduate project in the first offering. The final course experience is Assignment 4, a VLA / SmolVLA-style final demo that builds on the hardware, data, baseline, and imitation-learning assignments.',
+				links: [{ label: 'Open Assignment 4', href: '/assignments/a4-vla-smolvla-demo/' }],
+			},
+			{
+				question: 'How are robot demos evaluated?',
+				answer:
+					'Robot demos are evaluated with clear task definitions, evidence, safety constraints, and honest reporting. For benchmark-style runs, students should expect common protocols such as fixed trial counts, continuous video, success/failure logging, and intervention reporting.',
+				links: [{ label: 'View benchmark protocol', href: '/benchmark/' }],
+			},
+			{
+				question: 'What matters besides task success?',
+				answer:
+					'The course values reproducible setups, clear code and documentation, safe hardware operation, dataset quality, careful evaluation, and useful failure analysis. A team can do strong work even when its robot is not at the top of the leaderboard.',
+				links: [{ label: 'Read grading philosophy', href: '/policies/grading/' }],
+			},
+			{
+				question: 'Are failures penalized?',
+				answer:
+					'Honest failures are not the problem; hidden failures are. Students are expected to diagnose what broke, preserve evidence, report all official trials, and explain what they would change next.',
+				links: [{ label: 'Read data integrity policy', href: '/policies/data-integrity/' }],
+			},
+		],
+	},
+	{
+		title: 'LLM and coding assistants',
+		intro:
+			'How modern development tools fit into a course about building real systems responsibly.',
+		items: [
+			{
+				question: 'Can students use ChatGPT, Codex, Copilot, Claude, or similar tools?',
+				answer:
+					'Yes. LLMs and coding assistants are allowed for explanation, debugging, starter code, refactoring, documentation, experiment planning, and report clarity, as long as students disclose use and remain responsible for the work.',
+				links: [{ label: 'Read the LLM policy', href: '/policies/llm-policy/' }],
+			},
+			{
+				question: 'What must be disclosed?',
+				answer:
+					'Students should disclose which tool they used and briefly describe how it helped. They should also cite any external code, model, dataset, or source suggested by the tool when it materially affects the submission.',
+				links: [{ label: 'Read academic integrity policy', href: '/policies/academic-integrity/' }],
+			},
+			{
+				question: 'What uses are not allowed?',
+				answer:
+					'Students may not fabricate results, invent numbers, hide manual interventions, generate fake logs or videos, upload private data, or submit code they cannot explain. Tool use does not transfer responsibility away from the team.',
+				links: [{ label: 'See allowed and not allowed uses', href: '/policies/llm-policy/' }],
+			},
+		],
+	},
+	{
+		title: 'Sponsors and visitors',
+		intro:
+			'Questions from people who want to understand or support the course.',
+		items: [
+			{
+				question: 'Can companies support the course?',
+				answer:
+					'Yes, where institutionally appropriate. Support should be routed through the relevant Johns Hopkins or departmental processes, and the course page describes useful support categories without treating them as formal sponsorship tiers.',
+				links: [{ label: 'Visit For Sponsors', href: '/sponsors/' }],
+			},
+			{
+				question: 'What kinds of support are useful?',
+				answer:
+					'Useful support can include robot kits, cameras, wrist-camera upgrades, teleoperation hardware, hardware spares, calibration tools, safety equipment, storage, GPU/cloud credits, and final showcase support. Details will be finalized before Fall 2026 based on course needs and institutional guidance.',
+				links: [{ label: 'See support categories', href: '/sponsors/' }],
+			},
+			{
+				question: 'Can sponsors provide hardware or cloud credits?',
+				answer:
+					'Potentially, yes. In-kind equipment and compute/cloud support can be very helpful for making hands-on robot learning concrete, but any support must follow appropriate Johns Hopkins and departmental processes.',
+				links: [{ label: 'Read sponsor boundaries', href: '/sponsors/' }],
+			},
+			{
+				question: 'Can sponsors attend demo day?',
+				answer:
+					'Demo-day participation may be possible where appropriate and subject to course logistics, space, privacy, and university guidance. Details will be finalized before Fall 2026.',
+				links: [{ label: 'Learn about the benchmark and demos', href: '/benchmark/' }],
+			},
+			{
+				question: 'Can sponsors give guest lectures?',
+				answer:
+					'Guest lectures or technical mentorship may be appropriate when they support the educational goals of the course. The strongest talks are likely to be practical, honest, and focused on real robot-learning systems, including what fails and how teams evaluate reliability.',
+				links: [{ label: 'See readings and discussions', href: '/readings/' }],
+			},
+			{
+				question:
+					'Does sponsorship influence grading, procurement, student access, research conclusions, or endorsement?',
+				answer:
+					'No. Support does not affect grading, procurement decisions, research conclusions, student access or opportunities, or course evaluation. Acknowledgment does not imply endorsement, and all support should follow appropriate Johns Hopkins and departmental processes.',
+				links: [{ label: 'Read recognition and boundaries', href: '/sponsors/' }],
+			},
+		],
+	},
+];
 
-Some robotics experience is preferred, but the most important requirement is comfort with ML/deep-learning workflows. We will review needed robotics concepts, but this is not an introductory robotics class.
+<section className="hol-faq-hero">
+	<p className="hol-section-label">FAQ</p>
+	<h2>Practical answers for students, visitors, and potential supporters</h2>
+	<p>
+		{
+			'This page collects common questions about enrollment, prerequisites, shared hardware, workload, assignments, AI tools, and sponsor participation. Logistics that depend on final enrollment, rooms, hardware, or institutional guidance will be finalized before Fall 2026.'
+		}
+	</p>
+</section>
 
-## Do I need my own robot?
+<div className="hol-faq-links" aria-label="Related pages">
+	<a href="/overview/">Overview</a>
+	<a href="/schedule/">Schedule</a>
+	<a href="/assignments/">Assignments</a>
+	<a href="/policies/">Policies</a>
+	<a href="/sponsors/">For Sponsors</a>
+	<a href="/benchmark/">Benchmark</a>
+</div>
 
-No. The course uses department-sponsored SO-101 follower-arm kits shared across teams.
+{faqSections.map((section) => (
+	<section className="hol-faq-section">
+		<div className="hol-section-head">
+			<p className="hol-section-label">{section.title}</p>
+			<p>{section.intro}</p>
+		</div>
 
-## How many students will be admitted?
-
-Recommended first-offering cap is 30 students.
-
-## How are teams formed?
-
-Structured self-selection with instructor balancing.
-
-## Will there be exams?
-
-No.
-
-## Is there a separate graduate project?
-
-No, not in the first offering.
-
-## What software stack will we use?
-
-Hugging Face LeRobot with SO-101 robot arms.
-
-## Do we need two cameras?
-
-Fixed external camera is the canonical minimum; wrist camera is strongly preferred for VLA-style work.
-
-## What if my team’s robot breaks?
-
-Report quickly; spare kits/parts and repair tokens exist.
-
-## What if cloud compute fails?
-
-Reduced configs, starter datasets, starter checkpoints, and fallback options will be provided.
-
-## Can we use ChatGPT, Claude, Copilot, Codex, or other coding assistants?
-
-Yes, with disclosure.
-
-## How much does leaderboard rank matter?
-
-It is motivational, not the main basis for grades.
-
-## Can my team choose a different final task?
-
-Yes for Assignment 4, subject to approval and safety constraints.
+		<div className="hol-faq-list">
+			{section.items.map((item) => (
+				<details className="hol-faq-item">
+					<summary>{item.question}</summary>
+					<p>{item.answer}</p>
+					{item.links ? (
+						<div className="hol-faq-item-links">
+							{item.links.map((link) => (
+								<a href={link.href}>{link.label}</a>
+							))}
+						</div>
+					) : null}
+				</details>
+			))}
+		</div>
+	</section>
+))}

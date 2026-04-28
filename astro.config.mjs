@@ -66,6 +66,10 @@ export default defineConfig({
 					slug: 'readings',
 				},
 				{
+					label: 'For Sponsors',
+					slug: 'sponsors',
+				},
+				{
 					label: 'Policies',
 					items: [
 						{ label: 'Grading', slug: 'policies/grading' },

@@ -5,9 +5,20 @@ sidebar:
   label: "A4: Final Demo"
 ---
 
+import AssignmentAtGlance from '../../../components/AssignmentAtGlance.astro';
+
 ## Goal
 
 Deploy or adapt a VLA-style model such as SmolVLA on a physical SO-101 manipulation task and characterize its behavior.
+
+<AssignmentAtGlance
+	release="Week 10"
+	due="Week 15"
+	weight="25%"
+	hardware={['SO-101 follower arm', 'Fixed external camera minimum; fixed + wrist preferred', 'VLA / SmolVLA-style model tooling']}
+	mainArtifact="Final demo video and short report with qualitative/quantitative evaluation and failure analysis."
+	evaluationMode="Clearly defined demo task with controlled evaluation runs and continuous video evidence."
+/>
 
 ## What you will learn
 
@@ -19,7 +30,7 @@ Deploy or adapt a VLA-style model such as SmolVLA on a physical SO-101 manipulat
 
 - SO-101 follower arm
 - Camera note: fixed external camera is the minimum fallback; fixed + wrist is preferred for SmolVLA-style workflows.
-- VLA / SmolVLA-style model tooling (exact workflow may evolve; details coming soon)
+- VLA / SmolVLA-style model tooling. The exact workflow will be finalized as the course stack stabilizes.
 
 ## Possible tracks
 
@@ -31,12 +42,14 @@ Deploy or adapt a VLA-style model such as SmolVLA on a physical SO-101 manipulat
 
 ## Deliverables
 
-- Task proposal and safety check
-- Dataset or evaluation setup description
-- Model/configuration used
-- Final demo video
-- Short report with qualitative and quantitative evaluation
-- Failure analysis and comparison to Assignment 3 where applicable
+<ul className="hol-deliverable-checklist">
+	<li>Task proposal and safety check</li>
+	<li>Dataset or evaluation setup description</li>
+	<li>Model/configuration used</li>
+	<li>Final demo video</li>
+	<li>Short report with qualitative and quantitative evaluation</li>
+	<li>Failure analysis and comparison to Assignment 3 where applicable</li>
+</ul>
 
 ## Evaluation protocol
 
@@ -46,24 +59,53 @@ Deploy or adapt a VLA-style model such as SmolVLA on a physical SO-101 manipulat
 
 ## Rubric emphasis
 
-- Sensible task design
-- Correct model/setup usage
-- Honest characterization of VLA behavior
-- Good experimental controls
-- Final demo quality and report clarity
+<div className="hol-rubric-grid">
+	<article>
+		<h3>Task design</h3>
+		<p>Sensible, safe task scope with clear reset and evaluation rules.</p>
+	</article>
+	<article>
+		<h3>Model/setup usage</h3>
+		<p>Correct configuration and careful control of cameras, prompts, data, and hardware setup.</p>
+	</article>
+	<article>
+		<h3>Evaluation</h3>
+		<p>Honest characterization of behavior, controls, failures, and deviations.</p>
+	</article>
+	<article>
+		<h3>Demo/report clarity</h3>
+		<p>A polished final video and report that make claims with evidence.</p>
+	</article>
+</div>
 
 ## Common failure modes
 
-- Ambiguous instructions leading to inconsistent behavior
-- Camera distribution shift (mount, lighting, viewpoint) causing brittle execution
-- Latency/control-frequency mismatch causing delayed or oscillatory actions
-- “Demo-only” success that disappears under repeatable evaluation
+<aside className="hol-assignment-callout hol-assignment-callout--failure">
+	<h3>Common failure modes</h3>
+	<ul>
+		<li>Ambiguous instructions leading to inconsistent behavior</li>
+		<li>Camera distribution shift (mount, lighting, viewpoint) causing brittle execution</li>
+		<li>Latency/control-frequency mismatch causing delayed or oscillatory actions</li>
+		<li>“Demo-only” success that disappears under repeatable evaluation</li>
+	</ul>
+</aside>
 
 ## How to get unstuck
 
-- Simplify the task until the system is repeatable, then add complexity back.
-- Use ablations: remove language, remove wrist camera, reduce observation set, etc.
-- Compare against your A3 system and keep the evaluation protocol consistent.
+<aside className="hol-assignment-callout hol-assignment-callout--tip">
+	<h3>Debugging tips</h3>
+	<ul>
+		<li>Simplify the task until the system is repeatable, then add complexity back.</li>
+		<li>Use ablations: remove language, remove wrist camera, reduce observation set, etc.</li>
+		<li>Compare against your A3 system and keep the evaluation protocol consistent.</li>
+	</ul>
+</aside>
+
+## What a strong submission looks like
+
+<div className="hol-strong-submission">
+	<p>{'A strong A4 submission is compelling without overclaiming: the demo is clear, the setup is controlled, successes and failures are both shown, and the report explains what the VLA-style system can and cannot do on the physical robot.'}</p>
+</div>
 
 ## Extension ideas
 

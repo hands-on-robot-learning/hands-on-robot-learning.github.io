@@ -5,34 +5,50 @@ description: Permissive use with attribution, understanding, and responsibility.
 
 Students may use LLMs/coding assistants such as **ChatGPT, Claude, Copilot, Codex**, and similar systems.
 
-## Allowed uses
+<div className="hol-llm-grid">
+	<article>
+		<h2>Allowed</h2>
+		<ul>
+			<li>Explaining concepts</li>
+			<li>Debugging errors</li>
+			<li>Generating starter code</li>
+			<li>Refactoring code</li>
+			<li>Writing documentation</li>
+			<li>Drafting experiment plans</li>
+			<li>Brainstorming failure hypotheses</li>
+			<li>Implementing code-as-policies-style robot programs</li>
+			<li>Improving clarity of reports</li>
+		</ul>
+	</article>
+	<article>
+		<h2>Required</h2>
+		<ul>
+			<li>Disclose the tool used.</li>
+			<li>Briefly describe how it was used.</li>
+			<li>Test and understand generated code.</li>
+			<li>Cite external code, models, or datasets suggested by the tool.</li>
+			<li>Avoid uploading private, sensitive, or privileged information.</li>
+		</ul>
+	</article>
+	<article className="hol-llm-card--warning">
+		<h2>Not allowed</h2>
+		<ul>
+			<li>Fabricating results</li>
+			<li>Inventing numbers</li>
+			<li>Hiding manual interventions</li>
+			<li>Generating fake logs or videos</li>
+			<li>Submitting code the team cannot explain</li>
+			<li>Misrepresenting contribution</li>
+			<li>Uploading private or PII data</li>
+		</ul>
+	</article>
+</div>
 
-- Explaining concepts
-- Debugging errors
-- Generating starter code
-- Refactoring code
-- Writing documentation
-- Drafting experiment plans
-- Brainstorming failure hypotheses
-- Implementing code-as-policies-style robot programs
-- Improving clarity of reports
-
-## Requirements
-
-1. Disclose the tool used
-2. Briefly describe how it was used
-3. Test and understand generated code
-4. Cite external code/models/datasets suggested by the tool
-5. Avoid uploading private/sensitive/privileged information
-
-## Not allowed
-
-- Fabricating results
-- Inventing numbers
-- Hiding manual interventions
-- Generating fake logs/videos
-- Submitting code the team cannot explain
-- Misrepresenting contribution
-- Uploading private/PII data
-
-Teams are responsible for everything they submit.
+<aside className="hol-policy-callout">
+	<h2>Use the tools, own the work</h2>
+	<p>
+		{
+			'Teams are responsible for everything they submit. Disclosure is not a penalty; it is part of reproducible engineering and honest collaboration.'
+		}
+	</p>
+</aside>

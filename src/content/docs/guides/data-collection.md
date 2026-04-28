@@ -3,7 +3,7 @@ title: Data collection hygiene
 description: How to collect teleop data that trains.
 ---
 
-## The boring rules that save you
+## Rules that save you time
 
 - Keep the camera fixed and document its pose.
 - Keep resets consistent (same start state distribution).

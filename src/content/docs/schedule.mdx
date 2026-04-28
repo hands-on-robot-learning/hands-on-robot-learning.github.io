@@ -4,60 +4,125 @@ description: Week-by-week plan (edit via YAML).
 ---
 
 import { parseYaml } from '../../lib/yaml';
+import WeekCard from '../../components/WeekCard.astro';
 import scheduleYaml from '../../data/schedule.yaml?raw';
 
 export const weeks = (parseYaml(scheduleYaml).weeks ?? []);
 
-This schedule is **tentative** and may change based on hardware availability and how fast we collectively debug the stack.
+export const tagRules = [
+	['hardware', ['hardware', 'robotics essentials', 'safety', 'assembly', 'calibration', 'so-101', 'wake the robot', 'robot kit']],
+	['teleop', ['teleoperation', 'teleop', 'leader-follower', 'leader arm', 'keyboard', 'gamepad']],
+	['data', ['data', 'dataset', 'demonstration', 'episode', 'metadata', 'camera']],
+	['baselines', ['baseline', 'handcrafted', 'segmentation', 'homography', 'scripted', 'code-as-policies']],
+	['imitation learning', ['imitation', 'behavior cloning', 'action chunking', 'act', 'diffusion', 'policy training']],
+	['evaluation', ['evaluation', 'leaderboard', 'trial', 'failure', 'ablation', 'robustness']],
+	['VLA', ['vla', 'vision-language-action', 'smolvla', 'language', 'generalist']],
+	['showcase', ['showcase', 'demo', 'final demos']],
+];
 
-Most weeks start with a **Robot Mystery of the Week**: a short failure case to diagnose (perception vs calibration vs control vs policy).
+export const inferTags = (week) => {
+	const text = [
+		week.theme,
+		week.lecture_title,
+		week.robot_mystery,
+		week.lab_focus,
+		week.milestone,
+		...(week.core_topics ?? []),
+	]
+		.join(' ')
+		.toLowerCase();
 
-## Major assignment rhythm
+	const tags = tagRules
+		.filter(([, terms]) => terms.some((term) => text.includes(term)))
+		.map(([tag]) => tag);
 
-- **A1** released Week 2, due Week 3
-- **A2** released Week 4, due Week 6
-- **A3** released Week 6, due Week 10
-- **A4** released Week 10, due Week 15
+	return tags.length ? tags.slice(0, 4) : ['systems'];
+};
 
-No major deadlines are scheduled during **fall break** or **fall recess** (see notes in the week-by-week plan).
+export const assignmentRhythm = [
+	{ assignment: 'A1', release: 'Week 2', due: 'Week 3', label: 'Build + Teleop' },
+	{ assignment: 'A2', release: 'Week 4', due: 'Week 6', label: 'Handcrafted Baseline' },
+	{ assignment: 'A3', release: 'Week 6', due: 'Week 10', label: 'Imitation Challenge' },
+	{ assignment: 'A4', release: 'Week 10', due: 'Week 15', label: 'VLA Final Demo' },
+];
 
-## Week-by-week
+<p className="hol-schedule-intro">
+	{'This course moves from robot setup to data collection, policy learning, robust evaluation, and final demos. The plan is tentative and may adjust based on hardware availability and what we learn while debugging the stack.'}
+</p>
 
-{weeks.map((w) => (
-	<details>
-		<summary>
-			<strong>Week {w.week}</strong> — {w.dates}: {w.theme}
-		</summary>
-		<p>
-			<strong>Lecture:</strong> {w.lecture_title}
-		</p>
-		<p>
-			<strong>Robot Mystery:</strong> {w.robot_mystery}
-		</p>
+<section className="hol-schedule-arc" aria-label="Semester arc">
+	<article>
+		<span>01</span>
+		<strong>Build</strong>
+		<p>{'Assemble the robot and lab stack.'}</p>
+	</article>
+	<article>
+		<span>02</span>
+		<strong>Calibrate</strong>
+		<p>{'Make frames, motors, and cameras agree.'}</p>
+	</article>
+	<article>
+		<span>03</span>
+		<strong>Script</strong>
+		<p>{'Engineer a baseline before learning.'}</p>
+	</article>
+	<article>
+		<span>04</span>
+		<strong>Collect Data</strong>
+		<p>{'Gather useful teleoperation episodes.'}</p>
+	</article>
+	<article>
+		<span>05</span>
+		<strong>Train</strong>
+		<p>{'Train imitation-learning policies.'}</p>
+	</article>
+	<article>
+		<span>06</span>
+		<strong>Evaluate</strong>
+		<p>{'Run fair trials and analyze failures.'}</p>
+	</article>
+	<article>
+		<span>07</span>
+		<strong>Demo</strong>
+		<p>{'Present VLA-style final systems.'}</p>
+	</article>
+</section>
 
-		{w.core_topics?.length ? (
-			<>
-				<p>
-					<strong>Core topics</strong>
-				</p>
-				<ul>
-					{w.core_topics.map((t) => (
-						<li>{t}</li>
-					))}
-				</ul>
-			</>
-		) : null}
+<section className="hol-assignment-rhythm" aria-label="Major assignment rhythm">
+	<div className="hol-section-head">
+		<p className="hol-section-label">Major assignment rhythm</p>
+		<h2>Four milestones carry the course from hardware to learned policies.</h2>
+	</div>
+	<div>
+		{assignmentRhythm.map((item) => (
+			<article>
+				<strong>{item.assignment}</strong>
+				<span>{item.label}</span>
+				<small>Release: {item.release}</small>
+				<small>Due: {item.due}</small>
+			</article>
+		))}
+	</div>
+	<p>{'No major deadlines are scheduled during fall break or fall recess. See week notes below for calendar details.'}</p>
+</section>
 
-		<p>
-			<strong>Lab focus:</strong> {w.lab_focus}
-		</p>
-		<p>
-			<strong>Milestone:</strong> {w.milestone}
-		</p>
-		{w.note ? (
-			<p>
-				<strong>Note:</strong> {w.note}
-			</p>
-		) : null}
-	</details>
-))}
+## Week-by-week plan
+
+Most weeks start with a **Robot Mystery of the Week**: a short failure case to diagnose across perception, calibration, control, data, and policy behavior.
+
+<div className="hol-schedule-list">
+	{weeks.map((week) => (
+		<WeekCard
+			week={week.week}
+			dates={week.dates}
+			title={week.theme}
+			lectureTitle={week.lecture_title}
+			mystery={week.robot_mystery}
+			topics={week.core_topics}
+			labFocus={week.lab_focus}
+			milestone={week.milestone}
+			note={week.note}
+			tags={inferTags(week)}
+		/>
+	))}
+</div>

@@ -3,200 +3,322 @@ export interface Props {
 	week: number | string;
 	dates?: string;
 	title: string;
+	lectureTitle?: string;
+	mystery?: string;
 	topics?: string[];
-	labs?: string[];
-	deliverables?: { label: string; href?: string }[];
+	labFocus?: string;
+	milestone?: string;
+	note?: string;
+	tags?: string[];
 	variant?: 'full' | 'compact';
 }
 
-const { week, dates, title, topics = [], labs = [], deliverables = [], variant = 'full' } = Astro.props;
+const {
+	week,
+	dates,
+	title,
+	lectureTitle,
+	mystery,
+	topics = [],
+	labFocus,
+	milestone,
+	note,
+	tags = [],
+	variant = 'full',
+} = Astro.props;
 
-const withBase = (url: string) => {
-	if (
-		url.startsWith('http://') ||
-		url.startsWith('https://') ||
-		url.startsWith('#') ||
-		url.startsWith('mailto:') ||
-		url.startsWith('tel:')
-	) {
-		return url;
-	}
+const milestoneItems =
+	milestone
+		?.split(';')
+		.map((item) => item.trim())
+		.filter(Boolean) ?? [];
 
-	const base = import.meta.env.BASE_URL ?? '/';
-	const cleanBase = base.endsWith('/') ? base : `${base}/`;
-	const cleanUrl = url.startsWith('/') ? url.slice(1) : url;
-	return `${cleanBase}${cleanUrl}`;
+const milestoneKind = (item: string) => {
+	const lower = item.toLowerCase();
+	if (lower.includes('released')) return 'release';
+	if (lower.includes('due')) return 'due';
+	if (lower.includes('showcase') || lower.includes('demo')) return 'demo';
+	if (lower.includes('check-in') || lower.includes('checkpoint') || lower.includes('dry run')) return 'checkpoint';
+	return 'default';
 };
 ---
 
-<section class:list={['hol-week', `hol-week--${variant}`]} aria-label={`Week ${week}`}>
-	<header class="hol-week-header">
-		<span class="hol-week-badge">Week {week}</span>
-		<div class="hol-week-head-main">
-			<h3 class="hol-week-title">{title}</h3>
-			{dates ? <p class="hol-week-dates">{dates}</p> : null}
+<article class:list={['hol-week-card', `hol-week-card--${variant}`]} aria-labelledby={`week-${week}`}>
+	<header class="hol-week-card-header">
+		<div class="hol-week-card-kicker">
+			<span class="hol-week-number">Week {week}</span>
+			{dates ? <span class="hol-week-date">{dates}</span> : null}
 		</div>
+		<h2 id={`week-${week}`}>{title}</h2>
+		{lectureTitle ? <p class="hol-week-lecture">{lectureTitle}</p> : null}
 	</header>
 
-	{variant === 'compact' ? (
+	{tags.length ? (
+		<div class="hol-week-tags" aria-label="Schedule tags">
+			{tags.map((tag) => (
+				<span>{tag}</span>
+			))}
+		</div>
+	) : null}
+
+	{mystery ? (
+		<section class="hol-week-mystery" aria-label="Robot mystery">
+			<span>Robot mystery</span>
+			<p>{mystery}</p>
+		</section>
+	) : null}
+
+	<div class="hol-week-card-grid">
+		{labFocus ? (
+			<section>
+				<h3>Lab focus</h3>
+				<p>{labFocus}</p>
+			</section>
+		) : null}
+
+		{milestoneItems.length ? (
+			<section>
+				<h3>Milestone</h3>
+				<div class="hol-week-milestones">
+					{milestoneItems.map((item) => (
+						<span data-kind={milestoneKind(item)}>{item}</span>
+					))}
+				</div>
+			</section>
+		) : null}
+	</div>
+
+	{topics.length || note ? (
 		<details class="hol-week-details">
-			<summary class="hol-week-summary">Details</summary>
-			<div class="hol-week-body">
+			<summary>Topics and notes</summary>
+			<div class="hol-week-details-body">
 				{topics.length ? (
-					<div class="hol-week-block">
-						<h4 class="hol-week-sub">Topics</h4>
+					<section>
+						<h3>Core topics</h3>
 						<ul>
-							{topics.map((t) => (
-								<li>{t}</li>
+							{topics.map((topic) => (
+								<li>{topic}</li>
 							))}
 						</ul>
-					</div>
+					</section>
 				) : null}
-
-				{labs.length ? (
-					<div class="hol-week-block">
-						<h4 class="hol-week-sub">Lab</h4>
-						<ul>
-							{labs.map((l) => (
-								<li>{l}</li>
-							))}
-						</ul>
-					</div>
-				) : null}
-
-				{deliverables.length ? (
-					<div class="hol-week-block">
-						<h4 class="hol-week-sub">Deliverables</h4>
-						<ul>
-							{deliverables.map((d) => (
-								<li>
-									{d.href ? <a href={withBase(d.href)}>{d.label}</a> : d.label}
-								</li>
-							))}
-						</ul>
-					</div>
+				{note ? (
+					<section class="hol-week-note">
+						<h3>Note</h3>
+						<p>{note}</p>
+					</section>
 				) : null}
 			</div>
 		</details>
-	) : (
-		<div class="hol-week-body">
-			{topics.length ? (
-				<div class="hol-week-block">
-					<h4 class="hol-week-sub">Topics</h4>
-					<ul>
-						{topics.map((t) => (
-							<li>{t}</li>
-						))}
-					</ul>
-				</div>
-			) : null}
-
-			{labs.length ? (
-				<div class="hol-week-block">
-					<h4 class="hol-week-sub">Lab</h4>
-					<ul>
-						{labs.map((l) => (
-							<li>{l}</li>
-						))}
-					</ul>
-				</div>
-			) : null}
-
-			{deliverables.length ? (
-				<div class="hol-week-block">
-					<h4 class="hol-week-sub">Deliverables</h4>
-					<ul>
-						{deliverables.map((d) => (
-							<li>
-								{d.href ? <a href={withBase(d.href)}>{d.label}</a> : d.label}
-							</li>
-						))}
-					</ul>
-				</div>
-			) : null}
-		</div>
-	)}
-</section>
+	) : null}
+</article>
 
 <style>
-	.hol-week {
-		border: 1px solid var(--sl-color-gray-5);
-		border-radius: 0.9rem;
-		background: color-mix(in oklab, var(--sl-color-gray-7), transparent 70%);
+	.hol-week-card {
+		position: relative;
+		border: 1px solid var(--hol-border, var(--sl-color-gray-5));
+		border-radius: 1rem;
+		padding: 1rem;
+		background:
+			linear-gradient(
+				180deg,
+				color-mix(in oklab, var(--hol-surface-2, var(--sl-color-gray-7)), transparent 8%),
+				var(--hol-surface, transparent)
+			);
+		box-shadow: 0 1px 0 rgba(255, 255, 255, 0.02);
+		overflow: clip;
 	}
-	.hol-week-header {
+
+	.hol-week-card::before {
+		content: '';
+		position: absolute;
+		inset-block: 0;
+		inset-inline-start: 0;
+		width: 0.28rem;
+		background: linear-gradient(180deg, var(--hol-teal, var(--sl-color-accent)), var(--hol-gold, var(--sl-color-accent-high)));
+	}
+
+	.hol-week-card-header {
 		display: grid;
-		grid-template-columns: auto 1fr;
-		align-items: start;
-		gap: 0.75rem;
-		padding: 0.9rem 1rem;
-		border-bottom: 1px solid var(--sl-color-hairline);
+		gap: 0.35rem;
+		padding-inline-start: 0.25rem;
 	}
-	.hol-week-head-main {
-		min-width: 0;
-	}
-	.hol-week--full .hol-week-header {
-		border-bottom: 0;
-		padding-bottom: 0;
-	}
-	.hol-week--full .hol-week-body {
-		padding: 0 1rem 1rem;
-	}
-	.hol-week--compact .hol-week-body {
-		padding: 0.75rem 1rem 1rem;
-		display: grid;
-		gap: 0.9rem;
-	}
-	.hol-week-details {
-		padding: 0 1rem 0.8rem;
-	}
-	.hol-week-summary {
+
+	.hol-week-card-kicker {
 		display: flex;
+		flex-wrap: wrap;
 		align-items: center;
-		gap: 0.5rem;
-		cursor: pointer;
-		user-select: none;
-		color: var(--sl-color-gray-2);
-		font-weight: 600;
-		padding: 0.7rem 0;
+		gap: 0.45rem;
 	}
-	.hol-week-badge {
+
+	.hol-week-number,
+	.hol-week-date,
+	.hol-week-tags span,
+	.hol-week-milestones span {
 		display: inline-flex;
 		align-items: center;
-		border: 1px solid color-mix(in oklab, var(--sl-color-accent), var(--sl-color-gray-5) 75%);
-		background: color-mix(in oklab, var(--sl-color-accent-low), transparent 25%);
-		color: var(--sl-color-gray-1);
 		border-radius: 999px;
-		padding: 0.15rem 0.55rem;
-		font-weight: 600;
-		font-size: 0.9rem;
 		white-space: nowrap;
 	}
-	.hol-week-dates {
-		margin: 0.2rem 0 0;
+
+	.hol-week-number {
+		border: 1px solid color-mix(in oklab, var(--hol-teal, var(--sl-color-accent)), var(--sl-color-gray-5) 65%);
+		padding: 0.18rem 0.6rem;
+		background: color-mix(in oklab, var(--hol-teal, var(--sl-color-accent)), transparent 86%);
+		color: var(--sl-color-gray-1);
+		font-weight: 750;
+	}
+
+	.hol-week-date {
 		color: var(--sl-color-gray-3);
-		font-size: 0.95rem;
+		font-family: var(--__sl-font-mono);
+		font-size: 0.82rem;
 	}
-	.hol-week-title {
+
+	.hol-week-card h2 {
 		margin: 0;
-		font-size: 1.05rem;
+		color: var(--hol-ink, var(--sl-color-white));
+		font-size: clamp(1.2rem, 2.5vw, 1.55rem);
+		line-height: 1.15;
+		letter-spacing: 0;
 	}
-	.hol-week-block {
+
+	.hol-week-lecture {
+		margin: 0;
+		color: var(--sl-color-gray-2);
+		font-size: 0.98rem;
+	}
+
+	.hol-week-tags {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.4rem;
+		margin-top: 0.85rem;
+	}
+
+	.hol-week-tags span {
+		border: 1px solid var(--sl-color-gray-5);
+		padding: 0.14rem 0.52rem;
+		background: color-mix(in oklab, var(--sl-color-gray-7), transparent 55%);
+		color: var(--sl-color-gray-2);
+		font-size: 0.78rem;
+		font-weight: 650;
+		text-transform: lowercase;
+	}
+
+	.hol-week-mystery {
+		margin-top: 0.9rem;
+		border: 1px solid color-mix(in oklab, var(--hol-gold, #fbbf24), var(--sl-color-gray-5) 72%);
+		border-radius: 0.8rem;
+		padding: 0.75rem 0.85rem;
+		background: color-mix(in oklab, var(--hol-gold, #fbbf24), transparent 91%);
+	}
+
+	.hol-week-mystery span,
+	.hol-week-card h3 {
+		color: var(--sl-color-gray-3);
+		font-family: var(--__sl-font-mono);
+		font-size: 0.78rem;
+		font-weight: 750;
+		letter-spacing: 0;
+		text-transform: uppercase;
+	}
+
+	.hol-week-mystery p,
+	.hol-week-card-grid p {
+		margin: 0.25rem 0 0;
+		color: var(--sl-color-gray-1);
+	}
+
+	.hol-week-card-grid {
+		display: grid;
+		gap: 0.85rem;
+		margin-top: 0.9rem;
+	}
+
+	.hol-week-card-grid section {
+		min-width: 0;
+	}
+
+	.hol-week-card h3 {
 		margin: 0;
 	}
-	.hol-week-sub {
-		margin: 0 0 0.35rem;
-		font-size: 0.95rem;
+
+	.hol-week-milestones {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.45rem;
+		margin-top: 0.35rem;
+	}
+
+	.hol-week-milestones span {
+		border: 1px solid var(--sl-color-gray-5);
+		padding: 0.18rem 0.58rem;
+		background: color-mix(in oklab, var(--sl-color-gray-7), transparent 45%);
+		color: var(--sl-color-gray-2);
+		font-size: 0.82rem;
+		font-weight: 700;
+	}
+
+	.hol-week-milestones span[data-kind='release'] {
+		border-color: color-mix(in oklab, var(--hol-teal, var(--sl-color-accent)), var(--sl-color-gray-5) 55%);
+		background: color-mix(in oklab, var(--hol-teal, var(--sl-color-accent)), transparent 86%);
+		color: var(--sl-color-gray-1);
+	}
+
+	.hol-week-milestones span[data-kind='due'] {
+		border-color: color-mix(in oklab, var(--hol-gold, #fbbf24), var(--sl-color-gray-5) 55%);
+		background: color-mix(in oklab, var(--hol-gold, #fbbf24), transparent 84%);
+		color: var(--sl-color-gray-1);
+	}
+
+	.hol-week-milestones span[data-kind='checkpoint'],
+	.hol-week-milestones span[data-kind='demo'] {
+		border-color: color-mix(in oklab, var(--hol-green, #34d399), var(--sl-color-gray-5) 55%);
+		background: color-mix(in oklab, var(--hol-green, #34d399), transparent 86%);
+		color: var(--sl-color-gray-1);
+	}
+
+	.hol-week-details {
+		margin-top: 0.85rem;
+		border-top: 1px solid var(--sl-color-hairline);
+		padding-top: 0.75rem;
+	}
+
+	.hol-week-details summary {
+		cursor: pointer;
+		color: var(--sl-color-gray-2);
+		font-weight: 700;
+	}
+
+	.hol-week-details-body {
+		display: grid;
+		gap: 0.85rem;
+		margin-top: 0.75rem;
+	}
+
+	.hol-week-details ul {
+		margin: 0.35rem 0 0;
+		padding-left: 1.2rem;
 		color: var(--sl-color-gray-2);
 	}
-	.hol-week :global(ul) {
-		margin: 0;
+
+	.hol-week-note p {
+		margin: 0.35rem 0 0;
+		color: var(--sl-color-gray-2);
 	}
 
 	@media (min-width: 50rem) {
-		.hol-week--compact .hol-week-body {
-			grid-template-columns: 1fr 1fr 1fr;
-			align-items: start;
+		.hol-week-card {
+			padding: 1.1rem 1.15rem 1.15rem;
+		}
+
+		.hol-week-card-grid {
+			grid-template-columns: minmax(0, 1.2fr) minmax(14rem, 0.8fr);
+		}
+
+		.hol-week-details-body {
+			grid-template-columns: minmax(0, 1.4fr) minmax(14rem, 0.6fr);
 		}
 	}
 </style>

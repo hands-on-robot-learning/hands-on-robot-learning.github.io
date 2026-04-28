@@ -1,6 +1,21 @@
 ---
 title: Hands-on Robot Learning
-description: "Fall 2026 course hub: overview, schedule, assignments, and policies."
+description: "A Fall 2026 Johns Hopkins CS course where students build robot arms, collect data, train policies, and evaluate physical AI systems."
+template: splash
+hero:
+  tagline: '<span class="hol-hero-eyebrow">Johns Hopkins CS · Fall 2026 · Course number TBA</span><strong>Build real robot-learning systems from the ground up.</strong><span>Students assemble SO-101 robot arms, collect real teleoperation data, train imitation-learning policies, and evaluate VLA-style demos on physical hardware.</span>'
+  image:
+    html: '<div class="hol-workcell-visual" aria-hidden="true"><div class="hol-workcell-grid"></div><div class="hol-workcell-arm hol-arm-base"></div><div class="hol-workcell-arm hol-arm-link-one"></div><div class="hol-workcell-arm hol-arm-link-two"></div><div class="hol-workcell-joint hol-joint-one"></div><div class="hol-workcell-joint hol-joint-two"></div><div class="hol-workcell-gripper"></div><div class="hol-workcell-cube"></div><div class="hol-workcell-camera"><span></span></div><div class="hol-workcell-panel"><strong>SO-101 lab stack</strong><span>hardware · data · policy · eval</span></div></div>'
+  actions:
+    - text: View course overview
+      link: /overview/
+      variant: primary
+    - text: See the semester arc
+      link: "#semester-arc"
+      variant: secondary
+    - text: Sponsor hardware / compute
+      link: /sponsors/
+      variant: minimal
 ---
 
 import { parseYaml } from '../../lib/yaml';
@@ -8,33 +23,120 @@ import courseYaml from '../../data/course.yaml?raw';
 
 export const course = parseYaml(courseYaml);
 
-# {course.title}
+<div className="hol-landing">
+	<section className="hol-stat-strip" aria-label="Course snapshot">
+		<div>
+			<span>Term</span>
+			<strong>{course.semester}</strong>
+		</div>
+		<div>
+			<span>Enrollment</span>
+			<strong>~{course.enrollment.recommended_cap} students</strong>
+		</div>
+		<div>
+			<span>Hardware</span>
+			<strong>{course.hardware.active_follower_arms}+ robot kits</strong>
+		</div>
+		<div>
+			<span>Assignments</span>
+			<strong>4 hardware-to-learning milestones</strong>
+		</div>
+		<div>
+			<span>Finale</span>
+			<strong>Public demo showcase</strong>
+		</div>
+	</section>
 
-**Course number:** {course.department} {course.course_numbers}  
-**Semester:** {course.semester}  
-**Pitch:** “{course.course_pitch}”
+	<section className="hol-section hol-arc-section" id="semester-arc">
+		<div className="hol-section-head">
+			<p className="hol-section-label">Semester arc</p>
+			<h2>From boxes of hardware to evaluated robot-learning demos.</h2>
+			<p>{'The course is structured around one physical robot-learning pipeline: build the system, collect evidence, train policies, and evaluate what works on real hardware.'}</p>
+		</div>
 
-Hands-on Robot Learning is a project-heavy robotics course where teams build SO-101 robot arms, collect teleoperation data, train imitation-learning policies, and evaluate them on a shared benchmark.
+		<div className="hol-arc-row">
+			<article>
+				<span>01</span>
+				<h3>Build</h3>
+				<p>Assemble SO-101 arms and bring up a safe, repeatable lab setup.</p>
+			</article>
+			<article>
+				<span>02</span>
+				<h3>Teleoperate</h3>
+				<p>Control the robot directly and learn what clean demonstrations require.</p>
+			</article>
+			<article>
+				<span>03</span>
+				<h3>Collect Data</h3>
+				<p>Record episodes with consistent resets, metadata, cameras, and logs.</p>
+			</article>
+			<article>
+				<span>04</span>
+				<h3>Train Policies</h3>
+				<p>Train ACT, diffusion-style, and LeRobot-based imitation policies.</p>
+			</article>
+			<article>
+				<span>05</span>
+				<h3>Evaluate</h3>
+				<p>Run fair trials, compare to baselines, and document failures honestly.</p>
+			</article>
+			<article>
+				<span>06</span>
+				<h3>Demo</h3>
+				<p>Present a VLA-style final demo with clear evidence and constraints.</p>
+			</article>
+		</div>
+	</section>
 
-## Course arc
+	<section className="hol-section">
+		<div className="hol-section-head">
+			<p className="hol-section-label">What students will do</p>
+			<h2>Real robot learning, end to end.</h2>
+		</div>
 
-1. Build the robot.
-2. Engineer a baseline.
-3. Teach from demonstrations.
-4. Try a generalist policy.
+		<div className="hol-feature-grid">
+			<article>
+				<h3>Build and calibrate real robot arms</h3>
+				<p>Students assemble SO-101 hardware, verify cameras, configure safe motion, and learn how calibration errors show up in practice.</p>
+			</article>
+			<article>
+				<h3>Collect teleoperation datasets</h3>
+				<p>Teams gather demonstrations with consistent resets, metadata, videos, and notes that make the data useful for training.</p>
+			</article>
+			<article>
+				<h3>Train imitation-learning policies</h3>
+				<p>The course moves from handcrafted baselines into LeRobot workflows, ACT-style models, diffusion policies, and VLA-style demos.</p>
+			</article>
+			<article>
+				<h3>Analyze failures and evaluate robustly</h3>
+				<p>Grades emphasize reproducible evaluation, failure taxonomy, continuous video evidence, and honest comparison against baselines.</p>
+			</article>
+		</div>
+	</section>
 
-## Format
+	<section className="hol-sponsor-callout">
+		<div>
+			<p className="hol-section-label">Sponsors and partners</p>
+			<h2>Interested in supporting hands-on robotics education?</h2>
+			<p>{'Useful support includes robot kits, cameras, teleoperation hardware, compute or cloud credits, and final showcase support for student demos.'}</p>
+		</div>
+		<a className="sl-link-button primary" href="/sponsors/">Sponsor hardware / compute</a>
+	</section>
 
-- {course.meeting.format}
-- No exams
-- No separate graduate project in the first offering
-
-## Quick links
-
-- [Overview](./overview/)
-- [Schedule](./schedule/)
-- [Assignments](./assignments/)
-- [Grading](./policies/grading/)
-- [Teams](./overview/#teams)
-- [Safety](./policies/safety/)
-- [FAQ](./faq/)
+	<section className="hol-section hol-identity">
+		<div className="hol-section-head">
+			<p className="hol-section-label">Instructor and course identity</p>
+			<h2>A Johns Hopkins CS course in robot learning and physical AI.</h2>
+			<p>
+				{'Hands-on Robot Learning is taught by '}
+				<a href={course.instructor.website}>{course.instructor.name}</a>
+				{' in Johns Hopkins Computer Science. The course connects modern robot-learning methods to the practical work of building, debugging, and evaluating physical systems.'}
+			</p>
+		</div>
+		<div className="hol-identity-actions">
+			<a href="/overview/">Course overview</a>
+			<a href="/assignments/">Assignments</a>
+			<a href="/benchmark/">Benchmark and leaderboard</a>
+		</div>
+	</section>
+</div>

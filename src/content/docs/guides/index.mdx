@@ -3,17 +3,115 @@ title: Guides
 description: Practical course infrastructure guides (updated as the stack stabilizes).
 ---
 
-This section contains practical course infrastructure guides.
+export const guideCards = [
+	{
+		title: 'Robot kit inventory',
+		description:
+			'A shared checklist for kit contents, spares, tools, storage bins, labels, and pre-lab readiness checks.',
+		status: 'coming soon',
+		linkLabel: 'Coming soon',
+	},
+	{
+		title: 'SO-101 assembly and calibration checklist',
+		description:
+			'A draft setup path for assembling the arm, validating joints, checking cable routing, and confirming repeatable motion before data collection.',
+		status: 'draft',
+		href: '/guides/example/',
+		linkLabel: 'Open setup draft',
+	},
+	{
+		title: 'Safety checklist',
+		description:
+			'Course safety expectations for robot workspaces, emergency stops, powered hardware, pinch points, and lab conduct.',
+		status: 'available',
+		href: '/policies/safety/',
+		linkLabel: 'Open safety policy',
+	},
+	{
+		title: 'Teleoperation setup',
+		description:
+			'Planned instructions for leader arms, GELLO-style interfaces, SpaceMouse controllers, latency checks, and recording operator demonstrations.',
+		status: 'coming soon',
+		linkLabel: 'Coming soon',
+	},
+	{
+		title: 'Camera setup and calibration',
+		description:
+			'Planned guidance for mounting fixed and wrist cameras, checking exposure, aligning views, and documenting camera poses.',
+		status: 'coming soon',
+		linkLabel: 'Coming soon',
+	},
+	{
+		title: 'LeRobot/software setup',
+		description:
+			'A draft software environment guide for course tooling, device checks, dataset paths, and reproducible training runs.',
+		status: 'draft',
+		href: '/guides/example/',
+		linkLabel: 'Open setup draft',
+	},
+	{
+		title: 'Data collection protocol',
+		description:
+			'Practical hygiene for recording demonstrations, naming datasets, capturing metadata, and preserving continuous videos.',
+		status: 'available',
+		href: '/guides/data-collection/',
+		linkLabel: 'Open protocol',
+	},
+	{
+		title: 'Training and evaluation workflow',
+		description:
+			'A starter recipe for moving from a collected dataset to an ACT-style policy, then evaluating it under the course benchmark.',
+		status: 'draft',
+		href: '/guides/training-act/',
+		linkLabel: 'Open workflow draft',
+	},
+	{
+		title: 'Troubleshooting common robot failures',
+		description:
+			'Planned debugging notes for calibration drift, camera mismatch, gripper issues, poor demonstrations, and unstable policy rollouts.',
+		status: 'coming soon',
+		linkLabel: 'Coming soon',
+	},
+];
 
-These guides will be updated as the stack stabilizes.
+<section className="hol-guide-hero">
+	<p className="hol-section-label">Course Infrastructure</p>
+	<h2>Guides for building, debugging, and evaluating real robot systems</h2>
+	<p>
+		{
+			'These guides collect the practical course infrastructure that students will use across labs: hardware preparation, safety, teleoperation, data collection, training, evaluation, and troubleshooting. Drafts will be refined as the Fall 2026 stack stabilizes.'
+		}
+	</p>
+</section>
 
-## Planned guides (coming soon)
+<div className="hol-guide-grid">
+	{guideCards.map((guide) => (
+		<article className={`hol-guide-card ${guide.href ? '' : 'hol-guide-card--disabled'}`}>
+			<div>
+				<span className={`hol-status-badge hol-status-badge--${guide.status.replaceAll(' ', '-')}`}>
+					{guide.status}
+				</span>
+				<h3>{guide.title}</h3>
+				<p>{guide.description}</p>
+			</div>
+			{guide.href ? (
+				<a className="hol-guide-card-link" href={guide.href}>
+					{guide.linkLabel}
+				</a>
+			) : (
+				<span className="hol-guide-card-link hol-guide-card-link--disabled" aria-disabled="true">
+					{guide.linkLabel}
+				</span>
+			)}
+		</article>
+	))}
+</div>
 
-- Robot kit inventory and assembly
-- SO-101 calibration
-- LeRobot installation
-- Camera setup
-- Teleoperation
-- Dataset collection
-- Compute and cloud training
-- Troubleshooting
+<section className="hol-guide-note">
+	<h2>How to use this section</h2>
+	<p>
+		{
+			'Students should treat available guides as the current source of truth, draft guides as usable but evolving, and coming-soon guides as planned course support. Pages will stay concise and operational so they can be updated quickly as hardware and software decisions settle.'
+		}
+	</p>
+</section>

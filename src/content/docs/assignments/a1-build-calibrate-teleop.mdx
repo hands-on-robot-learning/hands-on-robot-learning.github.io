@@ -5,9 +5,20 @@ sidebar:
   label: "A1: Build + Teleop"
 ---
 
+import AssignmentAtGlance from '../../../components/AssignmentAtGlance.astro';
+
 ## Goal
 
 Assemble the SO-101 follower arm, calibrate motors, verify cameras, configure safe motion, and demonstrate basic teleoperation.
+
+<AssignmentAtGlance
+	release="Week 2"
+	due="Week 3"
+	weight="15%"
+	hardware={['SO-101 follower arm kit', 'Fixed external camera', 'LeRobot tooling']}
+	mainArtifact="Safe assembled robot with calibration/config files and a short teleoperation evidence video."
+	evaluationMode="Hardware bring-up check plus reproducibility artifacts."
+/>
 
 ## What you will learn
 
@@ -23,12 +34,14 @@ Assemble the SO-101 follower arm, calibrate motors, verify cameras, configure sa
 
 ## Deliverables
 
-- Assembled SO-101 follower arm
-- Motor ID and calibration files
-- Safe home pose and soft-limit configuration
-- Camera detection and preview check
-- Short continuous video showing safe teleoperation
-- One-page notes file describing known issues, repairs, or deviations
+<ul className="hol-deliverable-checklist">
+	<li>Assembled SO-101 follower arm</li>
+	<li>Motor ID and calibration files</li>
+	<li>Safe home pose and soft-limit configuration</li>
+	<li>Camera detection and preview check</li>
+	<li>Short continuous video showing safe teleoperation</li>
+	<li>One-page notes file describing known issues, repairs, or deviations</li>
+</ul>
 
 ## Evaluation protocol
 
@@ -37,24 +50,53 @@ Assemble the SO-101 follower arm, calibrate motors, verify cameras, configure sa
 
 ## Rubric emphasis
 
-- Safety
-- Correct assembly
-- Calibration quality
-- Reproducible environment setup
-- Honest documentation of issues
+<div className="hol-rubric-grid">
+	<article>
+		<h3>Safety</h3>
+		<p>Configured limits, safe home pose, and careful operation.</p>
+	</article>
+	<article>
+		<h3>Assembly</h3>
+		<p>Correct hardware bring-up, motor IDs, wiring, and calibration.</p>
+	</article>
+	<article>
+		<h3>Reproducibility</h3>
+		<p>Files, notes, and evidence another team could understand.</p>
+	</article>
+	<article>
+		<h3>Documentation</h3>
+		<p>Honest reporting of issues, repairs, and deviations.</p>
+	</article>
+</div>
 
 ## Common failure modes
 
-- Incorrect motor ID mapping or calibration leading to reversed or saturated joints
-- Unsafe velocities or missing soft limits
-- Camera not detected, wrong device selection, unstable mount, or inconsistent lighting
-- Drift/backlash/latency that makes teleoperation “look fine” but produces unreliable data
+<aside className="hol-assignment-callout hol-assignment-callout--failure">
+	<h3>Common failure modes</h3>
+	<ul>
+		<li>Incorrect motor ID mapping or calibration leading to reversed or saturated joints</li>
+		<li>Unsafe velocities or missing soft limits</li>
+		<li>Camera not detected, wrong device selection, unstable mount, or inconsistent lighting</li>
+		<li>Drift/backlash/latency that makes teleoperation “look fine” but produces unreliable data</li>
+	</ul>
+</aside>
 
 ## How to get unstuck
 
-- Reduce to a minimal “smoke test” (home pose → small motion → stop) before longer teleop sessions.
-- Record short, continuous videos of failures and annotate what you changed between attempts.
-- Ask for help early if you suspect a hardware fault; do not “push through” unsafe behavior.
+<aside className="hol-assignment-callout hol-assignment-callout--tip">
+	<h3>Debugging tips</h3>
+	<ul>
+		<li>Reduce to a minimal “smoke test” (home pose → small motion → stop) before longer teleop sessions.</li>
+		<li>Record short, continuous videos of failures and annotate what you changed between attempts.</li>
+		<li>Ask for help early if you suspect a hardware fault; do not “push through” unsafe behavior.</li>
+	</ul>
+</aside>
+
+## What a strong submission looks like
+
+<div className="hol-strong-submission">
+	<p>{'A strong A1 submission is safe, reproducible, and boring in the best way: the robot moves predictably, calibration files are versioned, evidence videos are continuous, and known issues are documented honestly.'}</p>
+</div>
 
 ## Extension ideas
 

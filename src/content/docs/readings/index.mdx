@@ -3,23 +3,128 @@ title: Readings and Research Discussions
 description: Research discussions, guest lectures, and how we dissect papers and systems.
 ---
 
-The second half of the course includes research discussions and guest lectures.
+export const readingSections = [
+	{
+		title: 'Foundations',
+		description:
+			'Core ideas students need before training policies on real robot data.',
+		items: [
+			'Imitation learning and behavior cloning',
+			'Observation and action spaces for manipulation',
+			'Robot datasets, demonstrations, and distribution shift',
+			'Specific papers will be added before the semester.',
+		],
+	},
+	{
+		title: 'Robot Data and Evaluation',
+		description:
+			'How datasets, benchmarks, and reporting choices shape what a robot-learning result actually means.',
+		items: [
+			'Large-scale robot datasets and what they do or do not capture',
+			'Reproducibility for physical robot experiments',
+			'Benchmark design, success criteria, and failure-mode reporting',
+			'Report-all-trials evaluation and continuous video evidence',
+		],
+	},
+	{
+		title: 'Vision-Language-Action / Robot Foundation Models',
+		description:
+			'How VLA-style systems change the interface to robot policies, and why deployment still requires careful evaluation.',
+		items: [
+			'VLA-style policy inputs, prompts, and action outputs',
+			'When pretraining helps and when the real robot still fails',
+			'Deployment caveats: latency, calibration, safety, and task ambiguity',
+			'Course discussions will compare claims to physical-hardware evidence.',
+		],
+	},
+	{
+		title: 'Tools and Systems',
+		description:
+			'The practical software and hardware ecosystem behind the course assignments.',
+		items: [
+			'LeRobot / SO-101 ecosystem and low-cost robot learning',
+			'Teleoperation and demonstration capture',
+			'Dataset metadata, camera synchronization, and artifact storage',
+			'Training workflows from local experiments to cloud or GPU runs',
+		],
+	},
+	{
+		title: 'Research Discussion Themes',
+		description:
+			'Recurring questions we will use to connect papers, systems, assignments, and final demos.',
+		items: [
+			'What makes robot learning fail?',
+			'How should we evaluate real robot policies?',
+			'What data matters most?',
+			'When do foundation models help?',
+		],
+	},
+];
 
-Reading lists and links are **coming soon** and will be updated as the semester approaches.
+export const dissectionQuestions = [
+	'What is the robot?',
+	'What is the observation?',
+	'What is the action space?',
+	'What data was used?',
+	'What supervision signal was used?',
+	'What part is learned vs. engineered?',
+	'What breaks?',
+	'Could we reproduce a toy version on SO-101?',
+	'What would the leaderboard metric be?',
+	'What is the one idea worth trying in our lab stack?',
+];
 
-## Paper/system dissection questions
+<section className="hol-reading-hero">
+	<p className="hol-section-label">Research Context</p>
+	<h2>Readings that connect course hardware to modern robot learning</h2>
+	<p>
+		{
+			'The reading sequence will pair practical assignments with research discussions on imitation learning, robot datasets, evaluation, and VLA-style systems. Exact papers and links will be finalized before the semester, but the structure below shows the intellectual spine of the course.'
+		}
+	</p>
+</section>
 
-1. What is the robot?
-2. What is the observation?
-3. What is the action space?
-4. What data was used?
-5. What supervision signal was used?
-6. What part is learned vs. engineered?
-7. What breaks?
-8. Could we reproduce a toy version on SO-101?
-9. What would the leaderboard metric be?
-10. What is the one idea worth stealing?
+<div className="hol-reading-section-grid">
+	{readingSections.map((section) => (
+		<article className="hol-reading-card">
+			<h2>{section.title}</h2>
+			<p>{section.description}</p>
+			<ul>
+				{section.items.map((item) => (
+					<li>{item}</li>
+				))}
+			</ul>
+		</article>
+	))}
+</div>
 
-## Guest speakers
+<section className="hol-reading-panel">
+	<div className="hol-section-head">
+		<p className="hol-section-label">Discussion Frame</p>
+		<h2>Paper and system dissection questions</h2>
+		<p>
+			{
+				'Each discussion will push past the headline result and ask whether the system could survive contact with a small, shared robot benchmark.'
+			}
+		</p>
+	</div>
 
-Guest speakers will be encouraged to discuss what failed and what was hard to debug, not only polished results.
+	<ol className="hol-discussion-grid">
+		{dissectionQuestions.map((question) => (
+			<li>{question}</li>
+		))}
+	</ol>
+</section>
+
+<section className="hol-reading-callout">
+	<div>
+		<p className="hol-section-label">Guest Speakers</p>
+		<h2>Failure stories are welcome</h2>
+		<p>
+			{
+				'Guest speakers will be encouraged to discuss what was hard to debug, what failed in deployment, and how they evaluate real robot systems, not only polished final results.'
+			}
+		</p>
+	</div>
+	<a href="/benchmark/">View course benchmark</a>
+</section>

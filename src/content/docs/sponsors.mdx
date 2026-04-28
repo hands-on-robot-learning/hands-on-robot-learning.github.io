@@ -1,0 +1,152 @@
+---
+title: Support Hands-on Robot Learning
+description: Sponsor-facing information for supporting the Fall 2026 Johns Hopkins CS Hands-on Robot Learning course.
+sidebar:
+  label: For Sponsors
+---
+
+import { parseYaml } from '../../lib/yaml';
+import courseYaml from '../../data/course.yaml?raw';
+
+export const course = parseYaml(courseYaml);
+
+<div className="hol-sponsor-page">
+	<section className="hol-sponsor-hero" aria-label="Sponsor introduction">
+		<p className="hol-section-label">Johns Hopkins CS · {course.semester}</p>
+		<p className="hol-sponsor-lede">{'Help students build, debug, and evaluate real robot-learning systems on physical hardware.'}</p>
+		<p>{'Hands-on Robot Learning gives students direct experience with the full physical AI loop: assembling SO-101 robot arms, collecting teleoperation data, training imitation-learning policies, and evaluating what actually works on hardware.'}</p>
+		<div className="hol-sponsor-cta-row">
+			<a className="sl-link-button primary" href={`mailto:${course.instructor.email}`}>Contact the instructor</a>
+			<a className="sl-link-button secondary" href="/overview/">View course overview</a>
+		</div>
+	</section>
+
+	<section className="hol-section">
+		<div className="hol-section-head">
+			<p className="hol-section-label">Why support this course?</p>
+			<h2>Make modern robot-learning education concrete.</h2>
+			<p>{'Sponsor support helps move robot-learning instruction beyond simulations and prepared demos. Students learn the real constraints of physical systems: calibration, data quality, safety, reliability, reproducibility, and failure analysis.'}</p>
+		</div>
+
+		<div className="hol-sponsor-value-grid">
+			<article>
+				<h3>Real robot arms</h3>
+				<p>Students work with physical SO-101-style arms instead of only simulated manipulation tasks.</p>
+			</article>
+			<article>
+				<h3>Real teleoperation data</h3>
+				<p>Teams collect demonstrations with cameras, resets, metadata, and the practical messiness of hardware.</p>
+			</article>
+			<article>
+				<h3>Real policy training</h3>
+				<p>Students train and deploy imitation-learning policies, then compare them against engineered baselines.</p>
+			</article>
+			<article>
+				<h3>Real evaluation habits</h3>
+				<p>The course emphasizes fair trials, continuous video evidence, reproducible reporting, and honest failure taxonomies.</p>
+			</article>
+		</div>
+	</section>
+
+	<section className="hol-section">
+		<div className="hol-section-head">
+			<p className="hol-section-label">What support enables</p>
+			<h2>Practical resources that directly improve student learning.</h2>
+		</div>
+
+		<div className="hol-sponsor-support-grid">
+			<article>
+				<h3>SO-101 / low-cost robot kits</h3>
+				<p>Additional arms, spare parts, tools, and repair resources expand access and reduce hardware bottlenecks.</p>
+			</article>
+			<article>
+				<h3>Cameras and wrist-camera upgrades</h3>
+				<p>Fixed cameras, wrist-camera modules, mounts, lighting, and calibration targets improve data quality.</p>
+			</article>
+			<article>
+				<h3>Teleoperation hardware</h3>
+				<p>Leader arms, GELLO-style devices, SpaceMouse controllers, and input hardware support better demonstrations.</p>
+			</article>
+			<article>
+				<h3>GPU / cloud credits</h3>
+				<p>Compute support lets teams train imitation-learning policies and run more careful comparisons.</p>
+			</article>
+			<article>
+				<h3>Spares, safety, and calibration</h3>
+				<p>Replacement parts, storage, safety equipment, mats, fixtures, and calibration tools keep the lab reliable.</p>
+			</article>
+			<article>
+				<h3>Final demo showcase support</h3>
+				<p>Showcase resources help students present videos, metrics, demos, and lessons learned to a broader audience.</p>
+			</article>
+		</div>
+	</section>
+
+	<section className="hol-section hol-sponsor-categories">
+		<div className="hol-section-head">
+			<p className="hol-section-label">Example support categories</p>
+			<h2>Examples of useful support include...</h2>
+			<p>{'These are illustrative categories, not formal Johns Hopkins sponsorship tiers. Any support should be coordinated through the appropriate university or departmental process.'}</p>
+		</div>
+
+		<div className="hol-table-wrap">
+			<table>
+				<thead>
+					<tr>
+						<th>Category</th>
+						<th>Useful examples</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>Hardware support</td>
+						<td>Robot kits, cameras, mounts, lighting, workcell fixtures, spare motors, and repair tools.</td>
+					</tr>
+					<tr>
+						<td>Compute / cloud support</td>
+						<td>GPU credits, hosted training resources, storage, and experiment-tracking infrastructure.</td>
+					</tr>
+					<tr>
+						<td>Demo-day support</td>
+						<td>Final showcase logistics, recording support, poster/demo materials, and student presentation resources.</td>
+					</tr>
+					<tr>
+						<td>In-kind equipment support</td>
+						<td>Teleoperation devices, sensors, safety equipment, storage, calibration boards, and lab accessories.</td>
+					</tr>
+					<tr>
+						<td>Guest lecture / mentorship</td>
+						<td>Technical talks, debugging sessions, or mentor feedback where appropriate for the course and students.</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</section>
+
+	<section className="hol-section hol-boundary-panel">
+		<div>
+			<p className="hol-section-label">Recognition and boundaries</p>
+			<h2>Appropriate acknowledgment, clear academic independence.</h2>
+		</div>
+		<ul>
+			<li>Sponsors may be acknowledged on the course website where institutionally appropriate.</li>
+			<li>Demo-day acknowledgment may be possible, subject to Johns Hopkins and departmental guidance.</li>
+			<li>Support does not affect grading, procurement decisions, research conclusions, or student access and opportunities.</li>
+			<li>No endorsement of a company, product, service, or technical claim is implied.</li>
+			<li>All support should be routed through the appropriate Johns Hopkins or departmental processes.</li>
+		</ul>
+	</section>
+
+	<section className="hol-sponsor-contact">
+		<div>
+			<p className="hol-section-label">Contact</p>
+			<h2>Interested in supporting the course?</h2>
+			<p>
+				{'For sponsorship or partnership conversations, contact '}
+				<a href={`mailto:${course.instructor.email}`}>{course.instructor.name}</a>
+				{'. The course team can discuss useful support areas and the appropriate Johns Hopkins process for next steps.'}
+			</p>
+		</div>
+		<a className="sl-link-button primary" href={`mailto:${course.instructor.email}`}>Start a conversation</a>
+	</section>
+</div>

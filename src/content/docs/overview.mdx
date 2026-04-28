@@ -11,7 +11,8 @@ export const course = parseYaml(courseYaml);
 ## Course information
 
 - **Course:** {course.title} ({course.semester})
-- **Course numbers:** {course.course_numbers}
+- **Department:** {course.department}
+- **Catalog listing:** {course.course_numbers}
 - **Format:** {course.meeting.format}
 - **Instructor:** {course.instructor.name} (<a href={`mailto:${course.instructor.email}`}>{course.instructor.email}</a>)
 

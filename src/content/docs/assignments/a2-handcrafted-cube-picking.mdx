@@ -5,9 +5,20 @@ sidebar:
   label: "A2: Baseline"
 ---
 
+import AssignmentAtGlance from '../../../components/AssignmentAtGlance.astro';
+
 ## Goal
 
 Solve the shared cube pick-and-place benchmark using a **non-learned or lightly learned** perception-control pipeline before training an end-to-end policy.
+
+<AssignmentAtGlance
+	release="Week 4"
+	due="Week 6"
+	weight="20%"
+	hardware={['SO-101 follower arm', 'Fixed external camera', 'LeRobot data handling plus baseline code/configuration']}
+	mainArtifact="Working perception-control baseline with continuous trials, metrics, and failure taxonomy."
+	evaluationMode="10–20 continuous evaluation trials under a consistent setup."
+/>
 
 ## What you will learn
 
@@ -23,11 +34,13 @@ Solve the shared cube pick-and-place benchmark using a **non-learned or lightly 
 
 ## Deliverables
 
-- Source code and configuration
-- Short technical note explaining the pipeline
-- 10–20 continuous evaluation trials
-- Success rate, completion-time summary, and failure taxonomy
-- Representative video showing successes and failures
+<ul className="hol-deliverable-checklist">
+	<li>Source code and configuration</li>
+	<li>Short technical note explaining the pipeline</li>
+	<li>10–20 continuous evaluation trials</li>
+	<li>Success rate, completion-time summary, and failure taxonomy</li>
+	<li>Representative video showing successes and failures</li>
+</ul>
 
 ## Evaluation protocol
 
@@ -37,10 +50,24 @@ Solve the shared cube pick-and-place benchmark using a **non-learned or lightly 
 
 ## Rubric emphasis
 
-- Working perception/control decomposition
-- Evaluation discipline
-- Debugging and failure analysis
-- Clarity of code and documentation
+<div className="hol-rubric-grid">
+	<article>
+		<h3>Pipeline</h3>
+		<p>Clear perception/control decomposition that can actually run on the robot.</p>
+	</article>
+	<article>
+		<h3>Evaluation</h3>
+		<p>Consistent trials, useful metrics, and representative success/failure videos.</p>
+	</article>
+	<article>
+		<h3>Debugging</h3>
+		<p>Failure taxonomy and evidence that guided iteration.</p>
+	</article>
+	<article>
+		<h3>Clarity</h3>
+		<p>Readable code, configuration, and documentation.</p>
+	</article>
+</div>
 
 ## Allowed strategies
 
@@ -54,16 +81,32 @@ Solve the shared cube pick-and-place benchmark using a **non-learned or lightly 
 
 ## Common failure modes
 
-- Sensitivity to lighting changes (thresholds drift)
-- Calibration/homography mismatches causing systematic placement error
-- Timing/latency issues between perception updates and control
-- “Works in five trials, fails in the next five” due to resets and distribution shift
+<aside className="hol-assignment-callout hol-assignment-callout--failure">
+	<h3>Common failure modes</h3>
+	<ul>
+		<li>Sensitivity to lighting changes (thresholds drift)</li>
+		<li>Calibration/homography mismatches causing systematic placement error</li>
+		<li>Timing/latency issues between perception updates and control</li>
+		<li>“Works in five trials, fails in the next five” due to resets and distribution shift</li>
+	</ul>
+</aside>
 
 ## How to get unstuck
 
-- Freeze one variable at a time: lighting, camera pose, cube position distribution, home pose.
-- Add a small number of targeted debug visualizations (e.g., detected cube center overlay).
-- Keep a failure log with one-line hypotheses and what test would falsify each hypothesis.
+<aside className="hol-assignment-callout hol-assignment-callout--tip">
+	<h3>Debugging tips</h3>
+	<ul>
+		<li>Freeze one variable at a time: lighting, camera pose, cube position distribution, home pose.</li>
+		<li>Add a small number of targeted debug visualizations (e.g., detected cube center overlay).</li>
+		<li>Keep a failure log with one-line hypotheses and what test would falsify each hypothesis.</li>
+	</ul>
+</aside>
+
+## What a strong submission looks like
+
+<div className="hol-strong-submission">
+	<p>{'A strong A2 submission makes the baseline inspectable: the perception output can be debugged, the control assumptions are explicit, the evaluation videos match the reported metrics, and failures are categorized rather than hidden.'}</p>
+</div>
 
 ## Extension ideas
 

@@ -17,7 +17,7 @@ Build a polished, responsive, static course website for a hands-on robotics/robo
 
 ## Design principles
 
-- Mobile-first and responsive
+- Responsive and mobile-compatible
 - Fast-loading static pages
 - Clear information architecture
 - Slightly playful robotics-lab personality
@@ -56,8 +56,13 @@ Build a polished, responsive, static course website for a hands-on robotics/robo
 
 ## Commands
 
-After changes, run:
+After meaningful edits:
 
-```bash
-npm run build
-```
+1. Run `npm run build`.
+2. Inspect `package.json` for any available check/lint scripts and run them when relevant.
+3. Fix build errors before stopping.
+4. Summarize:
+   - files changed
+   - visible changes made
+   - build/check results
+   - remaining TODOs, if any

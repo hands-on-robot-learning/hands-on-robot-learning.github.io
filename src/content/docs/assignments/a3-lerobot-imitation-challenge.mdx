@@ -5,9 +5,20 @@ sidebar:
   label: "A3: LeRobot IL"
 ---
 
+import AssignmentAtGlance from '../../../components/AssignmentAtGlance.astro';
+
 ## Goal
 
 Collect real robot data, train an ACT or diffusion-policy-style model, deploy it on the SO-101 arm, and evaluate on the official cube pick-and-place benchmark.
+
+<AssignmentAtGlance
+	release="Week 6"
+	due="Week 10"
+	weight="30%"
+	hardware={['SO-101 follower arm', 'Fixed external camera', 'LeRobot tooling for datasets and training']}
+	mainArtifact="Dataset card, trained checkpoint, evaluation script/command, official trials, and comparison report."
+	evaluationMode="10 official evaluation trials with continuous unedited video."
+/>
 
 ## What you will learn
 
@@ -29,12 +40,14 @@ Collect real robot data, train an ACT or diffusion-policy-style model, deploy it
 
 ## Deliverables
 
-- Dataset or dataset link
-- Dataset card describing cameras, task, episode count, collection protocol, and known issues
-- Training configuration and checkpoint
-- Evaluation script or command
-- 10 official evaluation trials
-- Short report with success rate, failure taxonomy, and comparison to the handcrafted baseline
+<ul className="hol-deliverable-checklist">
+	<li>Dataset or dataset link</li>
+	<li>Dataset card describing cameras, task, episode count, collection protocol, and known issues</li>
+	<li>Training configuration and checkpoint</li>
+	<li>Evaluation script or command</li>
+	<li>10 official evaluation trials</li>
+	<li>Short report with success rate, failure taxonomy, and comparison to the handcrafted baseline</li>
+</ul>
 
 ## Evaluation protocol (official)
 
@@ -45,31 +58,70 @@ Collect real robot data, train an ACT or diffusion-policy-style model, deploy it
 
 ## Leaderboard metrics
 
-- Main metric: **Successes out of 10 official trials**
-- Tiebreaker: **Median successful completion time**
+<section className="hol-info-panel" aria-label="Leaderboard metrics">
+	<dl className="hol-fact-row">
+		<div>
+			<dt>Main metric</dt>
+			<dd>Successes out of 10 official trials</dd>
+		</div>
+		<div>
+			<dt>Tiebreaker</dt>
+			<dd>Median successful completion time</dd>
+		</div>
+	</dl>
+</section>
 
 Leaderboard rank is **motivational**, not the main basis for grades.
 
 ## Rubric emphasis
 
-- Dataset quality and documentation
-- Correct use of LeRobot
-- Policy training and deployment
-- Reproducible evaluation
-- Thoughtful comparison to the handcrafted baseline
+<div className="hol-rubric-grid">
+	<article>
+		<h3>Dataset quality</h3>
+		<p>Consistent episodes, useful metadata, and a dataset card that explains known issues.</p>
+	</article>
+	<article>
+		<h3>Training/deployment</h3>
+		<p>Correct LeRobot workflow, clear configuration, checkpoint, and deployment path.</p>
+	</article>
+	<article>
+		<h3>Evaluation</h3>
+		<p>Official trials with continuous video and all required outcomes reported.</p>
+	</article>
+	<article>
+		<h3>Comparison</h3>
+		<p>Thoughtful comparison to the handcrafted baseline and failure taxonomy.</p>
+	</article>
+</div>
 
 ## Common failure modes
 
-- “Looks good in validation, fails on robot” due to mismatch in control frequency / latency / camera setup
-- Dataset issues: inconsistent resets, mislabeled episodes, silent logging bugs
-- Compounding error: policy drifts into unrecoverable states after a few steps
-- Overfitting to a narrow scene distribution
+<aside className="hol-assignment-callout hol-assignment-callout--failure">
+	<h3>Common failure modes</h3>
+	<ul>
+		<li>“Looks good in validation, fails on robot” due to mismatch in control frequency / latency / camera setup</li>
+		<li>Dataset issues: inconsistent resets, mislabeled episodes, silent logging bugs</li>
+		<li>Compounding error: policy drifts into unrecoverable states after a few steps</li>
+		<li>Overfitting to a narrow scene distribution</li>
+	</ul>
+</aside>
 
 ## How to get unstuck
 
-- Overfit a tiny subset on purpose to verify the pipeline end-to-end (then scale up).
-- Compare against A2 baseline with the same evaluation harness and videos.
-- When debugging, change one thing at a time and keep a short experiment log.
+<aside className="hol-assignment-callout hol-assignment-callout--tip">
+	<h3>Debugging tips</h3>
+	<ul>
+		<li>Overfit a tiny subset on purpose to verify the pipeline end-to-end (then scale up).</li>
+		<li>Compare against A2 baseline with the same evaluation harness and videos.</li>
+		<li>When debugging, change one thing at a time and keep a short experiment log.</li>
+	</ul>
+</aside>
+
+## What a strong submission looks like
+
+<div className="hol-strong-submission">
+	<p>{'A strong A3 submission connects data quality to robot behavior: the dataset is documented, the training run is reproducible, official evaluation videos are continuous, and the report explains why the learned policy succeeds or fails relative to A2.'}</p>
+</div>
 
 ## Extension ideas
 

@@ -1,10 +1,10 @@
 ---
 title: Late work
-description: Extensions and slip days (placeholder).
+description: Deadlines, grace windows, and repair-token guidance.
 ---
 
-Default policy (edit as needed):
+The current course policy for deadlines and extensions is maintained here:
 
-- Use a small number of slip days across the term.
-- After slip days, apply a per-day penalty.
-- Safety and hardware access issues are valid reasons to request an extension.
+- [Deadlines and Repair Tokens](/policies/deadlines/)
+
+In short: deadlines are target dates intended to keep teams iterating. Communicate early, include evidence of progress, and use repair tokens for genuine hardware, camera, leader-arm, compute, or infrastructure failures.

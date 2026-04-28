@@ -1,14 +1,12 @@
 ---
 title: Collaboration & academic integrity
-description: What collaboration is encouraged vs. what crosses the line (placeholder).
+description: What collaboration is encouraged vs. what crosses the line.
 ---
 
-Robotics is collaborative. We encourage:
+The current course policy for collaboration and academic integrity is maintained here:
 
-- Discussing ideas, debugging strategies, and evaluation protocols
-- Sharing non-assignment-specific utilities (e.g., plotting helpers)
+- [Academic integrity](/policies/academic-integrity/)
 
-You must not:
+Robotics is collaborative. The course encourages high-level debugging discussion, shared public documentation, and responsible peer support.
 
-- Share complete solutions or datasets intended to be independently collected
-- Copy another team’s report, code, or results
+Do not copy private solution code, submit another team’s dataset or checkpoint as your own, hide outside assistance, or misrepresent who did the work.

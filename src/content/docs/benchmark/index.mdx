@@ -1,38 +1,198 @@
 ---
-title: Benchmark and Leaderboard
-description: Shared cube pick-and-place benchmark and how the leaderboard works.
+title: Benchmark & Leaderboard
+description: Shared cube pick-and-place benchmark and course leaderboard protocol.
 ---
 
-The shared benchmark in this course is **cube pick-and-place** with the **SO-101** arm.
+<section className="hol-benchmark-hero">
+	<p className="hol-section-label">Shared evaluation protocol</p>
+	<p className="hol-benchmark-lede">{'A shared cube pick-and-place benchmark for comparing baselines, learned policies, and VLA-style systems under a common protocol.'}</p>
+	<div className="hol-benchmark-hero-links">
+		<a className="sl-link-button primary" href="/assignments/a3-lerobot-imitation-challenge/">A3 imitation challenge</a>
+		<a className="sl-link-button secondary" href="/assignments/a4-vla-smolvla-demo/">A4 final demo</a>
+	</div>
+</section>
 
-## Task
+## Benchmark setup
 
-Pick up a cube and place it into a marked target zone/bin.
+The canonical task is simple to state and hard to execute reliably: pick up a standard cube and place it into a marked target zone/bin with the SO-101 arm.
 
-## Canonical setup
+<section className="hol-benchmark-layout" aria-label="Canonical benchmark setup">
+	<div className="hol-benchmark-schematic" aria-label="Benchmark schematic">
+		<div className="hol-bench-camera">
+			<span></span>
+			<strong>Camera</strong>
+		</div>
+		<div className="hol-bench-mat">
+			<div className="hol-bench-start">Start region</div>
+			<div className="hol-bench-target">Target zone</div>
+			<div className="hol-bench-cube">Cube</div>
+			<div className="hol-bench-arm hol-bench-arm-base"></div>
+			<div className="hol-bench-arm hol-bench-arm-link-one"></div>
+			<div className="hol-bench-arm hol-bench-arm-link-two"></div>
+			<div className="hol-bench-joint hol-bench-joint-one"></div>
+			<div className="hol-bench-joint hol-bench-joint-two"></div>
+			<div className="hol-bench-gripper"></div>
+		</div>
+		<div className="hol-bench-timer">
+			<span>Trial timer</span>
+			<strong>00:00</strong>
+		</div>
+	</div>
 
-- SO-101 follower arm
-- Fixed external camera
-- Wrist camera when available
-- Printed workspace mat
-- Standard cube
-- Standard target zone/bin
-- Safe home pose
-- Fixed evaluation protocol
+	<div className="hol-benchmark-setup-list">
+		<h3>Canonical setup</h3>
+		<ul>
+			<li>SO-101 follower arm</li>
+			<li>Fixed external camera</li>
+			<li>Wrist camera when available</li>
+			<li>Printed workspace mat</li>
+			<li>Standard cube and target zone/bin</li>
+			<li>Safe home pose and fixed evaluation protocol</li>
+		</ul>
+	</div>
+</section>
 
-## Official evaluation
+## Official trial protocol
 
-- 10 trials
-- Success if cube is placed within time limit without human intervention
+<ol className="hol-protocol-list">
+	<li>
+		<strong>Reset scene</strong>
+		<span>Place the cube, robot, cameras, and workspace in the assigned start configuration.</span>
+	</li>
+	<li>
+		<strong>Start recording</strong>
+		<span>Begin continuous video before the policy starts moving.</span>
+	</li>
+	<li>
+		<strong>Run policy</strong>
+		<span>Run the baseline, learned policy, or VLA-style system without manual intervention.</span>
+	</li>
+	<li>
+		<strong>Record success/failure</strong>
+		<span>Success means the cube reaches the target zone within the time limit.</span>
+	</li>
+	<li>
+		<strong>Log intervention/no intervention</strong>
+		<span>Any human correction, reset, or rescue must be recorded.</span>
+	</li>
+	<li>
+		<strong>Save continuous video</strong>
+		<span>Official trial videos should be continuous and unedited.</span>
+	</li>
+	<li>
+		<strong>Report all trials</strong>
+		<span>Report the full official set, not only successful runs.</span>
+	</li>
+</ol>
 
 ## Metrics
 
-- Successes out of 10
-- Median successful completion time
-- Number of interventions
-- Dataset size for low-data awards
-- Failure taxonomy
+<div className="hol-metric-grid">
+	<article>
+		<span>Primary</span>
+		<strong>Successes / 10</strong>
+		<p>Number of successful official trials out of 10.</p>
+	</article>
+	<article>
+		<span>Tiebreaker</span>
+		<strong>Median time</strong>
+		<p>Median completion time among successful runs.</p>
+	</article>
+	<article>
+		<span>Reliability</span>
+		<strong>Interventions</strong>
+		<p>Human interventions or rescues during official runs.</p>
+	</article>
+	<article>
+		<span>Diagnosis</span>
+		<strong>Failure modes</strong>
+		<p>Clear taxonomy of perception, calibration, control, data, or policy failures.</p>
+	</article>
+	<article>
+		<span>Context</span>
+		<strong>Data / compute budget</strong>
+		<p>Dataset size, training budget, and relevant constraints where applicable.</p>
+	</article>
+</div>
 
-## Leaderboard philosophy
+## Leaderboard
 
-The leaderboard is meant to be fun and motivating. It is **not** the primary basis for grades.
+<section className="hol-leaderboard-panel">
+	<div className="hol-leaderboard-head">
+		<div>
+			<p className="hol-section-label">Coming Fall 2026</p>
+			<h3>Official leaderboard results will appear here after evaluated runs.</h3>
+		</div>
+		<p>Rows below are examples of the reporting format, not real course results.</p>
+	</div>
+
+	<div className="hol-table-wrap">
+		<table>
+			<thead>
+				<tr>
+					<th>Team</th>
+					<th>Policy</th>
+					<th>Successes / 10</th>
+					<th>Median time</th>
+					<th>Notes</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>Example Team A</td>
+					<td>Handcrafted baseline</td>
+					<td>Example</td>
+					<td>Example</td>
+					<td>Format preview only; not a real score.</td>
+				</tr>
+				<tr>
+					<td>Example Team B</td>
+					<td>ACT / diffusion policy</td>
+					<td>Example</td>
+					<td>Example</td>
+					<td>Official rows will include trial evidence.</td>
+				</tr>
+				<tr>
+					<td>Example Team C</td>
+					<td>VLA-style demo</td>
+					<td>Example</td>
+					<td>Example</td>
+					<td>Demo results must distinguish practice vs evaluation.</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</section>
+
+## Awards
+
+<div className="hol-award-grid">
+	<article>
+		<h3>Most robust policy</h3>
+		<p>Strong performance across resets, lighting, timing, and reasonable setup variation.</p>
+	</article>
+	<article>
+		<h3>Best failure analysis</h3>
+		<p>Clear evidence, useful taxonomy, and strong hypotheses for what broke.</p>
+	</article>
+	<article>
+		<h3>Best low-data policy</h3>
+		<p>Careful performance with limited demonstrations and transparent data reporting.</p>
+	</article>
+	<article>
+		<h3>Most improved system</h3>
+		<p>Largest evidence-backed improvement from baseline to final evaluated system.</p>
+	</article>
+	<article>
+		<h3>Best final demo</h3>
+		<p>Compelling, honest VLA-style demo with clear task definition and constraints.</p>
+	</article>
+</div>
+
+## Integrity
+
+<aside className="hol-integrity-callout">
+	<h3>Report the run, not the highlight reel.</h3>
+	<p>{'Official results require continuous unedited video, no cherry-picking, no hidden interventions, and report-all-trials evaluation. Honest failures are part of the course.'}</p>
+	<a href="/policies/data-integrity/">Read the data and evaluation integrity policy</a>
+</aside>

@@ -1,13 +1,12 @@
 ---
 title: AI tools
-description: Using AI assistants responsibly (placeholder).
+description: Using AI assistants responsibly.
 ---
 
-You may use AI tools for:
+The current course policy for AI assistants is maintained here:
 
-- Explaining concepts, debugging, and writing boilerplate
+- [LLM / coding-assistant policy](/policies/llm-policy/)
 
-You must:
+In short: these tools are allowed when use is disclosed, generated code is tested and understood, external sources are cited, and teams remain responsible for everything they submit.
 
-- Cite significant AI assistance in your report (what you used it for)
-- Verify correctness and safety of any generated code
+Do not use AI tools to fabricate results, invent numbers, hide interventions, generate fake logs/videos, or submit work the team cannot explain.

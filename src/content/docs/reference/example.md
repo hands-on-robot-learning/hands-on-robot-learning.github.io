@@ -1,8 +1,14 @@
 ---
-title: Deprecated
-description: This folder is kept for backwards compatibility. Use Guides/Policies/Assignments instead.
+title: Reference moved
+description: Legacy reference route kept for backwards compatibility.
 sidebar:
   hidden: true
 ---
 
-This page exists to avoid a broken link from the template. You can delete `src/content/docs/reference/` when you’re ready.
+This legacy route is kept only for backwards compatibility.
+
+Use the current course sections instead:
+
+- [Guides](/guides/)
+- [Policies](/policies/)
+- [Assignments](/assignments/)
