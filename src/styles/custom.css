@@ -1,0 +1,277 @@
+:root {
+  --sl-color-accent-low: #2e1065;
+  --sl-color-accent: #7c3aed;
+  --sl-color-accent-high: #c4b5fd;
+
+  --sl-content-width: 56rem;
+  --sl-text-5xl: 3rem;
+
+  --hol-surface: color-mix(in oklab, var(--sl-color-gray-7), transparent 55%);
+  --hol-surface-2: color-mix(in oklab, var(--sl-color-gray-7), var(--sl-color-accent-low) 18%);
+  --hol-border: color-mix(in oklab, var(--sl-color-gray-5), var(--sl-color-accent) 12%);
+  --hol-shadow: 0 1px 0 rgba(255, 255, 255, 0.02), 0 12px 36px rgba(0, 0, 0, 0.28);
+}
+
+:root[data-theme='light'] {
+  --sl-color-accent-low: #ede9fe;
+  --sl-color-accent: #6d28d9;
+  --sl-color-accent-high: #2e1065;
+
+  --hol-surface: color-mix(in oklab, white, var(--sl-color-accent-low) 10%);
+  --hol-surface-2: color-mix(in oklab, white, var(--sl-color-accent-low) 20%);
+  --hol-border: color-mix(in oklab, var(--sl-color-gray-5), var(--sl-color-accent) 18%);
+  --hol-shadow: 0 1px 0 rgba(0, 0, 0, 0.03), 0 14px 32px rgba(0, 0, 0, 0.08);
+}
+
+::selection {
+  background: color-mix(in oklab, var(--sl-color-accent), transparent 70%);
+}
+
+main {
+  background-image:
+    repeating-linear-gradient(
+      0deg,
+      color-mix(in oklab, var(--sl-color-gray-6), transparent 70%) 0,
+      color-mix(in oklab, var(--sl-color-gray-6), transparent 70%) 1px,
+      transparent 1px,
+      transparent 22px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      color-mix(in oklab, var(--sl-color-gray-6), transparent 70%) 0,
+      color-mix(in oklab, var(--sl-color-gray-6), transparent 70%) 1px,
+      transparent 1px,
+      transparent 22px
+    );
+  background-attachment: scroll;
+}
+
+.hol-landing {
+  padding: 1.5rem 0 3rem;
+}
+
+.hol-hero {
+  display: grid;
+  gap: 1.25rem;
+  margin: 0.75rem 0 1.25rem;
+}
+
+.hol-home-card,
+.hol-hero-panel {
+  border: 1px solid var(--hol-border);
+  border-radius: 1rem;
+  padding: 1.1rem 1.1rem 1.2rem;
+  background:
+    linear-gradient(
+      180deg,
+      color-mix(in oklab, var(--hol-surface-2), transparent 15%),
+      var(--hol-surface)
+    );
+  box-shadow: var(--hol-shadow);
+  position: relative;
+  overflow: clip;
+}
+
+.hol-home-card::before,
+.hol-hero-panel::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  pointer-events: none;
+  background: radial-gradient(
+    540px circle at 16% 10%,
+    color-mix(in oklab, var(--sl-color-accent), transparent 78%),
+    transparent 60%
+  );
+}
+
+.hol-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 0.6rem;
+}
+
+.hol-badge {
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid color-mix(in oklab, var(--sl-color-accent), var(--sl-color-gray-5) 70%);
+  background: color-mix(in oklab, var(--sl-color-accent-low), transparent 18%);
+  color: var(--sl-color-gray-1);
+  border-radius: 999px;
+  padding: 0.2rem 0.65rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.hol-badge-secondary {
+  border-color: var(--sl-color-gray-5);
+  background: color-mix(in oklab, var(--sl-color-gray-7), transparent 55%);
+  color: var(--sl-color-gray-2);
+  font-weight: 600;
+}
+
+.hol-hero h1 {
+  letter-spacing: -0.03em;
+  margin-top: 0.35rem;
+  margin-bottom: 0.4rem;
+}
+
+.hol-kicker {
+  font-size: 1.05rem;
+  color: var(--sl-color-gray-3);
+  max-width: 70ch;
+  margin-top: 0.2rem;
+}
+
+.hol-cta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 0.5rem;
+}
+
+.hol-chip-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.25rem;
+}
+
+.hol-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  border: 1px solid var(--sl-color-gray-5);
+  border-radius: 999px;
+  padding: 0.2rem 0.6rem;
+  font-size: 0.9rem;
+  color: var(--sl-color-gray-2);
+  background: color-mix(in oklab, var(--sl-color-gray-7), transparent 52%);
+  backdrop-filter: blur(6px);
+  font-family: var(--__sl-font-mono);
+}
+
+.hol-section {
+  margin-top: 2rem;
+}
+
+.hol-section-kicker {
+  margin-top: 0.35rem;
+  color: var(--sl-color-gray-3);
+  max-width: 78ch;
+}
+
+/* Starlight cards */
+.card {
+  background:
+    linear-gradient(
+      180deg,
+      color-mix(in oklab, var(--hol-surface-2), transparent 10%),
+      var(--hol-surface)
+    );
+  border-color: var(--hol-border);
+  border-radius: 1rem;
+  box-shadow: var(--hol-shadow);
+  height: 100%;
+}
+
+.card .body :is(ul, ol) {
+  margin: 0.25rem 0 0;
+}
+
+.card .body {
+  flex: 1;
+}
+
+.card .body li {
+  color: var(--sl-color-gray-2);
+}
+
+.card:hover {
+  border-color: color-mix(in oklab, var(--sl-color-accent), var(--sl-color-gray-5) 55%);
+}
+
+/* Buttons */
+.sl-link-button {
+  border-radius: 999px;
+  border-color: color-mix(in oklab, var(--sl-color-gray-5), var(--sl-color-accent) 12%);
+}
+
+.sl-link-button.primary {
+  box-shadow: 0 10px 26px color-mix(in oklab, var(--sl-color-accent), transparent 78%);
+}
+
+/* News */
+.hol-news-date {
+  margin: 0;
+  font-family: var(--__sl-font-mono);
+  color: var(--sl-color-gray-3);
+  font-size: 0.9rem;
+}
+
+.hol-news-bullets {
+  margin-top: 0.75rem;
+  padding-left: 1.25rem;
+}
+
+.hol-news-bullets li {
+  margin: 0.5rem 0;
+}
+
+.hol-news-text {
+  color: var(--sl-color-gray-2);
+  margin-left: 0.5rem;
+}
+
+/* Schedule */
+.hol-schedule {
+  display: grid;
+  gap: 0.85rem;
+  margin-top: 0.75rem;
+}
+
+/* Headings in Markdown: subtle "lab notebook" rule */
+.sl-markdown-content h2:not(:where(.not-content *)) {
+  position: relative;
+}
+
+.sl-markdown-content h2:not(:where(.not-content *))::after {
+  content: '';
+  display: block;
+  height: 1px;
+  margin-top: 0.5rem;
+  background: linear-gradient(
+    90deg,
+    color-mix(in oklab, var(--sl-color-accent), transparent 30%),
+    transparent
+  );
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition-duration: 0ms !important;
+    animation-duration: 0ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+@media (min-width: 50rem) {
+  main {
+    background-attachment: fixed;
+  }
+
+  .hol-hero {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+
+  .hol-news-bullets {
+    columns: 2;
+    column-gap: 2rem;
+  }
+
+  .hol-news-bullets li {
+    break-inside: avoid;
+  }
+}

@@ -1,0 +1,40 @@
+---
+title: Hands-on Robot Learning
+description: "Fall 2026 course hub: overview, schedule, assignments, and policies."
+---
+
+import { parseYaml } from '../../lib/yaml';
+import courseYaml from '../../data/course.yaml?raw';
+
+export const course = parseYaml(courseYaml);
+
+# {course.title}
+
+**Course number:** {course.department} {course.course_numbers}  
+**Semester:** {course.semester}  
+**Pitch:** “{course.course_pitch}”
+
+Hands-on Robot Learning is a project-heavy robotics course where teams build SO-101 robot arms, collect teleoperation data, train imitation-learning policies, and evaluate them on a shared benchmark.
+
+## Course arc
+
+1. Build the robot.
+2. Engineer a baseline.
+3. Teach from demonstrations.
+4. Try a generalist policy.
+
+## Format
+
+- {course.meeting.format}
+- No exams
+- No separate graduate project in the first offering
+
+## Quick links
+
+- [Overview](./overview/)
+- [Schedule](./schedule/)
+- [Assignments](./assignments/)
+- [Grading](./policies/grading/)
+- [Teams](./overview/#teams)
+- [Safety](./policies/safety/)
+- [FAQ](./faq/)

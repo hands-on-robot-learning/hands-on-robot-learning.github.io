@@ -1,0 +1,9 @@
+- date: "2026-04-27"
+  title: "Site scaffold is live"
+  body: "Homepage, schedule, assignments, guides, and policies are now in place. Next: tighten copy + add real reading links."
+- date: "2026-05-01"
+  title: "Office hours TBD"
+  body: "We’ll post office hours and lab access details here."
+  link:
+    href: /policies/safety/
+    text: "Lab safety policy"

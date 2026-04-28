@@ -1,0 +1,72 @@
+---
+title: "A4 — VLA / SmolVLA Deployment and Final Demo"
+description: Deploy or adapt a VLA-style model such as SmolVLA on a physical SO-101 task and characterize its behavior.
+sidebar:
+  label: "A4: Final Demo"
+---
+
+## Goal
+
+Deploy or adapt a VLA-style model such as SmolVLA on a physical SO-101 manipulation task and characterize its behavior.
+
+## What you will learn
+
+- How to design a demo that is both compelling and honest
+- How to control variables (cameras, resets, evaluation protocol) in an end-to-end system
+- How generalist policies fail, and how to characterize those failures
+
+## Required hardware/software
+
+- SO-101 follower arm
+- Camera note: fixed external camera is the minimum fallback; fixed + wrist is preferred for SmolVLA-style workflows.
+- VLA / SmolVLA-style model tooling (exact workflow may evolve; details coming soon)
+
+## Possible tracks
+
+- Base-model deployment
+- Small-data finetuning or adaptation
+- VLA vs. task-specific policy comparison
+- New manipulation task
+- Camera or sensor ablation
+
+## Deliverables
+
+- Task proposal and safety check
+- Dataset or evaluation setup description
+- Model/configuration used
+- Final demo video
+- Short report with qualitative and quantitative evaluation
+- Failure analysis and comparison to Assignment 3 where applicable
+
+## Evaluation protocol
+
+- Use a clearly defined task, reset procedure, and evaluation protocol.
+- Record continuous video for evaluation runs, and distinguish practice vs evaluation.
+- Report both successes and failures, and describe any deviations.
+
+## Rubric emphasis
+
+- Sensible task design
+- Correct model/setup usage
+- Honest characterization of VLA behavior
+- Good experimental controls
+- Final demo quality and report clarity
+
+## Common failure modes
+
+- Ambiguous instructions leading to inconsistent behavior
+- Camera distribution shift (mount, lighting, viewpoint) causing brittle execution
+- Latency/control-frequency mismatch causing delayed or oscillatory actions
+- “Demo-only” success that disappears under repeatable evaluation
+
+## How to get unstuck
+
+- Simplify the task until the system is repeatable, then add complexity back.
+- Use ablations: remove language, remove wrist camera, reduce observation set, etc.
+- Compare against your A3 system and keep the evaluation protocol consistent.
+
+## Extension ideas
+
+- Camera ablation study (fixed-only vs fixed+wrist)
+- Low-data adaptation with clear reporting of dataset size and protocol
+- Compare a VLA approach vs a task-specific policy on the same metric

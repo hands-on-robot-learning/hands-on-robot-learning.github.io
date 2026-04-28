@@ -1,0 +1,72 @@
+---
+title: "A2 — Handcrafted Cube-Picking Baseline"
+description: Solve the shared cube pick-and-place benchmark using a non-learned or lightly learned perception-control pipeline.
+sidebar:
+  label: "A2: Baseline"
+---
+
+## Goal
+
+Solve the shared cube pick-and-place benchmark using a **non-learned or lightly learned** perception-control pipeline before training an end-to-end policy.
+
+## What you will learn
+
+- How to decompose a manipulation task into perception + control pieces
+- Why evaluation protocol matters more than “it worked once”
+- How to build a failure taxonomy that guides iteration
+
+## Required hardware/software
+
+- SO-101 follower arm
+- Fixed external camera (minimum)
+- LeRobot (for data handling) and your baseline code/configuration
+
+## Deliverables
+
+- Source code and configuration
+- Short technical note explaining the pipeline
+- 10–20 continuous evaluation trials
+- Success rate, completion-time summary, and failure taxonomy
+- Representative video showing successes and failures
+
+## Evaluation protocol
+
+- Run 10–20 continuous evaluation trials under a consistent setup.
+- Report success rate, completion-time summary, and a clear failure taxonomy.
+- Include representative successes and failures on video.
+
+## Rubric emphasis
+
+- Working perception/control decomposition
+- Evaluation discipline
+- Debugging and failure analysis
+- Clarity of code and documentation
+
+## Allowed strategies
+
+- Color segmentation plus centroid estimation
+- Overhead camera plus planar homography
+- AprilTag or ArUco-assisted calibration or pose debugging
+- Wrist-camera visual servoing
+- Predefined grid of grasp poses
+- Simple object detector or segmenter plus scripted control
+- LLM/code-as-policies composition over approved perception and motion primitives
+
+## Common failure modes
+
+- Sensitivity to lighting changes (thresholds drift)
+- Calibration/homography mismatches causing systematic placement error
+- Timing/latency issues between perception updates and control
+- “Works in five trials, fails in the next five” due to resets and distribution shift
+
+## How to get unstuck
+
+- Freeze one variable at a time: lighting, camera pose, cube position distribution, home pose.
+- Add a small number of targeted debug visualizations (e.g., detected cube center overlay).
+- Keep a failure log with one-line hypotheses and what test would falsify each hypothesis.
+
+## Extension ideas
+
+- Robustness checks: lighting perturbations, cube color changes, camera perturbations (small shifts)
+- Compare a wrist-camera approach vs fixed-camera approach under the same evaluation protocol
+- Add a minimal ablation table: which component changes move the metric?

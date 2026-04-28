@@ -1,0 +1,63 @@
+---
+title: Schedule
+description: Week-by-week plan (edit via YAML).
+---
+
+import { parseYaml } from '../../lib/yaml';
+import scheduleYaml from '../../data/schedule.yaml?raw';
+
+export const weeks = (parseYaml(scheduleYaml).weeks ?? []);
+
+This schedule is **tentative** and may change based on hardware availability and how fast we collectively debug the stack.
+
+Most weeks start with a **Robot Mystery of the Week**: a short failure case to diagnose (perception vs calibration vs control vs policy).
+
+## Major assignment rhythm
+
+- **A1** released Week 2, due Week 3
+- **A2** released Week 4, due Week 6
+- **A3** released Week 6, due Week 10
+- **A4** released Week 10, due Week 15
+
+No major deadlines are scheduled during **fall break** or **fall recess** (see notes in the week-by-week plan).
+
+## Week-by-week
+
+{weeks.map((w) => (
+	<details>
+		<summary>
+			<strong>Week {w.week}</strong> — {w.dates}: {w.theme}
+		</summary>
+		<p>
+			<strong>Lecture:</strong> {w.lecture_title}
+		</p>
+		<p>
+			<strong>Robot Mystery:</strong> {w.robot_mystery}
+		</p>
+
+		{w.core_topics?.length ? (
+			<>
+				<p>
+					<strong>Core topics</strong>
+				</p>
+				<ul>
+					{w.core_topics.map((t) => (
+						<li>{t}</li>
+					))}
+				</ul>
+			</>
+		) : null}
+
+		<p>
+			<strong>Lab focus:</strong> {w.lab_focus}
+		</p>
+		<p>
+			<strong>Milestone:</strong> {w.milestone}
+		</p>
+		{w.note ? (
+			<p>
+				<strong>Note:</strong> {w.note}
+			</p>
+		) : null}
+	</details>
+))}

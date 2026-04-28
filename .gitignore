@@ -1,0 +1,80 @@
+# Dependencies
+node_modules/
+
+# Astro build output
+dist/
+.astro/
+
+# Optional tooling artifacts
+.xdg-config/
+
+# Local environment variables
+.env
+.env.*
+!.env.example
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+bun-debug.log*
+
+# OS / editor files
+.DS_Store
+Thumbs.db
+.AppleDouble
+.LSOverride
+
+# VS Code local settings
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+.history/
+
+# JetBrains IDEs
+.idea/
+
+# Cache directories
+.cache/
+.npm/
+.pnpm-store/
+.yarn/
+.vite/
+.vercel/
+.netlify/
+.parcel-cache/
+.turbo/
+
+# Test / coverage output
+coverage/
+playwright-report/
+test-results/
+
+# Temporary files
+*.tmp
+*.temp
+*.swp
+*.swo
+*.bak
+*.orig
+
+# Large local media drafts
+# Keep normal images committed in `public/` and `src/assets/`.
+# Use these ignores only for local, large, non-web-optimized drafts.
+/drafts-media/
+*.psd
+*.aep
+*.prproj
+*.blend
+*.wav
+*.mov
+*.mkv
+*.avi
+*.mp4
+
+# Static site build outputs
+_site/
+
+# Local toolchains / Codex caches
+.tools/

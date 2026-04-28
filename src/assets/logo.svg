@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-label="Hands-on Robot Learning logo">
+  <defs>
+    <linearGradient id="arm" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#7c3aed" />
+      <stop offset="1" stop-color="#06b6d4" />
+    </linearGradient>
+  </defs>
+  <path
+    d="M78 178h56c10 0 18-8 18-18v-18h22c12 0 22-10 22-22v-10c0-12-10-22-22-22h-22V72c0-10-8-18-18-18H78c-10 0-18 8-18 18v88c0 10 8 18 18 18Z"
+    fill="none"
+    stroke="url(#arm)"
+    stroke-width="14"
+    stroke-linejoin="round"
+  />
+  <path
+    d="M152 142l32 18m-32-18l32-18"
+    fill="none"
+    stroke="url(#arm)"
+    stroke-width="14"
+    stroke-linecap="round"
+  />
+  <path
+    d="M80 86h48m-48 32h48m-48 32h34"
+    fill="none"
+    stroke="url(#arm)"
+    stroke-width="12"
+    stroke-linecap="round"
+    opacity="0.9"
+  />
+</svg>

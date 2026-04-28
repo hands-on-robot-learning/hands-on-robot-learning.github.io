@@ -1,0 +1,65 @@
+---
+title: Overview
+description: What this course is, what you’ll build, and how to succeed.
+---
+
+import { parseYaml } from '../../lib/yaml';
+import courseYaml from '../../data/course.yaml?raw';
+
+export const course = parseYaml(courseYaml);
+
+## Course information
+
+- **Course:** {course.title} ({course.semester})
+- **Course numbers:** {course.course_numbers}
+- **Format:** {course.meeting.format}
+- **Instructor:** {course.instructor.name} (<a href={`mailto:${course.instructor.email}`}>{course.instructor.email}</a>)
+
+## Description
+
+Hands-on Robot Learning is a project-heavy robotics course. You will:
+
+- Build and calibrate a **SO-101** robot arm.
+- Collect **teleoperation** datasets with consistent metadata and resets.
+- Train **ACT** and **diffusion** imitation-learning policies using **LeRobot** tooling.
+- Deploy and evaluate your policies on real hardware, then present a final **VLA / SmolVLA-style** demo.
+
+## Required prerequisites
+
+- Comfort with Python and basic ML tooling
+- Basic Linux and Git usage
+- Willingness to debug hardware patiently and methodically
+
+## Preferred prerequisites
+
+- Some familiarity with linear algebra (rigid transforms / coordinate frames)
+- Some experience training ML models (PyTorch-style workflows)
+- Experience reading and reproducing results from a paper or technical blog post
+
+## Learning goals
+
+- Build a safe, repeatable robot-learning setup (hardware + sensing + tooling)
+- Collect datasets that support learning (coverage, consistency, metadata, and resets)
+- Implement and evaluate a strong baseline before end-to-end learning
+- Train and deploy imitation-learning policies (ACT / diffusion-policy style)
+- Evaluate fairly and report results with videos, metrics, and failure analysis
+
+## Course philosophy
+
+- **One shared benchmark before open-ended exploration.** We align early work around a shared cube pick-and-place benchmark so “progress” is measurable and comparable.
+- **Keep the first offering operationally simple.** Fewer moving parts → more time learning the right lessons (data, debugging, evaluation).
+- **Grade engineering, not hype.** Evidence, reproducibility, and safety beat flashy demos.
+- **Use competitions as motivation, not gatekeeping.** Leaderboards are for iteration and fun; grading rewards rigor and learning.
+
+## What “good” looks like
+
+Robotics results are only as strong as their evidence. This course emphasizes:
+
+- Clean task definitions and success metrics
+- Reproducible training runs
+- Honest failure analysis (with videos)
+- Safety and reliability on real hardware
+
+## Teams
+
+This course is team-based. Target team size is **{course.team_structure.target_team_size}**, with allowed team size **{course.team_structure.allowed_team_size}**.

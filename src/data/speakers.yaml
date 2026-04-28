@@ -1,0 +1,5 @@
+- id: guest1
+  name: "Guest Speaker (TBD)"
+  affiliation: "Industry / Research Lab"
+  topic: "Scaling robot learning in the real world"
+  week: 6

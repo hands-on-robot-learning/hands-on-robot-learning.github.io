@@ -1,0 +1,41 @@
+title: "Hands-on Robot Learning"
+course_numbers: "EN.498xxx / EN.xxx698"
+department: "Computer Science"
+school: "Johns Hopkins University"
+semester: "Fall 2026"
+credits: "3/4 credits TBD"
+instructor:
+  name: "Krishna Murthy Jatavallabhula"
+  email: "kmj@jhu.edu"
+  website: "https://engineering.jhu.edu/faculty/krishna-murthy-jatavallabhula/"
+meeting:
+  format: "One 2.5-hour lecture/lab block per week"
+  time: "TBD"
+  location: "TBD"
+  modality: "In person"
+enrollment:
+  permission_required: true
+  recommended_cap: 30
+  maximum_possible_cap: 35
+  rationale: "The first offering is hardware-limited and team-based. The preferred cap is 30 students: 10 active robot kits, 3 students per team, and 2 spare kits."
+team_structure:
+  target_team_size: 3
+  allowed_team_size: "2–4 students, with teams of 3 preferred"
+hardware:
+  active_follower_arms: 10
+  spare_follower_arms: 2
+  shared_leader_arms: "2–3"
+  required_camera: "Fixed external camera"
+  preferred_camera: "Fixed external camera plus wrist camera"
+software:
+  primary_stack: "Hugging Face LeRobot"
+  robot_platform: "SO-101"
+  policy_methods:
+    - "Handcrafted perception-control baselines"
+    - "Action Chunking Transformer"
+    - "Diffusion policy"
+    - "SmolVLA-style VLA deployment or adaptation"
+course_pitch: "Build a robot arm. Collect real data. Train policies. Debug why robots fail."
+homepage_tagline: "Learn robot learning by making robots fail, debugging why, and making them fail less."
+no_exams: true
+no_grad_project_first_offering: true

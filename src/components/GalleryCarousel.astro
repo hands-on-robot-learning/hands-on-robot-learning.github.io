@@ -1,0 +1,107 @@
+---
+export interface Slide {
+	title: string;
+	description?: string;
+	image: string;
+}
+
+export interface Props {
+	slides: Slide[];
+}
+
+const { slides } = Astro.props;
+
+const withBase = (url: string) => {
+	if (
+		url.startsWith('http://') ||
+		url.startsWith('https://') ||
+		url.startsWith('#') ||
+		url.startsWith('mailto:') ||
+		url.startsWith('tel:')
+	) {
+		return url;
+	}
+
+	const base = import.meta.env.BASE_URL ?? '/';
+	const cleanBase = base.endsWith('/') ? base : `${base}/`;
+	const cleanUrl = url.startsWith('/') ? url.slice(1) : url;
+	return `${cleanBase}${cleanUrl}`;
+};
+---
+
+<div class="hol-carousel" aria-label="Course gallery">
+	{slides.map((s) => (
+		<article class="hol-slide">
+			<div class="hol-slide-media" aria-hidden="true">
+				<img src={withBase(s.image)} alt="" loading="lazy" />
+			</div>
+			<div class="hol-slide-body">
+				<h3 class="hol-slide-title">{s.title}</h3>
+				{s.description ? <p class="hol-slide-desc">{s.description}</p> : null}
+			</div>
+		</article>
+	))}
+</div>
+
+<style>
+	.hol-carousel {
+		display: grid;
+		grid-auto-flow: column;
+		grid-auto-columns: minmax(18rem, 1fr);
+		gap: 1rem;
+		overflow-x: auto;
+		padding: 0.25rem 0.25rem 0.75rem;
+		scroll-snap-type: x mandatory;
+		-webkit-overflow-scrolling: touch;
+	}
+
+	.hol-slide {
+		scroll-snap-align: start;
+		border: 1px solid var(--hol-border, var(--sl-color-gray-5));
+		border-radius: 1rem;
+		background: linear-gradient(135deg, var(--hol-surface-2, var(--sl-color-gray-7)), var(--hol-surface, transparent));
+		box-shadow: var(--hol-shadow, var(--sl-shadow-md));
+		overflow: clip;
+		display: grid;
+		grid-template-rows: 8.5rem 1fr;
+		min-height: 15rem;
+	}
+
+	.hol-slide-media {
+		position: relative;
+		background: radial-gradient(
+				420px circle at 20% 10%,
+				color-mix(in oklab, var(--sl-color-accent), transparent 76%),
+				transparent 60%
+			),
+			color-mix(in oklab, var(--sl-color-gray-7), transparent 55%);
+		border-bottom: 1px solid var(--sl-color-hairline);
+	}
+
+	.hol-slide-media img {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		opacity: 0.95;
+	}
+
+	.hol-slide-body {
+		padding: 0.9rem 1rem 1rem;
+	}
+
+	.hol-slide-title {
+		margin: 0;
+		font-size: 1.05rem;
+	}
+
+	.hol-slide-desc {
+		margin: 0.35rem 0 0;
+		color: var(--sl-color-gray-2);
+	}
+
+	@media (min-width: 50rem) {
+		.hol-carousel {
+			grid-auto-columns: minmax(20rem, 1fr);
+		}
+	}
+</style>

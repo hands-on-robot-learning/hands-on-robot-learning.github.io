@@ -1,0 +1,105 @@
+---
+title: Assignments
+description: Milestones from hardware + data to VLA demos.
+---
+
+import { parseYaml } from '../../../lib/yaml';
+import assignmentsYaml from '../../../data/assignments.yaml?raw';
+
+export const assignmentsData = parseYaml(assignmentsYaml);
+export const assignments = assignmentsData.assignments ?? [];
+export const participation = assignmentsData.participation;
+
+export const linkById = {
+	a1: './a1-build-calibrate-teleop/',
+	a2: './a2-handcrafted-cube-picking/',
+	a3: './a3-lerobot-imitation-challenge/',
+	a4: './a4-vla-smolvla-demo/',
+};
+
+This first offering has **four shared assignments** for all students, plus a participation component.
+
+## Grading breakdown
+
+- **A1**: 15%
+- **A2**: 20%
+- **A3**: 30%
+- **A4**: 25%
+- **{participation.title}**: 10%
+
+## Assignments at a glance
+
+<table>
+	<thead>
+		<tr>
+			<th>Assignment</th>
+			<th>Weight</th>
+			<th>Release</th>
+			<th>Due</th>
+			<th>Summary</th>
+		</tr>
+	</thead>
+	<tbody>
+		{assignments.map((a) => (
+			<tr>
+				<td>
+					<a href={linkById[a.id] ?? './'}>
+						A{String(a.id).replace('a', '')}: {a.short_title}
+					</a>
+				</td>
+				<td>{a.weight}%</td>
+				<td>Week {a.release_week}</td>
+				<td>Week {a.due_week}</td>
+				<td>{a.summary}</td>
+			</tr>
+		))}
+	</tbody>
+</table>
+
+## Details
+
+{assignments.map((a) => (
+	<section>
+		<h2 id={a.id}>
+			A{String(a.id).replace('a', '')}: {a.title}
+		</h2>
+		<p>
+			<strong>Release:</strong> Week {a.release_week} · <strong>Due:</strong> Week {a.due_week} ·{' '}
+			<strong>Weight:</strong> {a.weight}%
+		</p>
+		<p>{a.summary}</p>
+		<p>
+			<a href={linkById[a.id] ?? './'}>Open full assignment page →</a>
+		</p>
+	</section>
+))}
+
+## Participation
+
+{participation.examples?.length ? (
+	<ul>
+		{participation.examples.map((ex) => (
+			<li>{ex}</li>
+		))}
+	</ul>
+) : null}
+
+## Leaderboard philosophy and awards
+
+Leaderboards are used as **motivation and feedback**, not gatekeeping. Grades reward careful engineering: dataset quality,
+reproducible evaluation, and honest reporting.
+
+<p>
+	<strong>Assignment 3 leaderboard metric:</strong> {assignments.find((a) => a.id === 'a3')?.leaderboard?.main_metric}
+</p>
+<p>
+	<strong>Tiebreaker:</strong> {assignments.find((a) => a.id === 'a3')?.leaderboard?.tiebreaker}
+</p>
+
+{assignments.find((a) => a.id === 'a3')?.leaderboard?.awards?.length ? (
+	<ul>
+		{assignments
+			.find((a) => a.id === 'a3')
+			?.leaderboard?.awards.map((award) => <li>{award}</li>)}
+	</ul>
+) : null}

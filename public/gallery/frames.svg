@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 420">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#06b6d4"/>
+      <stop offset="1" stop-color="#7c3aed"/>
+    </linearGradient>
+  </defs>
+  <rect x="0" y="0" width="920" height="420" rx="28" fill="#0b1020"/>
+  <g opacity="0.32" stroke="#94a3b8">
+    <path d="M60 70H860M60 120H860M60 170H860M60 220H860M60 270H860M60 320H860"/>
+    <path d="M120 50V370M220 50V370M320 50V370M420 50V370M520 50V370M620 50V370M720 50V370M820 50V370"/>
+  </g>
+  <g transform="translate(180 94)" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="160" cy="220" r="92" fill="none" stroke="url(#g)" stroke-width="10" opacity="0.9"/>
+    <circle cx="160" cy="220" r="8" fill="#e2e8f0"/>
+    <!-- axes -->
+    <path d="M160 220H330" stroke="#ef4444" stroke-width="10"/>
+    <path d="M330 220l-18-10m18 10l-18 10" stroke="#ef4444" stroke-width="10"/>
+    <path d="M160 220V70" stroke="#22c55e" stroke-width="10"/>
+    <path d="M160 70l-10 18m10-18l10 18" stroke="#22c55e" stroke-width="10"/>
+    <path d="M160 220l-120 90" stroke="#60a5fa" stroke-width="10"/>
+    <path d="M40 310l22-2m-22 2l10-20" stroke="#60a5fa" stroke-width="10"/>
+  </g>
+  <text x="54" y="398" fill="#cbd5e1" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="18" opacity="0.85">
+    frames • intrinsics • extrinsics • drift
+  </text>
+</svg>

@@ -1,0 +1,63 @@
+---
+title: "A1 — Build, Calibrate, and Teleoperate the SO-101"
+description: Assemble the SO-101 follower arm, calibrate motors, verify cameras, configure safe motion, and demonstrate basic teleoperation.
+sidebar:
+  label: "A1: Build + Teleop"
+---
+
+## Goal
+
+Assemble the SO-101 follower arm, calibrate motors, verify cameras, configure safe motion, and demonstrate basic teleoperation.
+
+## What you will learn
+
+- How to bring up a physical robot safely and repeatably
+- How calibration and configuration errors show up as “weird behavior”
+- How to gather evidence (logs + video) for debugging in later assignments
+
+## Required hardware/software
+
+- SO-101 follower arm kit (shared course hardware)
+- Fixed external camera (minimum)
+- LeRobot tooling (course stack)
+
+## Deliverables
+
+- Assembled SO-101 follower arm
+- Motor ID and calibration files
+- Safe home pose and soft-limit configuration
+- Camera detection and preview check
+- Short continuous video showing safe teleoperation
+- One-page notes file describing known issues, repairs, or deviations
+
+## Evaluation protocol
+
+- Demonstrate teleoperation on the assembled arm using the configured safe home pose and safety limits.
+- Provide evidence artifacts (video + configuration files + notes) so the setup can be reproduced.
+
+## Rubric emphasis
+
+- Safety
+- Correct assembly
+- Calibration quality
+- Reproducible environment setup
+- Honest documentation of issues
+
+## Common failure modes
+
+- Incorrect motor ID mapping or calibration leading to reversed or saturated joints
+- Unsafe velocities or missing soft limits
+- Camera not detected, wrong device selection, unstable mount, or inconsistent lighting
+- Drift/backlash/latency that makes teleoperation “look fine” but produces unreliable data
+
+## How to get unstuck
+
+- Reduce to a minimal “smoke test” (home pose → small motion → stop) before longer teleop sessions.
+- Record short, continuous videos of failures and annotate what you changed between attempts.
+- Ask for help early if you suspect a hardware fault; do not “push through” unsafe behavior.
+
+## Extension ideas
+
+- Add a clear version tag to calibration/config files and track changes across attempts.
+- Establish a repeatable camera mount position and document it with a photo/diagram.
+- Create a short checklist your team runs before any autonomous scripts.

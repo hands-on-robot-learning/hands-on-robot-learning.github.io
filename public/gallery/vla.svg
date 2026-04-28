@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 420">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#06b6d4"/>
+      <stop offset="1" stop-color="#7c3aed"/>
+    </linearGradient>
+  </defs>
+  <rect x="0" y="0" width="920" height="420" rx="28" fill="#0b1020"/>
+  <g opacity="0.28" stroke="#94a3b8">
+    <path d="M60 86H860M60 146H860M60 206H860M60 266H860M60 326H860"/>
+  </g>
+  <g transform="translate(120 92)">
+    <rect x="0" y="0" width="320" height="220" rx="18" fill="none" stroke="url(#g)" stroke-width="10"/>
+    <path d="M46 64h228M46 104h186M46 144h210" stroke="#cbd5e1" stroke-width="10" stroke-linecap="round" opacity="0.75"/>
+    <circle cx="46" cy="64" r="6" fill="#22c55e"/>
+    <circle cx="46" cy="104" r="6" fill="#f59e0b"/>
+    <circle cx="46" cy="144" r="6" fill="#60a5fa"/>
+  </g>
+  <g transform="translate(520 120)" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M40 210h180c16 0 28-12 28-28v-30h56c18 0 32-14 32-32v-14c0-18-14-32-32-32h-56V54c0-16-12-28-28-28H40C24 26 12 38 12 54v128c0 16 12 28 28 28Z" stroke="url(#g)" stroke-width="16"/>
+    <path d="M248 152l70 40m-70-40l70-40" stroke="url(#g)" stroke-width="16"/>
+  </g>
+  <text x="54" y="398" fill="#cbd5e1" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="18" opacity="0.85">
+    language → perception → action
+  </text>
+</svg>

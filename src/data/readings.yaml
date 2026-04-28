@@ -1,0 +1,21 @@
+- week: 1
+  items:
+    - title: "What makes robotics data usable?"
+      kind: "notes"
+      link: ""
+    - title: "LeRobot: datasets + policies (overview)"
+      kind: "docs"
+      link: ""
+- week: 5
+  items:
+    - title: "ACT (Action Chunking Transformer) — paper"
+      kind: "paper"
+      link: ""
+    - title: "Diffusion policies — paper"
+      kind: "paper"
+      link: ""
+- week: 8
+  items:
+    - title: "Vision-Language-Action models — survey / notes"
+      kind: "paper"
+      link: ""

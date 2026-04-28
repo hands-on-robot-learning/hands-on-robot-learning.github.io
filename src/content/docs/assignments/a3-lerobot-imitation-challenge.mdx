@@ -1,0 +1,78 @@
+---
+title: "A3 — LeRobot Imitation-Learning Challenge"
+description: Collect real robot data, train an ACT or diffusion-policy-style model, deploy it, and evaluate on the official benchmark.
+sidebar:
+  label: "A3: LeRobot IL"
+---
+
+## Goal
+
+Collect real robot data, train an ACT or diffusion-policy-style model, deploy it on the SO-101 arm, and evaluate on the official cube pick-and-place benchmark.
+
+## What you will learn
+
+- What makes real-robot datasets trainable (and what breaks training)
+- How to run a reproducible training loop (configs, checkpoints, logs)
+- How to evaluate fairly on hardware with continuous video evidence
+
+## Required hardware/software
+
+- SO-101 follower arm
+- Fixed external camera (minimum)
+- LeRobot tooling for datasets + training
+
+## Dataset target
+
+- Baseline: Approximately 50 valid episodes
+- Stronger attempt: 100+ valid episodes if leader-arm scheduling and hardware reliability permit
+- Disclosure: Teams must disclose whether they used class starter data, their own data, or both.
+
+## Deliverables
+
+- Dataset or dataset link
+- Dataset card describing cameras, task, episode count, collection protocol, and known issues
+- Training configuration and checkpoint
+- Evaluation script or command
+- 10 official evaluation trials
+- Short report with success rate, failure taxonomy, and comparison to the handcrafted baseline
+
+## Evaluation protocol (official)
+
+- Run **10 official evaluation trials** under the assigned protocol.
+- Record **continuous unedited video** for official runs.
+- No human intervention during trials.
+- Report all required trials, not only successes.
+
+## Leaderboard metrics
+
+- Main metric: **Successes out of 10 official trials**
+- Tiebreaker: **Median successful completion time**
+
+Leaderboard rank is **motivational**, not the main basis for grades.
+
+## Rubric emphasis
+
+- Dataset quality and documentation
+- Correct use of LeRobot
+- Policy training and deployment
+- Reproducible evaluation
+- Thoughtful comparison to the handcrafted baseline
+
+## Common failure modes
+
+- “Looks good in validation, fails on robot” due to mismatch in control frequency / latency / camera setup
+- Dataset issues: inconsistent resets, mislabeled episodes, silent logging bugs
+- Compounding error: policy drifts into unrecoverable states after a few steps
+- Overfitting to a narrow scene distribution
+
+## How to get unstuck
+
+- Overfit a tiny subset on purpose to verify the pipeline end-to-end (then scale up).
+- Compare against A2 baseline with the same evaluation harness and videos.
+- When debugging, change one thing at a time and keep a short experiment log.
+
+## Extension ideas
+
+- Low-data track: improve performance with fewer episodes (with clear reporting)
+- Robustness: lighting changes, cube pose variations, mild camera perturbations
+- Compare ACT vs diffusion under identical protocol and dataset

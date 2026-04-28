@@ -1,0 +1,202 @@
+---
+export interface Props {
+	week: number | string;
+	dates?: string;
+	title: string;
+	topics?: string[];
+	labs?: string[];
+	deliverables?: { label: string; href?: string }[];
+	variant?: 'full' | 'compact';
+}
+
+const { week, dates, title, topics = [], labs = [], deliverables = [], variant = 'full' } = Astro.props;
+
+const withBase = (url: string) => {
+	if (
+		url.startsWith('http://') ||
+		url.startsWith('https://') ||
+		url.startsWith('#') ||
+		url.startsWith('mailto:') ||
+		url.startsWith('tel:')
+	) {
+		return url;
+	}
+
+	const base = import.meta.env.BASE_URL ?? '/';
+	const cleanBase = base.endsWith('/') ? base : `${base}/`;
+	const cleanUrl = url.startsWith('/') ? url.slice(1) : url;
+	return `${cleanBase}${cleanUrl}`;
+};
+---
+
+<section class:list={['hol-week', `hol-week--${variant}`]} aria-label={`Week ${week}`}>
+	<header class="hol-week-header">
+		<span class="hol-week-badge">Week {week}</span>
+		<div class="hol-week-head-main">
+			<h3 class="hol-week-title">{title}</h3>
+			{dates ? <p class="hol-week-dates">{dates}</p> : null}
+		</div>
+	</header>
+
+	{variant === 'compact' ? (
+		<details class="hol-week-details">
+			<summary class="hol-week-summary">Details</summary>
+			<div class="hol-week-body">
+				{topics.length ? (
+					<div class="hol-week-block">
+						<h4 class="hol-week-sub">Topics</h4>
+						<ul>
+							{topics.map((t) => (
+								<li>{t}</li>
+							))}
+						</ul>
+					</div>
+				) : null}
+
+				{labs.length ? (
+					<div class="hol-week-block">
+						<h4 class="hol-week-sub">Lab</h4>
+						<ul>
+							{labs.map((l) => (
+								<li>{l}</li>
+							))}
+						</ul>
+					</div>
+				) : null}
+
+				{deliverables.length ? (
+					<div class="hol-week-block">
+						<h4 class="hol-week-sub">Deliverables</h4>
+						<ul>
+							{deliverables.map((d) => (
+								<li>
+									{d.href ? <a href={withBase(d.href)}>{d.label}</a> : d.label}
+								</li>
+							))}
+						</ul>
+					</div>
+				) : null}
+			</div>
+		</details>
+	) : (
+		<div class="hol-week-body">
+			{topics.length ? (
+				<div class="hol-week-block">
+					<h4 class="hol-week-sub">Topics</h4>
+					<ul>
+						{topics.map((t) => (
+							<li>{t}</li>
+						))}
+					</ul>
+				</div>
+			) : null}
+
+			{labs.length ? (
+				<div class="hol-week-block">
+					<h4 class="hol-week-sub">Lab</h4>
+					<ul>
+						{labs.map((l) => (
+							<li>{l}</li>
+						))}
+					</ul>
+				</div>
+			) : null}
+
+			{deliverables.length ? (
+				<div class="hol-week-block">
+					<h4 class="hol-week-sub">Deliverables</h4>
+					<ul>
+						{deliverables.map((d) => (
+							<li>
+								{d.href ? <a href={withBase(d.href)}>{d.label}</a> : d.label}
+							</li>
+						))}
+					</ul>
+				</div>
+			) : null}
+		</div>
+	)}
+</section>
+
+<style>
+	.hol-week {
+		border: 1px solid var(--sl-color-gray-5);
+		border-radius: 0.9rem;
+		background: color-mix(in oklab, var(--sl-color-gray-7), transparent 70%);
+	}
+	.hol-week-header {
+		display: grid;
+		grid-template-columns: auto 1fr;
+		align-items: start;
+		gap: 0.75rem;
+		padding: 0.9rem 1rem;
+		border-bottom: 1px solid var(--sl-color-hairline);
+	}
+	.hol-week-head-main {
+		min-width: 0;
+	}
+	.hol-week--full .hol-week-header {
+		border-bottom: 0;
+		padding-bottom: 0;
+	}
+	.hol-week--full .hol-week-body {
+		padding: 0 1rem 1rem;
+	}
+	.hol-week--compact .hol-week-body {
+		padding: 0.75rem 1rem 1rem;
+		display: grid;
+		gap: 0.9rem;
+	}
+	.hol-week-details {
+		padding: 0 1rem 0.8rem;
+	}
+	.hol-week-summary {
+		display: flex;
+		align-items: center;
+		gap: 0.5rem;
+		cursor: pointer;
+		user-select: none;
+		color: var(--sl-color-gray-2);
+		font-weight: 600;
+		padding: 0.7rem 0;
+	}
+	.hol-week-badge {
+		display: inline-flex;
+		align-items: center;
+		border: 1px solid color-mix(in oklab, var(--sl-color-accent), var(--sl-color-gray-5) 75%);
+		background: color-mix(in oklab, var(--sl-color-accent-low), transparent 25%);
+		color: var(--sl-color-gray-1);
+		border-radius: 999px;
+		padding: 0.15rem 0.55rem;
+		font-weight: 600;
+		font-size: 0.9rem;
+		white-space: nowrap;
+	}
+	.hol-week-dates {
+		margin: 0.2rem 0 0;
+		color: var(--sl-color-gray-3);
+		font-size: 0.95rem;
+	}
+	.hol-week-title {
+		margin: 0;
+		font-size: 1.05rem;
+	}
+	.hol-week-block {
+		margin: 0;
+	}
+	.hol-week-sub {
+		margin: 0 0 0.35rem;
+		font-size: 0.95rem;
+		color: var(--sl-color-gray-2);
+	}
+	.hol-week :global(ul) {
+		margin: 0;
+	}
+
+	@media (min-width: 50rem) {
+		.hol-week--compact .hol-week-body {
+			grid-template-columns: 1fr 1fr 1fr;
+			align-items: start;
+		}
+	}
+</style>
