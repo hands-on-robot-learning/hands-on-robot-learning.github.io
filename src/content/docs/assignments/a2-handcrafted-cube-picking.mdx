@@ -5,20 +5,49 @@ sidebar:
   label: "A2: Baseline"
 ---
 
-import AssignmentAtGlance from '../../../components/AssignmentAtGlance.astro';
-
 ## Goal
 
 Solve the shared cube pick-and-place benchmark using a **non-learned or lightly learned** perception-control pipeline before training an end-to-end policy.
 
-<AssignmentAtGlance
-	release="Week 4"
-	due="Week 6"
-	weight="20%"
-	hardware={['SO-101 follower arm', 'Fixed external camera', 'LeRobot data handling plus baseline code/configuration']}
-	mainArtifact="Working perception-control baseline with continuous trials, metrics, and failure taxonomy."
-	evaluationMode="10–20 continuous evaluation trials under a consistent setup."
-/>
+<section className="hol-info-panel" aria-labelledby="a2-at-a-glance">
+	<div className="hol-section-head">
+		<p className="hol-section-label">At a glance</p>
+		<h2 id="a2-at-a-glance">Handcrafted cube-picking baseline</h2>
+	</div>
+	<div className="hol-card-grid">
+		<article className="hol-card">
+			<p className="hol-card-meta">Release</p>
+			<h3 className="hol-card-title">Week 4</h3>
+		</article>
+		<article className="hol-card">
+			<p className="hol-card-meta">Due</p>
+			<h3 className="hol-card-title">Week 6</h3>
+		</article>
+		<article className="hol-card">
+			<p className="hol-card-meta">Weight</p>
+			<h3 className="hol-card-title">20%</h3>
+		</article>
+		<article className="hol-card">
+			<p className="hol-card-meta">Required stack</p>
+			<h3 className="hol-card-title">Robot + perception</h3>
+			<ul>
+				<li>SO-101 follower arm</li>
+				<li>Fixed external camera</li>
+				<li>LeRobot data handling plus baseline code/configuration</li>
+			</ul>
+		</article>
+		<article className="hol-card">
+			<p className="hol-card-meta">Main artifact</p>
+			<h3 className="hol-card-title">Working baseline</h3>
+			<p>Perception-control pipeline with continuous trials, metrics, and failure taxonomy.</p>
+		</article>
+		<article className="hol-card">
+			<p className="hol-card-meta">Evaluation mode</p>
+			<h3 className="hol-card-title">10-20 trials</h3>
+			<p>Continuous evaluation trials under a consistent setup.</p>
+		</article>
+	</div>
+</section>
 
 ## What you will learn
 

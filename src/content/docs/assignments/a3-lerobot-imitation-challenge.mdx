@@ -5,20 +5,49 @@ sidebar:
   label: "A3: LeRobot IL"
 ---
 
-import AssignmentAtGlance from '../../../components/AssignmentAtGlance.astro';
-
 ## Goal
 
 Collect real robot data, train an ACT or diffusion-policy-style model, deploy it on the SO-101 arm, and evaluate on the official cube pick-and-place benchmark.
 
-<AssignmentAtGlance
-	release="Week 6"
-	due="Week 10"
-	weight="30%"
-	hardware={['SO-101 follower arm', 'Fixed external camera', 'LeRobot tooling for datasets and training']}
-	mainArtifact="Dataset card, trained checkpoint, evaluation script/command, official trials, and comparison report."
-	evaluationMode="10 official evaluation trials with continuous unedited video."
-/>
+<section className="hol-info-panel" aria-labelledby="a3-at-a-glance">
+	<div className="hol-section-head">
+		<p className="hol-section-label">At a glance</p>
+		<h2 id="a3-at-a-glance">LeRobot imitation-learning challenge</h2>
+	</div>
+	<div className="hol-card-grid">
+		<article className="hol-card">
+			<p className="hol-card-meta">Release</p>
+			<h3 className="hol-card-title">Week 6</h3>
+		</article>
+		<article className="hol-card">
+			<p className="hol-card-meta">Due</p>
+			<h3 className="hol-card-title">Week 10</h3>
+		</article>
+		<article className="hol-card">
+			<p className="hol-card-meta">Weight</p>
+			<h3 className="hol-card-title">30%</h3>
+		</article>
+		<article className="hol-card">
+			<p className="hol-card-meta">Required stack</p>
+			<h3 className="hol-card-title">Robot data + training</h3>
+			<ul>
+				<li>SO-101 follower arm</li>
+				<li>Fixed external camera</li>
+				<li>LeRobot tooling for datasets and training</li>
+			</ul>
+		</article>
+		<article className="hol-card">
+			<p className="hol-card-meta">Main artifact</p>
+			<h3 className="hol-card-title">Trained policy package</h3>
+			<p>Dataset card, checkpoint, evaluation script/command, official trials, and comparison report.</p>
+		</article>
+		<article className="hol-card">
+			<p className="hol-card-meta">Evaluation mode</p>
+			<h3 className="hol-card-title">10 official trials</h3>
+			<p>Official evaluation with continuous unedited video.</p>
+		</article>
+	</div>
+</section>
 
 ## What you will learn
 

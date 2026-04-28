@@ -5,20 +5,49 @@ sidebar:
   label: "A4: Final Demo"
 ---
 
-import AssignmentAtGlance from '../../../components/AssignmentAtGlance.astro';
-
 ## Goal
 
 Deploy or adapt a VLA-style model such as SmolVLA on a physical SO-101 manipulation task and characterize its behavior.
 
-<AssignmentAtGlance
-	release="Week 10"
-	due="Week 15"
-	weight="25%"
-	hardware={['SO-101 follower arm', 'Fixed external camera minimum; fixed + wrist preferred', 'VLA / SmolVLA-style model tooling']}
-	mainArtifact="Final demo video and short report with qualitative/quantitative evaluation and failure analysis."
-	evaluationMode="Clearly defined demo task with controlled evaluation runs and continuous video evidence."
-/>
+<section className="hol-info-panel" aria-labelledby="a4-at-a-glance">
+	<div className="hol-section-head">
+		<p className="hol-section-label">At a glance</p>
+		<h2 id="a4-at-a-glance">VLA / SmolVLA final demo</h2>
+	</div>
+	<div className="hol-card-grid">
+		<article className="hol-card">
+			<p className="hol-card-meta">Release</p>
+			<h3 className="hol-card-title">Week 10</h3>
+		</article>
+		<article className="hol-card">
+			<p className="hol-card-meta">Due</p>
+			<h3 className="hol-card-title">Week 15</h3>
+		</article>
+		<article className="hol-card">
+			<p className="hol-card-meta">Weight</p>
+			<h3 className="hol-card-title">25%</h3>
+		</article>
+		<article className="hol-card">
+			<p className="hol-card-meta">Required stack</p>
+			<h3 className="hol-card-title">VLA-style robot demo</h3>
+			<ul>
+				<li>SO-101 follower arm</li>
+				<li>Fixed external camera minimum; fixed + wrist preferred</li>
+				<li>VLA / SmolVLA-style model tooling</li>
+			</ul>
+		</article>
+		<article className="hol-card">
+			<p className="hol-card-meta">Main artifact</p>
+			<h3 className="hol-card-title">Final demo package</h3>
+			<p>Demo video and short report with qualitative/quantitative evaluation and failure analysis.</p>
+		</article>
+		<article className="hol-card">
+			<p className="hol-card-meta">Evaluation mode</p>
+			<h3 className="hol-card-title">Controlled demo task</h3>
+			<p>Defined task with controlled evaluation runs and continuous video evidence.</p>
+		</article>
+	</div>
+</section>
 
 ## What you will learn
 

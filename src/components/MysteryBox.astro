@@ -18,10 +18,10 @@ const { title = 'Mystery Box', variant = 'mystery' } = Astro.props;
 
 <style>
 	.hol-box {
-		border: 1px solid var(--sl-color-gray-5);
-		border-radius: 0.9rem;
+		border: 1px solid var(--hol-border, var(--sl-color-gray-5));
+		border-radius: var(--hol-radius-card, 8px);
 		padding: 0.9rem 1rem;
-		background: color-mix(in oklab, var(--sl-color-gray-7), transparent 65%);
+		background: var(--hol-surface, color-mix(in oklab, var(--sl-color-gray-7), transparent 65%));
 		margin: 1rem 0;
 	}
 	.hol-box-head {

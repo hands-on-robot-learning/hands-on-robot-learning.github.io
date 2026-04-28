@@ -24,7 +24,6 @@ export const inferTags = (week) => {
 	const text = [
 		week.theme,
 		week.lecture_title,
-		week.robot_mystery,
 		week.lab_focus,
 		week.milestone,
 		...(week.core_topics ?? []),
@@ -38,13 +37,6 @@ export const inferTags = (week) => {
 
 	return tags.length ? tags.slice(0, 4) : ['systems'];
 };
-
-export const assignmentRhythm = [
-	{ assignment: 'A1', release: 'Week 2', due: 'Week 3', label: 'Build + Teleop' },
-	{ assignment: 'A2', release: 'Week 4', due: 'Week 6', label: 'Handcrafted Baseline' },
-	{ assignment: 'A3', release: 'Week 6', due: 'Week 10', label: 'Imitation Challenge' },
-	{ assignment: 'A4', release: 'Week 10', due: 'Week 15', label: 'VLA Final Demo' },
-];
 
 <p className="hol-schedule-intro">
 	{'This course moves from robot setup to data collection, policy learning, robust evaluation, and final demos. The plan is tentative and may adjust based on hardware availability and what we learn while debugging the stack.'}
@@ -88,27 +80,9 @@ export const assignmentRhythm = [
 	</article>
 </section>
 
-<section className="hol-assignment-rhythm" aria-label="Major assignment rhythm">
-	<div className="hol-section-head">
-		<p className="hol-section-label">Major assignment rhythm</p>
-		<h2>Four milestones carry the course from hardware to learned policies.</h2>
-	</div>
-	<div>
-		{assignmentRhythm.map((item) => (
-			<article>
-				<strong>{item.assignment}</strong>
-				<span>{item.label}</span>
-				<small>Release: {item.release}</small>
-				<small>Due: {item.due}</small>
-			</article>
-		))}
-	</div>
-	<p>{'No major deadlines are scheduled during fall break or fall recess. See week notes below for calendar details.'}</p>
-</section>
-
 ## Week-by-week plan
 
-Most weeks start with a **Robot Mystery of the Week**: a short failure case to diagnose across perception, calibration, control, data, and policy behavior.
+Each week card highlights the main lab focus, assignment milestones, and the technical themes students should be tracking.
 
 <div className="hol-schedule-list">
 	{weeks.map((week) => (
@@ -117,7 +91,6 @@ Most weeks start with a **Robot Mystery of the Week**: a short failure case to d
 			dates={week.dates}
 			title={week.theme}
 			lectureTitle={week.lecture_title}
-			mystery={week.robot_mystery}
 			topics={week.core_topics}
 			labFocus={week.lab_focus}
 			milestone={week.milestone}

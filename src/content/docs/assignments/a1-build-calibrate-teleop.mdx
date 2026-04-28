@@ -5,20 +5,49 @@ sidebar:
   label: "A1: Build + Teleop"
 ---
 
-import AssignmentAtGlance from '../../../components/AssignmentAtGlance.astro';
-
 ## Goal
 
 Assemble the SO-101 follower arm, calibrate motors, verify cameras, configure safe motion, and demonstrate basic teleoperation.
 
-<AssignmentAtGlance
-	release="Week 2"
-	due="Week 3"
-	weight="15%"
-	hardware={['SO-101 follower arm kit', 'Fixed external camera', 'LeRobot tooling']}
-	mainArtifact="Safe assembled robot with calibration/config files and a short teleoperation evidence video."
-	evaluationMode="Hardware bring-up check plus reproducibility artifacts."
-/>
+<section className="hol-info-panel" aria-labelledby="a1-at-a-glance">
+	<div className="hol-section-head">
+		<p className="hol-section-label">At a glance</p>
+		<h2 id="a1-at-a-glance">Build, calibrate, and teleoperate</h2>
+	</div>
+	<div className="hol-card-grid">
+		<article className="hol-card">
+			<p className="hol-card-meta">Release</p>
+			<h3 className="hol-card-title">Week 2</h3>
+		</article>
+		<article className="hol-card">
+			<p className="hol-card-meta">Due</p>
+			<h3 className="hol-card-title">Week 3</h3>
+		</article>
+		<article className="hol-card">
+			<p className="hol-card-meta">Weight</p>
+			<h3 className="hol-card-title">15%</h3>
+		</article>
+		<article className="hol-card">
+			<p className="hol-card-meta">Required stack</p>
+			<h3 className="hol-card-title">SO-101 bring-up</h3>
+			<ul>
+				<li>SO-101 follower arm kit</li>
+				<li>Fixed external camera</li>
+				<li>LeRobot tooling</li>
+			</ul>
+		</article>
+		<article className="hol-card">
+			<p className="hol-card-meta">Main artifact</p>
+			<h3 className="hol-card-title">Safe assembled robot</h3>
+			<p>Calibration/config files and a short teleoperation evidence video.</p>
+		</article>
+		<article className="hol-card">
+			<p className="hol-card-meta">Evaluation mode</p>
+			<h3 className="hol-card-title">Bring-up check</h3>
+			<p>Hardware verification plus reproducibility artifacts.</p>
+		</article>
+	</div>
+</section>
 
 ## What you will learn
 

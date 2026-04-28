@@ -16,13 +16,6 @@ export default defineConfig({
 				src: './src/assets/logo.svg',
 				replacesTitle: false,
 			},
-			social: [
-				{
-					icon: 'github',
-					label: 'GitHub',
-					href: 'https://github.com/hands-on-robot-learning/hands-on-robot-learning.github.io',
-				},
-			],
 			customCss: ['./src/styles/custom.css'],
 			sidebar: [
 				{

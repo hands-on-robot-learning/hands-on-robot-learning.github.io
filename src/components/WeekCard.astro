@@ -4,7 +4,6 @@ export interface Props {
 	dates?: string;
 	title: string;
 	lectureTitle?: string;
-	mystery?: string;
 	topics?: string[];
 	labFocus?: string;
 	milestone?: string;
@@ -18,7 +17,6 @@ const {
 	dates,
 	title,
 	lectureTitle,
-	mystery,
 	topics = [],
 	labFocus,
 	milestone,
@@ -59,13 +57,6 @@ const milestoneKind = (item: string) => {
 				<span>{tag}</span>
 			))}
 		</div>
-	) : null}
-
-	{mystery ? (
-		<section class="hol-week-mystery" aria-label="Robot mystery">
-			<span>Robot mystery</span>
-			<p>{mystery}</p>
-		</section>
 	) : null}
 
 	<div class="hol-week-card-grid">
@@ -117,31 +108,17 @@ const milestoneKind = (item: string) => {
 	.hol-week-card {
 		position: relative;
 		border: 1px solid var(--hol-border, var(--sl-color-gray-5));
-		border-radius: 1rem;
+		border-left: 0.32rem solid color-mix(in oklab, var(--hol-blue, var(--sl-color-accent)), var(--hol-border, var(--sl-color-gray-5)) 35%);
+		border-radius: var(--hol-radius-card, 8px);
 		padding: 1rem;
-		background:
-			linear-gradient(
-				180deg,
-				color-mix(in oklab, var(--hol-surface-2, var(--sl-color-gray-7)), transparent 8%),
-				var(--hol-surface, transparent)
-			);
-		box-shadow: 0 1px 0 rgba(255, 255, 255, 0.02);
+		background: var(--hol-surface, transparent);
+		box-shadow: var(--hol-shadow, none);
 		overflow: clip;
-	}
-
-	.hol-week-card::before {
-		content: '';
-		position: absolute;
-		inset-block: 0;
-		inset-inline-start: 0;
-		width: 0.28rem;
-		background: linear-gradient(180deg, var(--hol-teal, var(--sl-color-accent)), var(--hol-gold, var(--sl-color-accent-high)));
 	}
 
 	.hol-week-card-header {
 		display: grid;
 		gap: 0.35rem;
-		padding-inline-start: 0.25rem;
 	}
 
 	.hol-week-card-kicker {
@@ -157,15 +134,15 @@ const milestoneKind = (item: string) => {
 	.hol-week-milestones span {
 		display: inline-flex;
 		align-items: center;
-		border-radius: 999px;
+		border-radius: var(--hol-radius, 6px);
 		white-space: nowrap;
 	}
 
 	.hol-week-number {
-		border: 1px solid color-mix(in oklab, var(--hol-teal, var(--sl-color-accent)), var(--sl-color-gray-5) 65%);
+		border: 1px solid color-mix(in oklab, var(--hol-blue, var(--sl-color-accent)), var(--hol-border, var(--sl-color-gray-5)) 55%);
 		padding: 0.18rem 0.6rem;
-		background: color-mix(in oklab, var(--hol-teal, var(--sl-color-accent)), transparent 86%);
-		color: var(--sl-color-gray-1);
+		background: color-mix(in oklab, var(--hol-blue, var(--sl-color-accent)), transparent 91%);
+		color: var(--hol-ink, var(--sl-color-gray-1));
 		font-weight: 750;
 	}
 
@@ -197,24 +174,15 @@ const milestoneKind = (item: string) => {
 	}
 
 	.hol-week-tags span {
-		border: 1px solid var(--sl-color-gray-5);
+		border: 1px solid var(--hol-border, var(--sl-color-gray-5));
 		padding: 0.14rem 0.52rem;
-		background: color-mix(in oklab, var(--sl-color-gray-7), transparent 55%);
+		background: color-mix(in oklab, var(--hol-surface-2, var(--sl-color-gray-7)), transparent 20%);
 		color: var(--sl-color-gray-2);
 		font-size: 0.78rem;
 		font-weight: 650;
 		text-transform: lowercase;
 	}
 
-	.hol-week-mystery {
-		margin-top: 0.9rem;
-		border: 1px solid color-mix(in oklab, var(--hol-gold, #fbbf24), var(--sl-color-gray-5) 72%);
-		border-radius: 0.8rem;
-		padding: 0.75rem 0.85rem;
-		background: color-mix(in oklab, var(--hol-gold, #fbbf24), transparent 91%);
-	}
-
-	.hol-week-mystery span,
 	.hol-week-card h3 {
 		color: var(--sl-color-gray-3);
 		font-family: var(--__sl-font-mono);
@@ -224,7 +192,6 @@ const milestoneKind = (item: string) => {
 		text-transform: uppercase;
 	}
 
-	.hol-week-mystery p,
 	.hol-week-card-grid p {
 		margin: 0.25rem 0 0;
 		color: var(--sl-color-gray-1);
@@ -238,6 +205,7 @@ const milestoneKind = (item: string) => {
 
 	.hol-week-card-grid section {
 		min-width: 0;
+		margin-top: 0;
 	}
 
 	.hol-week-card h3 {
@@ -252,30 +220,30 @@ const milestoneKind = (item: string) => {
 	}
 
 	.hol-week-milestones span {
-		border: 1px solid var(--sl-color-gray-5);
+		border: 1px solid var(--hol-border, var(--sl-color-gray-5));
 		padding: 0.18rem 0.58rem;
-		background: color-mix(in oklab, var(--sl-color-gray-7), transparent 45%);
+		background: color-mix(in oklab, var(--hol-surface-2, var(--sl-color-gray-7)), transparent 18%);
 		color: var(--sl-color-gray-2);
 		font-size: 0.82rem;
 		font-weight: 700;
 	}
 
 	.hol-week-milestones span[data-kind='release'] {
-		border-color: color-mix(in oklab, var(--hol-teal, var(--sl-color-accent)), var(--sl-color-gray-5) 55%);
-		background: color-mix(in oklab, var(--hol-teal, var(--sl-color-accent)), transparent 86%);
-		color: var(--sl-color-gray-1);
+		border-color: color-mix(in oklab, var(--hol-blue, var(--sl-color-accent)), var(--hol-border, var(--sl-color-gray-5)) 55%);
+		background: color-mix(in oklab, var(--hol-blue, var(--sl-color-accent)), transparent 91%);
+		color: var(--hol-ink, var(--sl-color-gray-1));
 	}
 
 	.hol-week-milestones span[data-kind='due'] {
-		border-color: color-mix(in oklab, var(--hol-gold, #fbbf24), var(--sl-color-gray-5) 55%);
-		background: color-mix(in oklab, var(--hol-gold, #fbbf24), transparent 84%);
-		color: var(--sl-color-gray-1);
+		border-color: color-mix(in oklab, var(--hol-blue, var(--sl-color-accent)), var(--hol-border, var(--sl-color-gray-5)) 45%);
+		background: color-mix(in oklab, var(--hol-blue, var(--sl-color-accent)), transparent 94%);
+		color: var(--hol-ink, var(--sl-color-gray-1));
 	}
 
 	.hol-week-milestones span[data-kind='checkpoint'],
 	.hol-week-milestones span[data-kind='demo'] {
-		border-color: color-mix(in oklab, var(--hol-green, #34d399), var(--sl-color-gray-5) 55%);
-		background: color-mix(in oklab, var(--hol-green, #34d399), transparent 86%);
+		border-color: color-mix(in oklab, var(--sl-color-gray-3), var(--hol-border, var(--sl-color-gray-5)) 58%);
+		background: color-mix(in oklab, var(--sl-color-gray-6), transparent 62%);
 		color: var(--sl-color-gray-1);
 	}
 
@@ -295,6 +263,11 @@ const milestoneKind = (item: string) => {
 		display: grid;
 		gap: 0.85rem;
 		margin-top: 0.75rem;
+	}
+
+	.hol-week-details-body > * {
+		min-width: 0;
+		margin-top: 0;
 	}
 
 	.hol-week-details ul {

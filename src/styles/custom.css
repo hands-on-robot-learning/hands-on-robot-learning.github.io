@@ -1,30 +1,42 @@
 :root {
-  --sl-color-accent-low: #2e1065;
-  --sl-color-accent: #7c3aed;
-  --sl-color-accent-high: #c4b5fd;
+  --sl-font: 'IBM Plex Sans', Inter, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --sl-font-mono: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', monospace;
+
+  --sl-color-accent-low: #102a43;
+  --sl-color-accent: #60a5fa;
+  --sl-color-accent-high: #dbeafe;
 
   --sl-content-width: 56rem;
   --sl-text-5xl: 3rem;
 
-  --hol-surface: color-mix(in oklab, var(--sl-color-gray-7), transparent 55%);
-  --hol-surface-2: color-mix(in oklab, var(--sl-color-gray-7), var(--sl-color-accent-low) 18%);
-  --hol-border: color-mix(in oklab, var(--sl-color-gray-5), var(--sl-color-accent) 12%);
-  --hol-shadow: 0 1px 0 rgba(255, 255, 255, 0.02), 0 12px 36px rgba(0, 0, 0, 0.28);
-  --hol-teal: #22d3ee;
-  --hol-green: #34d399;
-  --hol-gold: #fbbf24;
+  --hol-page-bg: #0f172a;
+  --hol-blue: #1d4ed8;
+  --hol-slate: #cbd5e1;
+  --hol-muted: #94a3b8;
+  --hol-surface: #111827;
+  --hol-surface-2: #0f172a;
+  --hol-border: #334155;
+  --hol-shadow: 0 1px 2px rgba(0, 0, 0, 0.22);
+  --hol-radius: 6px;
+  --hol-radius-card: 8px;
+  --hol-teal: #0891b2;
+  --hol-green: #16a34a;
+  --hol-gold: #d97706;
   --hol-ink: #f8fafc;
 }
 
 :root[data-theme='light'] {
-  --sl-color-accent-low: #ede9fe;
-  --sl-color-accent: #6d28d9;
-  --sl-color-accent-high: #2e1065;
+  --sl-color-accent-low: #dbeafe;
+  --sl-color-accent: #1d4ed8;
+  --sl-color-accent-high: #0f172a;
 
-  --hol-surface: color-mix(in oklab, white, var(--sl-color-accent-low) 10%);
-  --hol-surface-2: color-mix(in oklab, white, var(--sl-color-accent-low) 20%);
-  --hol-border: color-mix(in oklab, var(--sl-color-gray-5), var(--sl-color-accent) 18%);
-  --hol-shadow: 0 1px 0 rgba(0, 0, 0, 0.03), 0 14px 32px rgba(0, 0, 0, 0.08);
+  --hol-page-bg: #f8fafc;
+  --hol-slate: #475569;
+  --hol-muted: #64748b;
+  --hol-surface: #ffffff;
+  --hol-surface-2: #f8fafc;
+  --hol-border: #cbd5e1;
+  --hol-shadow: 0 1px 2px rgba(15, 23, 42, 0.06);
   --hol-ink: #0f172a;
 }
 
@@ -33,18 +45,19 @@
 }
 
 main {
+  background-color: var(--hol-page-bg);
   background-image:
     repeating-linear-gradient(
       0deg,
-      color-mix(in oklab, var(--sl-color-gray-6), transparent 70%) 0,
-      color-mix(in oklab, var(--sl-color-gray-6), transparent 70%) 1px,
+      color-mix(in oklab, var(--hol-border), transparent 84%) 0,
+      color-mix(in oklab, var(--hol-border), transparent 84%) 1px,
       transparent 1px,
       transparent 22px
     ),
     repeating-linear-gradient(
       90deg,
-      color-mix(in oklab, var(--sl-color-gray-6), transparent 70%) 0,
-      color-mix(in oklab, var(--sl-color-gray-6), transparent 70%) 1px,
+      color-mix(in oklab, var(--hol-border), transparent 84%) 0,
+      color-mix(in oklab, var(--hol-border), transparent 84%) 1px,
       transparent 1px,
       transparent 22px
     );
@@ -53,6 +66,33 @@ main {
 
 .hol-landing {
   padding: 1.5rem 0 3rem;
+}
+
+.hol-home-hero {
+  display: grid;
+  gap: clamp(1rem, 3vw, 1.5rem);
+  align-items: center;
+  margin-bottom: 1.25rem;
+}
+
+.hol-home-hero > div {
+  min-width: 0;
+  margin-top: 0;
+}
+
+.hol-home-lede {
+  max-width: 15ch;
+  margin: 0.35rem 0 0.75rem;
+  color: var(--hol-ink);
+  font-size: clamp(1.8rem, 4.2vw, 3.2rem);
+  font-weight: 760;
+  line-height: 1.05;
+}
+
+.hol-home-hero p:not(.hol-section-label, .hol-home-lede) {
+  max-width: 66ch;
+  color: var(--sl-color-gray-2);
+  font-size: 1.05rem;
 }
 
 .hol-hero {
@@ -134,6 +174,10 @@ main {
   flex-wrap: wrap;
   gap: 0.75rem;
   margin-top: 0.5rem;
+}
+
+.hol-cta > * {
+  margin: 0;
 }
 
 .hol-chip-row {
@@ -402,12 +446,18 @@ main {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(min(100%, 10.5rem), 1fr));
   gap: 0.75rem;
+  align-items: stretch;
   margin: clamp(0.5rem, 2vw, 1.5rem) 0 2.5rem;
 }
 
-.hol-stat-strip div {
+.hol-stat-strip > div {
+  display: flex;
+  min-width: 0;
+  min-height: 100%;
+  flex-direction: column;
+  justify-content: flex-start;
   border: 1px solid var(--hol-border);
-  border-radius: 0.85rem;
+  border-radius: var(--hol-radius-card);
   padding: 0.85rem 0.95rem;
   background: color-mix(in oklab, var(--hol-surface), transparent 8%);
 }
@@ -712,7 +762,7 @@ main {
 .hol-card-grid,
 .hol-assignment-grid {
   display: grid;
-  gap: 0.85rem;
+  gap: 1rem;
   margin: 1rem 0;
 }
 
@@ -2286,21 +2336,405 @@ main {
   color: var(--hol-ink);
 }
 
-/* Headings in Markdown: subtle "lab notebook" rule */
-.sl-markdown-content h2:not(:where(.not-content *)) {
-  position: relative;
+/* Global design system reset */
+.sl-markdown-content .sl-heading-wrapper {
+  max-width: 100%;
 }
 
-.sl-markdown-content h2:not(:where(.not-content *))::after {
-  content: '';
-  display: block;
-  height: 1px;
-  margin-top: 0.5rem;
-  background: linear-gradient(
-    90deg,
-    color-mix(in oklab, var(--sl-color-accent), transparent 30%),
-    transparent
-  );
+.sl-markdown-content .sl-heading-wrapper.level-h2 {
+  border-bottom: 1px solid color-mix(in oklab, var(--hol-border), transparent 24%);
+  padding-bottom: 0.38rem;
+}
+
+.sl-markdown-content .sl-heading-wrapper > :first-child {
+  letter-spacing: 0;
+}
+
+.sl-markdown-content .sl-anchor-link {
+  color: var(--hol-blue);
+  vertical-align: baseline;
+}
+
+.sl-link-button,
+.hol-guide-card-link,
+.hol-reading-callout a,
+.hol-faq-links a,
+.hol-faq-item-links a,
+.hol-identity-actions a {
+  display: inline-flex;
+  box-sizing: border-box;
+  max-width: 100%;
+  min-height: 2.45rem;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--hol-radius) !important;
+  border: 1px solid var(--hol-border);
+  padding: 0.62rem 1rem;
+  background: var(--hol-surface);
+  color: var(--hol-ink);
+  font-weight: 700;
+  line-height: 1.2;
+  text-align: center;
+  text-decoration: none;
+  white-space: normal;
+}
+
+.sl-markdown-content .sl-link-button {
+  margin-inline-end: 0.55rem;
+}
+
+.sl-link-button.primary {
+  border-color: var(--hol-blue);
+  background: var(--hol-blue);
+  color: white;
+  box-shadow: var(--hol-shadow);
+}
+
+.sl-link-button.primary:hover,
+.sl-link-button.primary:focus-visible {
+  border-color: #1e40af;
+  background: #1e40af;
+  color: white;
+}
+
+.sl-link-button.secondary,
+.sl-link-button.minimal {
+  border-color: color-mix(in oklab, var(--hol-blue), var(--hol-border) 45%);
+  background: color-mix(in oklab, var(--hol-blue), transparent 92%);
+  color: var(--hol-ink);
+}
+
+.sl-link-button.secondary:hover,
+.sl-link-button.secondary:focus-visible,
+.sl-link-button.minimal:hover,
+.sl-link-button.minimal:focus-visible,
+.hol-guide-card-link:hover,
+.hol-guide-card-link:focus-visible,
+.hol-reading-callout a:hover,
+.hol-reading-callout a:focus-visible,
+.hol-faq-links a:hover,
+.hol-faq-links a:focus-visible,
+.hol-faq-item-links a:hover,
+.hol-faq-item-links a:focus-visible,
+.hol-identity-actions a:hover,
+.hol-identity-actions a:focus-visible {
+  border-color: var(--hol-blue);
+  background: color-mix(in oklab, var(--hol-blue), transparent 88%);
+  color: var(--hol-ink);
+}
+
+.hol-card,
+.hol-home-card,
+.hol-hero-panel,
+.hol-arc-row article,
+.hol-feature-grid article,
+.hol-sponsor-callout,
+.hol-sponsor-hero,
+.hol-boundary-panel,
+.hol-sponsor-contact,
+.hol-sponsor-value-grid article,
+.hol-sponsor-support-grid article,
+.hol-assignment-progression article,
+.hol-assignment-module-card,
+.hol-assignment-showcase-callout,
+.hol-strong-submission,
+.hol-assignment-callout,
+.hol-benchmark-hero,
+.hol-benchmark-schematic,
+.hol-benchmark-setup-list,
+.hol-protocol-list li,
+.hol-metric-grid article,
+.hol-award-grid article,
+.hol-leaderboard-panel,
+.hol-integrity-callout,
+.hol-info-card,
+.hol-assignment-summary-card,
+.hol-info-panel,
+.card,
+.hol-schedule-arc article,
+.hol-assignment-rhythm,
+.hol-assignment-rhythm article,
+.hol-guide-hero,
+.hol-reading-hero,
+.hol-reading-panel,
+.hol-guide-note,
+.hol-guide-card,
+.hol-reading-card,
+.hol-reading-callout,
+.hol-policy-hero,
+.hol-policy-callout,
+.hol-safety-alert,
+.hol-policy-card,
+.hol-role-grid article,
+.hol-policy-list-grid article,
+.hol-llm-grid article,
+.hol-integrity-principles article,
+.hol-weight-grid article,
+.hol-policy-principles,
+.hol-policy-principles div,
+.hol-safety-rules li,
+.hol-safety-checklist li,
+.hol-faq-hero,
+.hol-faq-item {
+  border-color: var(--hol-border);
+  border-radius: var(--hol-radius-card);
+  background: var(--hol-surface);
+  box-shadow: var(--hol-shadow);
+}
+
+.hol-card-title {
+  margin: 0 0 0.45rem;
+  color: var(--hol-ink);
+  font-size: 1.08rem;
+  line-height: 1.25;
+}
+
+.hol-card {
+  box-sizing: border-box;
+  border: 1px solid var(--hol-border);
+  gap: 0.45rem;
+  padding: clamp(1rem, 2vw, 1.2rem);
+  background: var(--hol-surface);
+  color: inherit;
+  text-decoration: none;
+}
+
+.hol-card > * {
+  margin-top: 0;
+}
+
+.hol-card p {
+  margin-bottom: 0;
+  color: var(--sl-color-gray-2);
+}
+
+a.hol-card {
+  transition:
+    border-color 160ms ease,
+    background 160ms ease,
+    transform 160ms ease;
+}
+
+a.hol-card:hover,
+a.hol-card:focus-visible {
+  border-color: var(--hol-blue);
+  background: color-mix(in oklab, var(--hol-blue), var(--hol-surface) 92%);
+  color: inherit;
+  transform: translateY(-1px);
+}
+
+.hol-card-meta {
+  color: var(--hol-muted);
+  font-family: var(--__sl-font-mono);
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.hol-card-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+  margin-top: auto;
+}
+
+.hol-pill,
+.hol-badge,
+.hol-chip,
+.hol-status-badge,
+.hol-assignment-tags span,
+.hol-assignment-pill,
+.hol-week-tags span,
+.hol-week-milestones span,
+.hol-assignment-module-head strong,
+.hol-assignment-glance-head strong {
+  border-radius: var(--hol-radius) !important;
+  border-color: var(--hol-border);
+  background: color-mix(in oklab, var(--hol-surface-2), var(--hol-blue) 4%);
+  color: var(--hol-ink);
+}
+
+.hol-card-grid,
+.hol-assignment-grid,
+.hol-stat-strip,
+.hol-arc-row,
+.hol-feature-grid,
+.hol-sponsor-value-grid,
+.hol-sponsor-support-grid,
+.hol-assignment-progression,
+.hol-assignment-module-grid,
+.hol-deliverable-checklist,
+.hol-rubric-grid,
+.hol-protocol-list,
+.hol-metric-grid,
+.hol-award-grid,
+.hol-fact-row,
+.hol-schedule-arc,
+.hol-schedule-list,
+.hol-assignment-rhythm > div:last-of-type,
+.hol-guide-grid,
+.hol-reading-section-grid,
+.hol-discussion-grid,
+.hol-policy-grid,
+.hol-role-grid,
+.hol-policy-list-grid,
+.hol-llm-grid,
+.hol-integrity-principles,
+.hol-weight-grid,
+.hol-policy-principles,
+.hol-safety-rules,
+.hol-safety-checklist,
+.hol-faq-list {
+  align-items: stretch;
+  grid-auto-rows: 1fr;
+}
+
+.hol-card-grid > *,
+.hol-assignment-grid > *,
+.hol-stat-strip > *,
+.hol-arc-row > *,
+.hol-feature-grid > *,
+.hol-sponsor-value-grid > *,
+.hol-sponsor-support-grid > *,
+.hol-assignment-progression > *,
+.hol-assignment-module-grid > *,
+.hol-deliverable-checklist > *,
+.hol-rubric-grid > *,
+.hol-protocol-list > *,
+.hol-metric-grid > *,
+.hol-award-grid > *,
+.hol-fact-row > *,
+.hol-schedule-arc > *,
+.hol-schedule-list > *,
+.hol-assignment-rhythm > div:last-of-type > *,
+.hol-guide-grid > *,
+.hol-reading-section-grid > *,
+.hol-discussion-grid > *,
+.hol-policy-grid > *,
+.hol-role-grid > *,
+.hol-policy-list-grid > *,
+.hol-llm-grid > *,
+.hol-integrity-principles > *,
+.hol-weight-grid > *,
+.hol-policy-principles > *,
+.hol-safety-rules > *,
+.hol-safety-checklist > *,
+.hol-faq-list > * {
+  min-width: 0;
+  height: 100%;
+}
+
+.sl-markdown-content :is(
+  [class^='hol-'][class*='grid'],
+  [class*=' hol-'][class*='grid'],
+  [class^='hol-'][class*='row'],
+  [class*=' hol-'][class*='row'],
+  [class^='hol-'][class*='strip'],
+  [class*=' hol-'][class*='strip'],
+  [class^='hol-'][class*='list'],
+  [class*=' hol-'][class*='list'],
+  [class^='hol-'][class*='arc'],
+  [class*=' hol-'][class*='arc'],
+  [class^='hol-'][class*='actions'],
+  [class*=' hol-'][class*='actions'],
+  [class^='hol-'][class*='links'],
+  [class*=' hol-'][class*='links'],
+  [class^='hol-'][class*='tags'],
+  [class*=' hol-'][class*='tags'],
+  [class^='hol-'][class*='badges'],
+  [class*=' hol-'][class*='badges'],
+  [class^='hol-'][class*='meta'],
+  [class*=' hol-'][class*='meta'],
+  [class^='hol-'][class*='milestones'],
+  [class*=' hol-'][class*='milestones'],
+  [class^='hol-'][class*='progression'],
+  [class*=' hol-'][class*='progression'],
+  [class^='hol-'][class*='rhythm'],
+  [class*=' hol-'][class*='rhythm'],
+  [class^='hol-'][class*='layout'],
+  [class*=' hol-'][class*='layout'],
+  [class^='hol-'][class*='page'],
+  [class*=' hol-'][class*='page'],
+  [class^='hol-'][class*='carousel'],
+  [class*=' hol-'][class*='carousel']
+) > * {
+  margin-top: 0;
+  min-width: 0;
+}
+
+.hol-card,
+.hol-assignment-module-card,
+.hol-guide-card,
+.hol-reading-card,
+.hol-policy-card,
+.hol-metric-grid article,
+.hol-award-grid article,
+.hol-rubric-grid article,
+.hol-weight-grid article {
+  display: flex;
+  flex-direction: column;
+}
+
+.hol-section-label,
+.hol-hero-eyebrow,
+.hol-stat-strip span,
+.hol-arc-row article > span,
+.hol-schedule-arc span,
+.hol-assignment-rhythm article strong,
+.hol-assignment-progression span,
+.hol-assignment-module-head span,
+.hol-assignment-main-deliverable span,
+.hol-metric-grid span,
+.hol-weight-grid span,
+.hol-status-badge {
+  color: var(--hol-teal);
+}
+
+.hol-table-wrap {
+  width: 100%;
+  overflow-x: auto;
+  border: 1px solid var(--hol-border);
+  border-radius: var(--hol-radius-card);
+  background: var(--hol-surface);
+  box-shadow: var(--hol-shadow);
+}
+
+.hol-table-wrap table,
+.hol-table,
+.sl-markdown-content table:not(:where(.not-content *)) {
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+  margin: 0;
+}
+
+.hol-table-wrap table {
+  display: table;
+}
+
+.hol-table-wrap th,
+.hol-table-wrap td,
+.hol-table th,
+.hol-table td,
+.sl-markdown-content :is(th, td):not(:where(.not-content *)) {
+  border: 0;
+  border-bottom: 1px solid color-mix(in oklab, var(--hol-border), transparent 12%);
+  padding: 0.68rem 0.8rem;
+  vertical-align: top;
+}
+
+.hol-table-wrap th,
+.hol-table th,
+.sl-markdown-content th:not(:where(.not-content *)) {
+  background: color-mix(in oklab, var(--hol-surface-2), var(--hol-blue) 5%);
+  color: var(--hol-ink);
+  font-weight: 750;
+}
+
+.hol-table-wrap tr:last-child td,
+.hol-table tr:last-child td,
+.sl-markdown-content tr:last-child td:not(:where(.not-content *)) {
+  border-bottom: 0;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -2328,5 +2762,9 @@ main {
 
   .hol-news-bullets li {
     break-inside: avoid;
+  }
+
+  .hol-home-hero {
+    grid-template-columns: minmax(0, 1fr) minmax(18rem, 0.55fr);
   }
 }
