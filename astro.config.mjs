@@ -16,7 +16,18 @@ export default defineConfig({
 				src: './src/assets/logo.svg',
 				replacesTitle: false,
 			},
+			favicon: '/favicon.svg',
+			editLink: {
+				baseUrl:
+					'https://github.com/hands-on-robot-learning/hands-on-robot-learning.github.io/edit/main/',
+			},
+			lastUpdated: true,
 			customCss: ['./src/styles/custom.css'],
+			components: {
+				Head: './src/components/CourseHead.astro',
+				Header: './src/components/CourseHeader.astro',
+				Footer: './src/components/CourseFooter.astro',
+			},
 			sidebar: [
 				{
 					label: 'Home',

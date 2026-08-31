@@ -1,0 +1,30 @@
+---
+const path = Astro.url.pathname;
+const { head } = Astro.locals.starlightRoute;
+const isAssignmentDetail = /^\/assignments\/a\d/.test(path);
+const isGuideDetail = path.startsWith('/guides/') && path !== '/guides/';
+const isPolicyDetail = path.startsWith('/policies/') && path !== '/policies/';
+const useCourseCard = !(isAssignmentDetail || isGuideDetail || isPolicyDetail || path.startsWith('/404'));
+const courseCard = 'https://hands-on-robot-learning.github.io/og.png';
+
+const normalizedHead = head.map((entry) => {
+	if (path !== '/') return entry;
+	if (entry.tag === 'title') return { ...entry, content: 'Hands-on Robot Learning' };
+	if (
+		entry.tag === 'meta' &&
+		(entry.attrs?.property === 'og:title' || entry.attrs?.name === 'twitter:title')
+	) {
+		return { ...entry, attrs: { ...entry.attrs, content: 'Hands-on Robot Learning' } };
+	}
+	return entry;
+});
+---
+
+{normalizedHead.map(({ tag: Tag, attrs, content }) => <Tag {...attrs} set:html={content} />)}
+{useCourseCard && (
+	<>
+		<meta property="og:image" content={courseCard} />
+		<meta property="og:image:alt" content="Hands-on Robot Learning course" />
+		<meta name="twitter:image" content={courseCard} />
+	</>
+)}

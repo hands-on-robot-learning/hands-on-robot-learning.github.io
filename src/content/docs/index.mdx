@@ -1,6 +1,7 @@
 ---
 title: Hands-on Robot Learning
 description: "A Fall 2026 Johns Hopkins CS course where students build robot arms, collect data, train policies, and evaluate physical AI systems."
+template: splash
 ---
 
 import { parseYaml } from '../../lib/yaml';
@@ -86,29 +87,21 @@ export const assignmentPreview = [
 <div className="hol-landing">
 	<section className="hol-home-hero hol-card" aria-label="Course introduction">
 		<div>
-			<p className="hol-section-label">Johns Hopkins CS · {course.semester} · {course.course_numbers}</p>
-			<p className="hol-home-lede">Students build real robot-learning systems from the ground up.</p>
+			<p className="hol-section-label">Johns Hopkins Computer Science · {course.semester}</p>
+			<h1 className="hol-home-lede">Build a robot. Collect data. Train it to act.</h1>
 			<p>
-				{'Students assemble SO-101 robot arms, collect real teleoperation data, train imitation-learning policies, and evaluate VLA-style demos on physical hardware.'}
+				{'An end-to-end course in robot learning: students assemble SO-101 arms, collect teleoperation data, train imitation-learning policies, and evaluate VLA-style systems on physical hardware.'}
 			</p>
 			<div className="hol-cta">
-				<a className="sl-link-button primary" href="/overview/">View course overview</a>
-				<a className="sl-link-button secondary" href="#semester-arc">See the semester arc</a>
-				<a className="sl-link-button minimal" href="/sponsors/">Sponsor hardware / compute</a>
+				<a className="sl-link-button primary" href="/overview/">Explore the course</a>
+				<a className="sl-link-button secondary" href="/schedule/">View schedule</a>
+				<a className="sl-link-button minimal" href="/sponsors/">For sponsors</a>
 			</div>
 		</div>
-		<div className="hol-workcell-visual" aria-hidden="true">
-			<div className="hol-workcell-grid"></div>
-			<div className="hol-workcell-arm hol-arm-base"></div>
-			<div className="hol-workcell-arm hol-arm-link-one"></div>
-			<div className="hol-workcell-arm hol-arm-link-two"></div>
-			<div className="hol-workcell-joint hol-joint-one"></div>
-			<div className="hol-workcell-joint hol-joint-two"></div>
-			<div className="hol-workcell-gripper"></div>
-			<div className="hol-workcell-cube"></div>
-			<div className="hol-workcell-camera"><span></span></div>
-			<div className="hol-workcell-panel"><strong>SO-101 lab stack</strong><span>hardware · data · policy · eval</span></div>
-		</div>
+		<figure className="hol-course-visual">
+			<img src="/images/so101-follower.webp" alt="An SO-101 follower robot arm used with the LeRobot platform" />
+			<figcaption>SO-101 follower arm. Image from the <a href="https://huggingface.co/docs/lerobot/so101">Hugging Face LeRobot documentation</a>.</figcaption>
+		</figure>
 	</section>
 
 	<section className="hol-stat-strip" aria-label="Course snapshot">
@@ -116,10 +109,7 @@ export const assignmentPreview = [
 			<span>Term</span>
 			<strong>{course.semester}</strong>
 		</div>
-		<div>
-			<span>Enrollment</span>
-			<strong>~{course.enrollment.recommended_cap} students</strong>
-		</div>
+		<div><span>Format</span><strong>Weekly lecture + lab</strong></div>
 		<div>
 			<span>Hardware</span>
 			<strong>{course.hardware.active_follower_arms}+ robot kits</strong>
@@ -137,8 +127,8 @@ export const assignmentPreview = [
 	<section className="hol-section">
 		<div className="hol-section-head">
 			<p className="hol-section-label">Start here</p>
-			<h2>Student course dashboard</h2>
-			<p>{'The fastest path into the course: logistics, weekly plan, assignments, safety expectations, and frequently asked questions.'}</p>
+			<h2>Course map</h2>
+			<p>{'The essentials for students: logistics, weekly plan, assignments, evaluation, safety expectations, and frequently asked questions.'}</p>
 		</div>
 		<div className="hol-card-grid">
 			{startCards.map((card) => (

@@ -1,0 +1,73 @@
+---
+import EditLink from 'virtual:starlight/components/EditLink';
+import LastUpdated from 'virtual:starlight/components/LastUpdated';
+import Pagination from 'virtual:starlight/components/Pagination';
+
+const year = new Date().getFullYear();
+---
+
+<footer class="course-footer">
+	<div class="course-page-meta">
+		<EditLink />
+		<LastUpdated />
+	</div>
+	<Pagination />
+	<div class="course-site-meta">
+		<span>© {year} Hands-on Robot Learning · Johns Hopkins University</span>
+		<span class="course-site-links">
+			<a href="https://github.com/hands-on-robot-learning/hands-on-robot-learning.github.io">GitHub</a>
+			<a href="https://www.cs.jhu.edu/">JHU Computer Science</a>
+			<a href="https://sciphylab.org/">Sci-Phy Lab</a>
+		</span>
+	</div>
+</footer>
+
+<style>
+	.course-footer {
+		display: flex;
+		flex-direction: column;
+		gap: 1.5rem;
+		margin-top: 3rem;
+	}
+
+	.course-page-meta,
+	.course-site-meta,
+	.course-site-links {
+		display: flex;
+		align-items: center;
+		flex-wrap: wrap;
+	}
+
+	.course-page-meta {
+		justify-content: space-between;
+		gap: 0.75rem 3rem;
+		font-size: var(--sl-text-sm);
+		color: var(--sl-color-gray-3);
+	}
+
+	.course-page-meta > :global(p:only-child) {
+		margin-inline-start: auto;
+	}
+
+	.course-site-meta {
+		justify-content: space-between;
+		gap: 0.6rem 1.5rem;
+		border-top: 1px solid var(--sl-color-hairline);
+		padding-top: 1.1rem;
+		color: var(--sl-color-gray-3);
+		font-size: 0.82rem;
+	}
+
+	.course-site-links {
+		gap: 1rem;
+	}
+
+	.course-site-links a {
+		color: var(--sl-color-gray-3);
+		text-decoration: none;
+	}
+
+	.course-site-links a:hover {
+		color: var(--sl-color-text-accent);
+	}
+</style>

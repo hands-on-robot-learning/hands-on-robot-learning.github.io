@@ -1,0 +1,139 @@
+---
+import Search from 'virtual:starlight/components/Search';
+import ThemeSelect from 'virtual:starlight/components/ThemeSelect';
+
+const links = [
+	{ label: 'Home', href: '/' },
+	{ label: 'Overview', href: '/overview/' },
+	{ label: 'Schedule', href: '/schedule/' },
+	{ label: 'Assignments', href: '/assignments/' },
+	{ label: 'Guides', href: '/guides/' },
+];
+
+const current = Astro.url.pathname;
+const isActive = (href: string) =>
+	href === '/' ? current === '/' : current.startsWith(href);
+---
+
+<div class="course-header">
+	<a class="course-wordmark" href="/" aria-label="Hands-on Robot Learning home">
+		<span class="course-wordmark-mark" aria-hidden="true">HRL</span>
+		<span>Hands-on Robot Learning</span>
+	</a>
+
+	<nav class="course-nav" aria-label="Primary navigation">
+		{links.map((link) => (
+			<a
+				href={link.href}
+				class:list={['course-nav-link', isActive(link.href) && 'is-active']}
+				aria-current={isActive(link.href) ? 'page' : undefined}
+			>
+				{link.label}
+			</a>
+		))}
+	</nav>
+
+	<div class="course-header-tools">
+		<Search />
+		<div class="course-theme"><ThemeSelect /></div>
+	</div>
+</div>
+
+<style>
+	.course-header {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 1rem;
+		width: min(100%, 1160px);
+		height: 100%;
+		margin-inline: auto;
+	}
+
+	.course-wordmark {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.55rem;
+		min-width: 0;
+		color: var(--sl-color-white);
+		font-size: 0.98rem;
+		font-weight: 600;
+		letter-spacing: -0.01em;
+		text-decoration: none;
+		white-space: nowrap;
+	}
+
+	.course-wordmark:hover {
+		color: var(--sl-color-text-accent);
+	}
+
+	.course-wordmark-mark {
+		display: inline-grid;
+		place-items: center;
+		min-width: 2.1rem;
+		height: 1.65rem;
+		border: 1px solid var(--sl-color-accent);
+		border-radius: 2px;
+		padding-inline: 0.35rem;
+		background: var(--sl-color-accent-low);
+		color: var(--sl-color-text-accent);
+		font-family: var(--__sl-font-mono);
+		font-size: 0.72rem;
+		font-weight: 700;
+		letter-spacing: 0.04em;
+	}
+
+	.course-nav {
+		display: none;
+		align-items: center;
+		gap: 0.15rem;
+		margin-left: auto;
+	}
+
+	.course-nav-link {
+		border: 1px solid transparent;
+		border-radius: 2px;
+		padding: 0.25rem 0.5rem;
+		color: var(--sl-color-gray-3);
+		font-size: 0.86rem;
+		font-weight: 500;
+		text-decoration: none;
+	}
+
+	.course-nav-link:hover {
+		background: var(--sl-color-accent-low);
+		color: var(--sl-color-white);
+	}
+
+	.course-nav-link.is-active {
+		border-color: var(--sl-color-gray-5);
+		background: var(--sl-color-gray-6);
+		color: var(--sl-color-text-accent);
+	}
+
+	.course-header-tools {
+		display: flex;
+		align-items: center;
+		gap: 0.55rem;
+	}
+
+	.course-theme {
+		display: none;
+	}
+
+	@media (min-width: 50rem) {
+		.course-nav {
+			display: flex;
+		}
+
+		.course-theme {
+			display: block;
+		}
+	}
+
+	@media (max-width: 34rem) {
+		.course-wordmark span:last-child {
+			display: none;
+		}
+	}
+</style>
