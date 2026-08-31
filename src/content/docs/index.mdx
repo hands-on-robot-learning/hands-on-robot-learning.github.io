@@ -1,202 +1,187 @@
 ---
 title: Hands-on Robot Learning
-description: "A Fall 2026 Johns Hopkins CS course where students build robot arms, collect data, train policies, and evaluate physical AI systems."
+description: "EN.601.498 / EN.601.698 · Fall 2026 · Johns Hopkins University"
 template: splash
+prev: false
+next: false
 ---
 
-import { parseYaml } from '../../lib/yaml';
-import courseYaml from '../../data/course.yaml?raw';
+<div className="course-page">
+	<header className="course-intro">
+		<div className="course-intro-copy">
+			<p className="course-eyebrow">Johns Hopkins University · Fall 2026</p>
+			<h1>Hands-on Robot Learning</h1>
+			<p className="course-lede">{'A course on the practical details of modern robot learning: building and calibrating a robot arm, collecting data, training policies, and evaluating them on physical hardware.'}</p>
+		</div>
+		<figure className="course-robot">
+			<img src="/images/so101-follower.webp" alt="An SO-101 follower robot arm used with LeRobot" />
+			<figcaption>SO-101 follower arm. Image from the <a href="https://huggingface.co/docs/lerobot/so101">LeRobot documentation</a>.</figcaption>
+		</figure>
+	</header>
 
-export const course = parseYaml(courseYaml);
+	<dl className="course-facts">
+		<div><dt>Course</dt><dd>EN.601.498 / EN.601.698</dd></div>
+		<div><dt>Instructor</dt><dd><a href="https://krrish94.github.io/">Krishna Murthy Jatavallabhula</a></dd></div>
+		<div><dt>Course assistants</dt><dd>Xinyi Yin, Aleks Santari, and Yinzhe Zhou</dd></div>
+		<div><dt>Meetings</dt><dd>Weekly lecture and lab; time and room TBA</dd></div>
+	</dl>
 
-export const startCards = [
-	{
-		title: 'Course overview',
-		href: '/overview/',
-		meta: 'Start here',
-		summary: 'What the course covers, who it is for, prerequisites, and what successful participation looks like.',
-	},
-	{
-		title: 'Schedule',
-		href: '/schedule/',
-		meta: 'Week by week',
-		summary: 'Follow the semester arc from robot setup through data collection, training, evaluation, and demos.',
-	},
-	{
-		title: 'Assignments',
-		href: '/assignments/',
-		meta: 'Four milestones',
-		summary: 'A1 build and teleop, A2 handcrafted baseline, A3 imitation learning, and A4 VLA final demo.',
-	},
-	{
-		title: 'Benchmark & leaderboard',
-		href: '/benchmark/',
-		meta: 'Shared evaluation',
-		summary: 'Understand the cube pick-and-place protocol, metrics, integrity expectations, and demo awards.',
-	},
-	{
-		title: 'Safety & policies',
-		href: '/policies/',
-		meta: 'Before lab work',
-		summary: 'Review safety, teams, grading, LLM use, late work, and data/evaluation integrity expectations.',
-	},
-	{
-		title: 'FAQ',
-		href: '/faq/',
-		meta: 'Quick answers',
-		summary: 'Common questions for students, visitors, and potential sponsors.',
-	},
-];
+	<section id="about" className="course-section">
+		<h2>About</h2>
+		<p>{'Modern robot policies are often presented as a model and a benchmark score. On a physical robot, the result also depends on the data collection setup, robot interface, training pipeline, inference loop, and evaluation protocol. We will study these pieces together using the SO-101 arm and the LeRobot software stack.'}</p>
+		<p>{'The course begins with assembly and teleoperation, moves through single-task imitation learning, and then studies generalist robot policies and current research directions. Most assignments will be completed in small teams. There are no exams.'}</p>
+	</section>
 
-export const semesterArc = [
-	['01', 'Build', 'Assemble SO-101 arms and bring up a safe, repeatable lab setup.'],
-	['02', 'Teleoperate', 'Control the robot directly and learn what clean demonstrations require.'],
-	['03', 'Collect Data', 'Record episodes with consistent resets, metadata, cameras, and logs.'],
-	['04', 'Train Policies', 'Train ACT, diffusion-style, and LeRobot-based imitation policies.'],
-	['05', 'Evaluate', 'Run fair trials, compare to baselines, and document failures honestly.'],
-	['06', 'Demo', 'Present a VLA-style final demo with clear evidence and constraints.'],
-];
+	<section id="schedule" className="course-section">
+		<h2>Schedule</h2>
+		<p>{'The schedule is tentative. Topics, readings, and guest lectures may change as the semester develops.'}</p>
+		<div className="course-table-wrap">
+			<table className="course-schedule">
+				<thead><tr><th>Date</th><th>Topic</th><th>Notes and readings</th></tr></thead>
+				<tbody>
+					<tr className="course-module"><th colSpan="3">Module 1 · Introduction to robot learning</th></tr>
+					<tr>
+						<td>Sep 3</td>
+						<td>Introduction to modern robot learning</td>
+						<td>The data-driven robotics lifecycle: task definition, data, policy learning, deployment, and evaluation. We will also set up the course software. Reading: <a href="https://arxiv.org/abs/2310.08864">Open X-Embodiment</a>.</td>
+					</tr>
+					<tr>
+						<td>Sep 10</td>
+						<td>Essentials; the SO-101 stack</td>
+						<td>A short review of coordinate frames, control and action representations, supervised learning, and transformers; then the <a href="https://huggingface.co/docs/lerobot/so101">SO-101 and LeRobot stack</a> used in the course.</td>
+					</tr>
+					<tr>
+						<td>Sep 17</td>
+						<td>Assembly and calibration</td>
+						<td>In-class build session: assembly, motor setup, calibration, camera checks, and basic safety. Most teams should complete A0 during class.</td>
+					</tr>
 
-export const assignmentPreview = [
-	{
-		label: 'A1',
-		title: 'Build + Teleop',
-		href: '/assignments/a1-build-calibrate-teleop/',
-		summary: 'Assemble, calibrate, and teleoperate the robot stack.',
-	},
-	{
-		label: 'A2',
-		title: 'Handcrafted Baseline',
-		href: '/assignments/a2-handcrafted-cube-picking/',
-		summary: 'Engineer a transparent cube-picking baseline before learning.',
-	},
-	{
-		label: 'A3',
-		title: 'Imitation Learning',
-		href: '/assignments/a3-lerobot-imitation-challenge/',
-		summary: 'Train and evaluate learned policies on a shared protocol.',
-	},
-	{
-		label: 'A4',
-		title: 'VLA Demo',
-		href: '/assignments/a4-vla-smolvla-demo/',
-		summary: 'Build a final VLA-style demo with honest evidence.',
-	},
-];
+					<tr className="course-module"><th colSpan="3">Module 2 · Data for robot learning</th></tr>
+					<tr>
+						<td>Sep 24</td>
+						<td>Teleoperation and other data sources</td>
+						<td>Teleoperation interfaces, demonstrations, resets, dataset coverage, and data quality. Readings: <a href="https://arxiv.org/abs/2309.13037">GELLO</a> and <a href="https://arxiv.org/abs/2403.12945">DROID</a>.</td>
+					</tr>
 
-<div className="hol-landing">
-	<section className="hol-home-hero hol-card" aria-label="Course introduction">
-		<div>
-			<p className="hol-section-label">Johns Hopkins Computer Science · {course.semester}</p>
-			<h1 className="hol-home-lede">Build a robot. Collect data. Train it to act.</h1>
-			<p>
-				{'An end-to-end course in robot learning: students assemble SO-101 arms, collect teleoperation data, train imitation-learning policies, and evaluate VLA-style systems on physical hardware.'}
-			</p>
-			<div className="hol-cta">
-				<a className="sl-link-button primary" href="/overview/">Explore the course</a>
-				<a className="sl-link-button secondary" href="/schedule/">View schedule</a>
-				<a className="sl-link-button minimal" href="/sponsors/">For sponsors</a>
+					<tr className="course-module"><th colSpan="3">Module 3 · Single-task imitation learning</th></tr>
+					<tr>
+						<td>Oct 1</td>
+						<td>Imitation learning and action chunking</td>
+						<td>Behavior cloning, covariate shift, sequence prediction, action chunking, and temporal ensembling. Readings: <a href="https://proceedings.mlr.press/v15/ross11a.html">DAgger</a> and <a href="https://arxiv.org/abs/2304.13705">ACT / ALOHA</a>.</td>
+					</tr>
+					<tr>
+						<td>Oct 8</td>
+						<td>Generative policies</td>
+						<td>Why robot actions can be multimodal; diffusion and flow-matching objectives for action generation. Readings: <a href="https://arxiv.org/abs/2303.04137">Diffusion Policy</a> and <a href="https://arxiv.org/abs/2210.02747">Flow Matching</a>.</td>
+					</tr>
+					<tr>
+						<td>Oct 15</td>
+						<td>The policy inference stack</td>
+						<td>Observation and action queues, control frequency, latency, chunk execution, temporal ensembling, stopping, and recovery. Reading: <a href="https://arxiv.org/abs/2405.07503">Consistency Policy</a>.</td>
+					</tr>
+
+					<tr className="course-module"><th colSpan="3">Module 4 · Generalist robot learning</th></tr>
+					<tr>
+						<td>Oct 22</td>
+						<td>Introduction to vision-language-action models</td>
+						<td>Moving from task-specific behavior cloning to policies trained on mixtures of tasks, robots, and language instructions. Reading: <a href="https://arxiv.org/abs/2406.09246">OpenVLA</a>.</td>
+					</tr>
+					<tr>
+						<td>Oct 29</td>
+						<td>VLA models continued</td>
+						<td>Action representations, flow-based action experts, tokenization, fine-tuning, and inference. Readings: <a href="https://arxiv.org/abs/2410.24164">π<sub>0</sub></a> and <a href="https://arxiv.org/abs/2501.09747">FAST</a>. VLA Foundry guest lecture, tentative.</td>
+					</tr>
+					<tr>
+						<td>Nov 5</td>
+						<td>Code as policies and coding agents for robotics</td>
+						<td>Composing perception and control primitives with generated programs; execution feedback and agentic refinement. Readings: <a href="https://arxiv.org/abs/2209.07753">Code as Policies</a> and <a href="https://arxiv.org/abs/2603.22435">CaP-X</a>.</td>
+					</tr>
+					<tr>
+						<td>Nov 12</td>
+						<td>World, reward, and value models</td>
+						<td>Predicting consequences, connecting video models to actions, and learning task progress or reward. Readings: <a href="https://arxiv.org/abs/2602.15922">DreamZero</a> and <a href="https://arxiv.org/abs/2606.24742">World Value Models</a>.</td>
+					</tr>
+
+					<tr className="course-module"><th colSpan="3">Module 5 · Research frontiers</th></tr>
+					<tr>
+						<td>Nov 19</td>
+						<td>Evaluating generalist policies</td>
+						<td>Task suites, distribution shifts, real-world trial design, and the limits of simulated evaluation. Readings: <a href="https://arxiv.org/abs/2405.05941">SIMPLER</a> and <a href="https://arxiv.org/abs/2607.14439">active factor-based evaluation</a>. Guest lecture, tentative.</td>
+					</tr>
+					<tr className="course-break"><td>Nov 26</td><td>No class</td><td>Fall recess.</td></tr>
+					<tr>
+						<td>Dec 3</td>
+						<td>Student paper discussions</td>
+						<td>Student-led discussions of recent work. Papers will be selected during the semester.</td>
+					</tr>
+					<tr>
+						<td>Dec 10</td>
+						<td>Final policy evaluations and presentations</td>
+						<td>Final A3 evaluations, short presentations, and a course wrap-up.</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</section>
+
+	<section id="assignments" className="course-section">
+		<h2>Assignments</h2>
+		<p>{'The four assignments follow the course sequence. Full specifications and due dates will be added before each assignment is released.'}</p>
+		<div className="course-table-wrap">
+			<table className="course-assignment-table">
+				<thead><tr><th>Assignment</th><th>Scope</th><th>Weight</th></tr></thead>
+				<tbody>
+					<tr><td><a href="/assignments/a0-build-calibrate/">A0 · Build and calibrate</a></td><td>Assemble the SO-101, configure the motors, calibrate the arm, and document a working setup.</td><td>5%</td></tr>
+					<tr><td><a href="/assignments/a1-handcrafted-manipulation/">A1 · Handcrafted manipulation skill</a></td><td>Implement and evaluate a manipulation skill using an explicit perception-and-control pipeline.</td><td>10%</td></tr>
+					<tr><td><a href="/assignments/a2-single-task-imitation/">A2 · Single-task imitation learning</a></td><td>Collect demonstrations, train a task-specific policy, deploy it, and analyze its behavior.</td><td>30%</td></tr>
+					<tr><td><a href="/assignments/a3-multi-task-policy/">A3 · Multi-task policy learning</a></td><td>Train or adapt a policy across multiple tasks and evaluate where transfer helps or fails.</td><td>35%</td></tr>
+				</tbody>
+			</table>
+		</div>
+	</section>
+
+	<section id="grading" className="course-section">
+		<h2>Grading</h2>
+		<div className="grading-layout">
+			<table className="course-grade-table">
+				<tbody>
+					<tr><th>A0 · Build and calibrate</th><td>5%</td></tr>
+					<tr><th>A1 · Handcrafted manipulation skill</th><td>10%</td></tr>
+					<tr><th>A2 · Single-task imitation learning</th><td>30%</td></tr>
+					<tr><th>A3 · Multi-task policy learning</th><td>35%</td></tr>
+					<tr><th>Participation, team contribution, and individual assessment</th><td>20%</td></tr>
+					<tr className="grade-total"><th>Total</th><td>100%</td></tr>
+				</tbody>
+			</table>
+			<div>
+				<p>{'Most assignment work will be completed in teams. Your final grade will also reflect your participation in class, your documented contribution to the team, and an individual assessment component.'}</p>
+				<p>{'Robot experiments do not always work. Grading will therefore consider the quality of the setup, evidence, evaluation, and analysis—not only whether a final trial succeeds.'}</p>
 			</div>
 		</div>
-		<figure className="hol-course-visual">
-			<img src="/images/so101-follower.webp" alt="An SO-101 follower robot arm used with the LeRobot platform" />
-			<figcaption>SO-101 follower arm. Image from the <a href="https://huggingface.co/docs/lerobot/so101">Hugging Face LeRobot documentation</a>.</figcaption>
-		</figure>
 	</section>
 
-	<section className="hol-stat-strip" aria-label="Course snapshot">
-		<div>
-			<span>Term</span>
-			<strong>{course.semester}</strong>
-		</div>
-		<div><span>Format</span><strong>Weekly lecture + lab</strong></div>
-		<div>
-			<span>Hardware</span>
-			<strong>{course.hardware.active_follower_arms}+ robot kits</strong>
-		</div>
-		<div>
-			<span>Assignments</span>
-			<strong>4 hardware-to-learning milestones</strong>
-		</div>
-		<div>
-			<span>Finale</span>
-			<strong>Public demo showcase</strong>
-		</div>
-	</section>
+	<section id="faq" className="course-section course-faq">
+		<h2>FAQ</h2>
 
-	<section className="hol-section">
-		<div className="hol-section-head">
-			<p className="hol-section-label">Start here</p>
-			<h2>Course map</h2>
-			<p>{'The essentials for students: logistics, weekly plan, assignments, evaluation, safety expectations, and frequently asked questions.'}</p>
-		</div>
-		<div className="hol-card-grid">
-			{startCards.map((card) => (
-				<a className="hol-card" href={card.href}>
-					<span className="hol-card-meta">{card.meta}</span>
-					<h3 className="hol-card-title">{card.title}</h3>
-					<p>{card.summary}</p>
-				</a>
-			))}
-		</div>
-	</section>
+		<h3>Who should take this course?</h3>
+		<p>{'The course is intended for students who are comfortable with Python and basic machine-learning workflows and who want experience with physical robot systems. Prior robotics experience is useful, but not required.'}</p>
 
-	<section className="hol-section" id="semester-arc">
-		<div className="hol-section-head">
-			<p className="hol-section-label">Semester arc</p>
-			<h2>One robot-learning pipeline, end to end.</h2>
-			<p>{'The course is organized around a concrete progression from hardware bring-up to data collection, learned policies, careful evaluation, and final demos.'}</p>
-		</div>
-		<div className="hol-card-grid hol-step-grid">
-			{semesterArc.map(([step, title, summary]) => (
-				<article className="hol-card">
-					<span className="hol-card-meta">{step}</span>
-					<h3 className="hol-card-title">{title}</h3>
-					<p>{summary}</p>
-				</article>
-			))}
-		</div>
-	</section>
+		<h3>Do students need to buy a robot?</h3>
+		<p>{'No. The course will provide shared SO-101 arms and related hardware for team use.'}</p>
 
-	<section className="hol-section">
-		<div className="hol-section-head">
-			<p className="hol-section-label">Assignment progression</p>
-			<h2>Four milestones from hardware to learned policies.</h2>
-		</div>
-		<div className="hol-card-grid hol-assignment-preview">
-			{assignmentPreview.map((item) => (
-				<a className="hol-card" href={item.href}>
-					<span className="hol-card-meta">{item.label}</span>
-					<h3 className="hol-card-title">{item.title}</h3>
-					<p>{item.summary}</p>
-				</a>
-			))}
-		</div>
-	</section>
+		<h3>How are teams graded?</h3>
+		<p>{'Assignments are primarily team submissions, but team grades are not automatically copied to every member. Individual understanding and documented contribution are part of the remaining 20% of the grade.'}</p>
 
-	<section className="hol-sponsor-callout">
-		<div>
-			<p className="hol-section-label">Sponsors and partners</p>
-			<h2>Interested in supporting hands-on robotics education?</h2>
-			<p>{'Useful support includes robot kits, cameras, teleoperation hardware, compute or cloud credits, and final showcase support for student demos.'}</p>
-		</div>
-		<a className="sl-link-button secondary" href="/sponsors/">For sponsors</a>
-	</section>
+		<h3>Are there exams?</h3>
+		<p>{'No. Evaluation is based on the assignments, participation, team contribution, and individual assessment.'}</p>
 
-	<section className="hol-section hol-identity">
-		<div className="hol-section-head">
-			<p className="hol-section-label">Instructor and course identity</p>
-			<h2>A Johns Hopkins CS course in robot learning and physical AI.</h2>
-			<p>
-				{'Hands-on Robot Learning is taught by '}
-				<a href={course.instructor.website}>{course.instructor.name}</a>
-				{' in Johns Hopkins Computer Science. The course connects modern robot-learning methods to the practical work of building, debugging, and evaluating physical systems.'}
-			</p>
-		</div>
-		<div className="hol-identity-actions">
-			<a href="/overview/">Course overview</a>
-			<a href="/assignments/">Assignments</a>
-			<a href="/benchmark/">Benchmark and leaderboard</a>
-		</div>
+		<h3>How much work happens outside class?</h3>
+		<p>{'Teams should expect regular work outside the weekly meeting, especially for data collection, training, and robot evaluation. Hardware access and scheduling details will be shared at the beginning of the semester.'}</p>
+
+		<h3>Can students use coding assistants?</h3>
+		<p>{'Yes, for explanation, debugging, refactoring, and documentation. Students remain responsible for submitted code and results, must disclose material use, and must be able to explain their work. Fabricated logs, videos, experiments, or results are not permitted.'}</p>
+
+		<h3>What happens when hardware fails?</h3>
+		<p>{'Report the problem early and document what happened. Ordinary hardware failures are part of working with robots; unsafe operation or unreported damage is a separate issue.'}</p>
 	</section>
 </div>

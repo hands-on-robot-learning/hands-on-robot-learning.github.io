@@ -1,0 +1,32 @@
+---
+title: "A3 — Multi-task policy learning"
+description: Train or adapt a policy across several manipulation tasks and study transfer between them.
+template: splash
+prev: false
+next: false
+---
+
+**Weight:** 35%  
+**Format:** Team assignment with an individual assessment component  
+**Due:** To be announced
+
+A3 asks what changes when one policy must represent more than one manipulation skill. Your team will train or adapt a policy across a small set of tasks, then test where sharing data and model parameters helps—and where it does not.
+
+## Scope
+
+The task set and allowed starting checkpoints will be specified when the assignment is released. Depending on the final course stack, the policy may use task IDs, goal images, or language instructions. The assignment may use a multi-task imitation policy, a VLA model, or a smaller model adapted from a provided checkpoint.
+
+## Submission
+
+- A precise description of the task set, data sources, and conditioning signal.
+- Dataset documentation, including the number of episodes per task and any reused course data.
+- Training or adaptation configuration, logs, and the checkpoint used for evaluation.
+- Per-task results and aggregate results under the assigned protocol.
+- At least one comparison that helps isolate transfer, interference, data balance, or conditioning choices.
+- Continuous evaluation video and a short report discussing successes, failures, and limitations.
+
+## Assessment
+
+We will consider the correctness and reproducibility of the system, the care taken in evaluation, and whether the comparisons support the claims in the report. The individual assessment will check that each team member understands the submitted system and can account for their contribution.
+
+[Return to the assignment list](/#assignments)
