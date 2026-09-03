@@ -34,33 +34,33 @@ next: false
 
 	<section id="schedule" className="course-section">
 		<h2>Schedule</h2>
-		<p>{'The schedule is tentative. Topics, readings, and guest lectures may change as the semester develops.'}</p>
+		<p>{'The schedule is tentative and may change as the semester develops.'}</p>
 		<div className="course-table-wrap">
 			<table className="course-schedule">
-				<thead><tr><th>Date</th><th>Topic</th><th>Topics and references</th></tr></thead>
+				<thead><tr><th>Date</th><th>Title</th><th>Topics</th></tr></thead>
 				<tbody>
 					<tr className="course-module"><th colSpan="3">Module 1 · Introduction to robot learning</th></tr>
 					<tr>
 						<td>Sep 3</td>
 						<td>Introduction to modern robot learning</td>
-						<td>The data-driven robotics lifecycle; the state of the art in robot learning. Reference: <a href="https://arxiv.org/abs/2310.08864">Open X-Embodiment</a>.</td>
+						<td>The data-driven robotics lifecycle; the state of the art in robot learning.</td>
 					</tr>
 					<tr>
 						<td>Sep 10</td>
 						<td>Essentials (whirlwind recap)</td>
-						<td>A short review of robot kinematics, position-based control, action representations, supervised learning, <a href="https://huggingface.co/docs/lerobot/">LeRobot</a>, and the <a href="https://huggingface.co/docs/lerobot/so101">SO-101</a>.</td>
+						<td>A short review of robot kinematics, position-based control, action representations, supervised learning, LeRobot, and the SO-101.</td>
 					</tr>
 
 					<tr className="course-module"><th colSpan="3">Module 2 · Data for robot learning</th></tr>
 					<tr>
 						<td>Sep 17</td>
 						<td>Data for robot learning: teleop and other sources</td>
-						<td>Teleoperation interfaces; leader–follower systems; GELLO; AR/VR teleoperation; UMI and variants; and other sources of robot data. References: <a href="https://arxiv.org/abs/2309.13037">GELLO</a> and <a href="https://arxiv.org/abs/2402.10329">UMI</a>.</td>
+						<td>Teleoperation interfaces; leader–follower systems; GELLO; AR/VR teleoperation; UMI and variants; and other sources of robot data.</td>
 					</tr>
 
 					<tr className="course-standalone">
 						<td>Sep 24</td>
-						<td><span className="course-session-kind">Standalone session</span>SO-101 assembly and calibration</td>
+						<td>SO-101 assembly and calibration</td>
 						<td>In-class build session: arm assembly, motor configuration, calibration, camera checks, and basic safety.</td>
 					</tr>
 
@@ -68,17 +68,17 @@ next: false
 					<tr>
 						<td>Oct 1</td>
 						<td>Imitation learning and action chunking</td>
-						<td>Behavior cloning; ALOHA; Action Chunking Transformers. Reference: <a href="https://arxiv.org/abs/2304.13705">Learning Fine-Grained Bimanual Manipulation with Low-Cost Hardware</a>.</td>
+						<td>Behavior cloning; ALOHA; Action Chunking Transformers.</td>
 					</tr>
 					<tr>
 						<td>Oct 8</td>
 						<td>Generative policies</td>
-						<td>Multimodality; diffusion policies; flow matching. References: <a href="https://arxiv.org/abs/2303.04137">Diffusion Policy</a> and <a href="https://arxiv.org/abs/2210.02747">Flow Matching</a>.</td>
+						<td>Multimodality; diffusion policies; flow matching.</td>
 					</tr>
 					<tr>
 						<td>Oct 15</td>
 						<td>Policy inference stack</td>
-						<td>Asynchronous observation and action; latency; real-time action chunking; temporal ensembling; and related deployment considerations. Reference: <a href="https://arxiv.org/abs/2405.07503">Consistency Policy</a>.</td>
+						<td>Asynchronous observation and action; latency; real-time action chunking; temporal ensembling; and more.</td>
 					</tr>
 
 					<tr className="course-break"><td>Oct 22</td><td>No class</td><td>Fall Break.</td></tr>
@@ -86,22 +86,22 @@ next: false
 					<tr>
 						<td>Oct 29</td>
 						<td>Introduction to vision-language-action (VLA) models</td>
-						<td>Early VLAs: the RT series, OpenVLA, and Octo; π<sub>0</sub> and variants; bilevel (hierarchical) policies; Large Behavior Models; and related approaches. References: <a href="https://arxiv.org/abs/2307.15818">RT-2</a>, <a href="https://arxiv.org/abs/2406.09246">OpenVLA</a>, <a href="https://arxiv.org/abs/2405.12213">Octo</a>, and <a href="https://arxiv.org/abs/2410.24164">π<sub>0</sub></a>.</td>
+						<td>Early VLAs: the RT series, OpenVLA, and Octo; π<sub>0</sub> and variants; bilevel (hierarchical) policies; Large Behavior Models; and more.</td>
 					</tr>
 					<tr>
 						<td>Nov 5</td>
 						<td>VLA models continued</td>
-						<td>Action representations; tokenization; fine-tuning; inference. Reference: <a href="https://arxiv.org/abs/2501.09747">FAST</a>.</td>
+						<td>Action representations; tokenization; fine-tuning; inference.</td>
 					</tr>
 					<tr>
 						<td>Nov 12</td>
 						<td>Coding agents as policies</td>
-						<td><a href="https://arxiv.org/abs/2209.07753">Code as Policies</a> and variants such as <a href="https://arxiv.org/abs/2603.22435">CaP-X</a>; <a href="https://arxiv.org/abs/2606.19980">ENPIRE</a> and related systems.</td>
+						<td>Code as Policies and variants such as CaP-X; ENPIRE and related systems.</td>
 					</tr>
 					<tr>
 						<td>Nov 19</td>
 						<td>World models and policy learning</td>
-						<td>World models in robotics; action-centric versus goal-centric world-modeling frameworks; planning and action extraction; exemplar frameworks; reward and value models. References: <a href="https://arxiv.org/abs/2602.15922">DreamZero</a> and <a href="https://arxiv.org/abs/2606.24742">World Value Models</a>.</td>
+						<td>World models in robotics; action-centric versus goal-centric world-modeling frameworks; planning and action extraction; exemplar frameworks; reward and value models.</td>
 					</tr>
 					<tr className="course-break"><td>Nov 26</td><td>No class</td><td>Fall recess.</td></tr>
 
@@ -109,11 +109,11 @@ next: false
 					<tr>
 						<td>Dec 3</td>
 						<td>Evaluating generalist robot models</td>
-						<td>Statistical significance testing; metrics for evaluating policies and world models. References: <a href="https://arxiv.org/abs/2405.05941">SIMPLER</a> and <a href="https://arxiv.org/abs/2607.14439">active factor-based evaluation</a>.</td>
+						<td>Statistical significance testing; metrics for evaluating policies and world models.</td>
 					</tr>
 					<tr className="course-standalone">
 						<td>Dec 10</td>
-						<td><span className="course-session-kind">Standalone session</span>Final demos</td>
+						<td>Final demos</td>
 						<td>Final policy evaluations, demos, and short presentations.</td>
 					</tr>
 				</tbody>
