@@ -11,12 +11,8 @@ next: false
 		<div className="course-intro-copy">
 			<p className="course-eyebrow">Johns Hopkins University · Fall 2026</p>
 			<h1>Hands-on Robot Learning</h1>
-			<p className="course-lede">{'A course on the practical details of modern robot learning: building and calibrating a robot arm, collecting data, training policies, and evaluating them on physical hardware.'}</p>
+			<p className="course-lede">{'This course provides a hands-on introduction to the design and implementation of modern learning-based robotic systems. Students will work in small teams to assemble and operate an SO-101 arm, collect robot data, and develop the software needed to train and deploy learned policies.'}</p>
 		</div>
-		<figure className="course-robot">
-			<img src="/images/so101-follower.webp" alt="An SO-101 follower robot arm used with LeRobot" />
-			<figcaption>SO-101 follower arm. Image from the <a href="https://huggingface.co/docs/lerobot/so101">LeRobot documentation</a>.</figcaption>
-		</figure>
 	</header>
 
 	<dl className="course-facts">
@@ -30,6 +26,20 @@ next: false
 		<h2>About</h2>
 		<p>{'Modern robot policies are often presented as a model and a benchmark score. On a physical robot, the result also depends on the data collection setup, robot interface, training pipeline, inference loop, and evaluation protocol. We will study these pieces together using the SO-101 arm and the LeRobot software stack.'}</p>
 		<p>{'The course begins with a short essentials recap and data collection, moves through single-task imitation learning, and then studies generalist robot policies and current research directions. Most assignments will be completed in small teams. There are no exams.'}</p>
+	</section>
+
+	<section id="goals" className="course-section">
+		<h2>Course goals</h2>
+		<p>By the end of the course, students should be able to:</p>
+		<ul className="course-goals">
+			<li>Describe the modern landscape of data-driven robot learning and the common system designs used in robot learning.</li>
+			<li>Assemble, calibrate, and safely operate a robotic manipulator built from readily available electromechanical components.</li>
+			<li>Implement, train, and evaluate modern imitation learning approaches for simple manipulation tasks.</li>
+			<li>Deploy a vision-language-action (VLA) model on a physical robot and characterize its success and failure modes.</li>
+			<li>Compare the tradeoffs between policy architectures, low-level design choices, and data collection methods.</li>
+			<li>Define evaluation metrics and failure taxonomies, and conduct reproducible robot experiments.</li>
+			<li>For graduate students: complete an open-ended mini research project in robot learning.</li>
+		</ul>
 	</section>
 
 	<section id="schedule" className="course-section">
