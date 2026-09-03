@@ -194,6 +194,7 @@ main:has(.course-page) > .content-panel:first-child {
   display: grid;
   grid-template-columns: 8rem 1fr;
   gap: 1rem;
+  align-items: baseline;
   padding: 0.9rem 1rem 0.9rem 0;
   border-bottom: 1px solid var(--course-border);
 }
@@ -206,12 +207,14 @@ main:has(.course-page) > .content-panel:first-child {
   color: var(--course-muted);
   font-size: 0.82rem;
   font-weight: 500;
+  line-height: 1.45;
 }
 
 .course-facts dd {
   margin: 0;
   color: var(--sl-color-gray-2);
   font-size: 0.9rem;
+  line-height: 1.45;
 }
 
 .course-section {
@@ -287,6 +290,23 @@ main:has(.course-page) > .content-panel:first-child {
   color: var(--course-muted);
 }
 
+.course-schedule .course-standalone td {
+  border-top: 1px solid color-mix(in srgb, var(--sl-color-accent) 45%, var(--course-border));
+  border-bottom: 1px solid color-mix(in srgb, var(--sl-color-accent) 45%, var(--course-border));
+  background: color-mix(in srgb, var(--sl-color-accent-low) 48%, transparent);
+}
+
+.course-session-kind {
+  display: block;
+  margin-bottom: 0.18rem;
+  color: var(--sl-color-text-accent);
+  font-size: 0.68rem;
+  font-weight: 650;
+  letter-spacing: 0.06em;
+  line-height: 1.35;
+  text-transform: uppercase;
+}
+
 .course-assignment-table td:first-child {
   width: 18rem;
   color: var(--course-ink);
@@ -325,17 +345,6 @@ main:has(.course-page) > .content-panel:first-child {
 
 .grading-layout > div p:first-child {
   margin-top: 0.55rem;
-}
-
-.course-faq h3 {
-  margin: 1.65rem 0 0.35rem;
-  color: var(--course-ink);
-  font-size: 1rem;
-  font-weight: 600;
-}
-
-.course-faq h3 + p {
-  margin-top: 0;
 }
 
 @media (max-width: 52rem) {
