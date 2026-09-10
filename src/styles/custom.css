@@ -263,6 +263,12 @@ main:has(.course-page) > .content-panel:first-child {
   font-weight: 520;
 }
 
+.course-schedule thead th:last-child,
+.course-schedule td:last-child {
+  width: 5rem;
+  white-space: nowrap;
+}
+
 .course-schedule .course-module th {
   padding-top: 1.35rem;
   background: transparent;
