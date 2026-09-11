@@ -24,8 +24,22 @@ next: false
 
 	<section id="about" className="course-section">
 		<h2>About</h2>
-		<p>{'Modern robot policies are often presented as a model and a benchmark score. On a physical robot, the result also depends on the data collection setup, robot interface, training pipeline, inference loop, and evaluation protocol. We will study these pieces together using the SO-101 arm and the LeRobot software stack.'}</p>
-		<p>{'The course begins with a short essentials recap and data collection, moves through single-task imitation learning, and then studies generalist robot policies and current research directions. Most assignments will be completed in small teams. There are no exams.'}</p>
+		<p>Robot learning has made significant strides in just the last 2 years. For the first time, there exist ‘generalist’ manipulation systems that one can download from the web, and deploy on their robots and environments without substantial finetuning, and achieve non-trivial task success rates. At the same time, making robot learning models (a.k.a. ‘policies’) work, and generalize across a fairly broad set of tasks and environments, is an open research problem. This has caused an undeniable shift in the skillsets that robotics practitioners (engineers, scientists) must now have, to get into (and succeed at) frontier robotics labs.</p>
+		<p>This course aims to address that gap. In this class, we will take a ‘full-stack’ perspective of robot learning – we will understand (and build) robot hardware (i.e., a small tabletop robot arm) and discuss the entirety of the modern robot learning lifecycle. This includes task design and selection, curating and processing data, training neural network models on the processed data, deploying these trained models, and evaluating how the trained approaches fare.</p>
+		<p>This is not an introductory class. We expect students to already have requisite knowledge in deep learning (training and debugging transformer models, diffusion models) or be able to pick them up independently. We will do an extremely short recap of the essentials for the class (one 2.5-hour lecture). We then will look at various data curation and processing strategies, single-task imitation learning, multi-task policy learning, and will discuss some of the frontiers (world models, for example).</p>
+	</section>
+
+	<section id="instructor" className="course-section">
+		<h2>Instructor</h2>
+		<div className="course-instructor">
+			<a href="https://krrish94.github.io/" aria-label="Krishna Murthy Jatavallabhula’s website">
+				<img src="/images/krishna-jatavallabhula.webp" alt="Krishna Murthy Jatavallabhula" />
+			</a>
+			<div>
+				<h3><a href="https://krrish94.github.io/">Krishna Murthy Jatavallabhula</a></h3>
+				<p>Assistant Professor of Computer Science<br />Johns Hopkins University</p>
+			</div>
+		</div>
 	</section>
 
 	<section id="goals" className="course-section">
@@ -51,13 +65,14 @@ next: false
 		<p>{'The schedule is tentative and may change as the semester develops.'}</p>
 		<div className="course-table-wrap">
 			<table className="course-schedule">
-				<thead><tr><th>Date</th><th>Title</th><th>Topics</th><th>Slides</th></tr></thead>
+				<thead><tr><th>Date</th><th>Title</th><th>Topics</th><th>Slides</th><th>Resources</th></tr></thead>
 				<tbody>
-					<tr className="course-module"><th colSpan="4">Module 1 · Introduction to robot learning</th></tr>
+					<tr className="course-module"><th colSpan="5">Module 1 · Introduction to robot learning</th></tr>
 					<tr>
 						<td>Sep 3</td>
 						<td>Introduction to modern robot learning</td>
 						<td>The data-driven robotics lifecycle; the state of the art in robot learning.</td>
+						<td></td>
 						<td></td>
 					</tr>
 					<tr>
@@ -65,13 +80,25 @@ next: false
 						<td>Essentials (whirlwind recap)</td>
 						<td>A short review of robot kinematics, position-based control, action representations, supervised learning, LeRobot, and the SO-101.</td>
 						<td><a href="/slides/lecture-02-essentials-whirlwind-recap.pdf">Slides</a></td>
+						<td>
+							<ul className="course-resources">
+								<li><a href="https://robonine.com/testing-of-feetech-sts3215-servomotor-backlash-repeatability-and-torque/">SO-101 servo testing</a></li>
+								<li><a href="https://www.circuitbread.com/ee-faq/how-does-an-h-bridge-work">H-bridge (why and how)</a></li>
+								<li><a href="https://core-electronics.com.au/attachments/uploads/sts3215-smart-servo-datasheet-translated.pdf">FeeTech STS3215 datasheet</a></li>
+								<li><a href="https://arl.human.cornell.edu/879Readings/Spong_RobotModeling.pdf">Robot Modeling and Control (Spong, Hutchinson, and Vidyasagar)</a></li>
+								<li><a href="https://introtodeeplearning.com/">MIT 6.S191: Introduction to Deep Learning</a></li>
+								<li><a href="/applets/inverse-kinematics.html">Inverse Kinematics applet</a></li>
+								<li><a href="/applets/degrees-of-freedom.html">Degrees of Freedom applet</a></li>
+							</ul>
+						</td>
 					</tr>
 
-					<tr className="course-module"><th colSpan="4">Module 2 · Data for robot learning</th></tr>
+					<tr className="course-module"><th colSpan="5">Module 2 · Data for robot learning</th></tr>
 					<tr>
 						<td>Sep 17</td>
 						<td>Data for robot learning: teleop and other sources</td>
 						<td>Teleoperation interfaces; leader–follower systems; GELLO; AR/VR teleoperation; UMI and variants; and other sources of robot data.</td>
+						<td></td>
 						<td></td>
 					</tr>
 
@@ -80,13 +107,15 @@ next: false
 						<td>SO-101 assembly and calibration</td>
 						<td>In-class build session: arm assembly, motor configuration, calibration, camera checks, and basic safety.</td>
 						<td></td>
+						<td></td>
 					</tr>
 
-					<tr className="course-module"><th colSpan="4">Module 3 · Single-task imitation learning</th></tr>
+					<tr className="course-module"><th colSpan="5">Module 3 · Single-task imitation learning</th></tr>
 					<tr>
 						<td>Oct 1</td>
 						<td>Imitation learning and action chunking</td>
 						<td>Behavior cloning; ALOHA; Action Chunking Transformers.</td>
+						<td></td>
 						<td></td>
 					</tr>
 					<tr>
@@ -94,20 +123,23 @@ next: false
 						<td>Generative policies</td>
 						<td>Multimodality; diffusion policies; flow matching.</td>
 						<td></td>
+						<td></td>
 					</tr>
 					<tr>
 						<td>Oct 15</td>
 						<td>Policy inference stack</td>
 						<td>Asynchronous observation and action; latency; real-time action chunking; temporal ensembling; and more.</td>
 						<td></td>
+						<td></td>
 					</tr>
 
-					<tr className="course-break"><td>Oct 22</td><td>No class</td><td>Fall Break.</td><td></td></tr>
-					<tr className="course-module"><th colSpan="4">Module 4 · Generalist robot learning</th></tr>
+					<tr className="course-break"><td>Oct 22</td><td>No class</td><td>Fall Break.</td><td></td><td></td></tr>
+					<tr className="course-module"><th colSpan="5">Module 4 · Generalist robot learning</th></tr>
 					<tr>
 						<td>Oct 29</td>
 						<td>Introduction to vision-language-action (VLA) models</td>
 						<td>Early VLAs: the RT series, OpenVLA, and Octo; π<sub>0</sub> and variants; bilevel (hierarchical) policies; Large Behavior Models; and more.</td>
+						<td></td>
 						<td></td>
 					</tr>
 					<tr>
@@ -115,11 +147,13 @@ next: false
 						<td>VLA models continued</td>
 						<td>Action representations; tokenization; fine-tuning; inference.</td>
 						<td></td>
+						<td></td>
 					</tr>
 					<tr>
 						<td>Nov 12</td>
 						<td>Coding agents as policies</td>
 						<td>Code as Policies and variants such as CaP-X; ENPIRE and related systems.</td>
+						<td></td>
 						<td></td>
 					</tr>
 					<tr>
@@ -127,20 +161,23 @@ next: false
 						<td>World models and policy learning</td>
 						<td>World models in robotics; action-centric versus goal-centric world-modeling frameworks; planning and action extraction; exemplar frameworks; reward and value models.</td>
 						<td></td>
+						<td></td>
 					</tr>
-					<tr className="course-break"><td>Nov 26</td><td>No class</td><td>Fall recess.</td><td></td></tr>
+					<tr className="course-break"><td>Nov 26</td><td>No class</td><td>Fall recess.</td><td></td><td></td></tr>
 
-					<tr className="course-module"><th colSpan="4">Module 5 · Evaluating robot models</th></tr>
+					<tr className="course-module"><th colSpan="5">Module 5 · Evaluating robot models</th></tr>
 					<tr>
 						<td>Dec 3</td>
 						<td>Evaluating generalist robot models</td>
 						<td>Statistical significance testing; metrics for evaluating policies and world models.</td>
+						<td></td>
 						<td></td>
 					</tr>
 					<tr className="course-standalone">
 						<td>Dec 10</td>
 						<td>Final demos</td>
 						<td>Final policy evaluations, demos, and short presentations.</td>
+						<td></td>
 						<td></td>
 					</tr>
 				</tbody>

@@ -24,7 +24,7 @@
   --sl-color-hairline: #2a2f3a;
   --sl-color-hairline-shade: #2a2f3a;
 
-  --sl-content-width: 62rem;
+  --sl-content-width: 72rem;
   --sl-text-5xl: 2.25rem;
   --sl-line-height: 1.65;
 
@@ -125,7 +125,7 @@ main:has(.course-page) > .content-panel:first-child {
 }
 
 .course-page {
-  width: min(100%, 62rem);
+  width: min(100%, 72rem);
   margin-inline: auto;
   padding: 0.5rem 0 3rem;
 }
@@ -223,6 +223,41 @@ main:has(.course-page) > .content-panel:first-child {
   margin-top: 0.45rem;
 }
 
+.course-instructor {
+  display: grid;
+  grid-template-columns: 10.5rem minmax(0, 1fr);
+  gap: 1.5rem;
+  align-items: center;
+  max-width: 44rem;
+}
+
+.course-instructor > a {
+  display: block;
+}
+
+.course-instructor img {
+  display: block;
+  width: 10.5rem;
+  aspect-ratio: 1;
+  border: 1px solid var(--course-border);
+  border-radius: 2px;
+  object-fit: cover;
+}
+
+.course-instructor h3 {
+  margin: 0;
+  color: var(--course-ink);
+  font-size: 1.05rem;
+  font-weight: 600;
+}
+
+.course-instructor p {
+  margin: 0.4rem 0 0;
+  color: var(--course-muted);
+  font-size: 0.9rem;
+  line-height: 1.55;
+}
+
 .course-table-wrap {
   overflow-x: auto;
   margin-top: 1.25rem;
@@ -234,6 +269,10 @@ main:has(.course-page) > .content-panel:first-child {
   margin: 0;
   border-collapse: collapse;
   font-size: 0.9rem;
+}
+
+.course-schedule {
+  min-width: 72rem;
 }
 
 .course-page table :is(th, td) {
@@ -263,10 +302,26 @@ main:has(.course-page) > .content-panel:first-child {
   font-weight: 520;
 }
 
-.course-schedule thead th:last-child,
-.course-schedule td:last-child {
-  width: 5rem;
+.course-schedule thead th:nth-child(4),
+.course-schedule td:nth-child(4) {
+  width: 4.5rem;
   white-space: nowrap;
+}
+
+.course-schedule thead th:nth-child(5),
+.course-schedule td:nth-child(5) {
+  width: 18rem;
+}
+
+.course-resources {
+  margin: 0;
+  padding-left: 1rem;
+  font-size: 0.82rem;
+  line-height: 1.4;
+}
+
+.course-resources li + li {
+  margin-top: 0.32rem;
 }
 
 .course-schedule .course-module th {
@@ -352,6 +407,15 @@ main:has(.course-page) > .content-panel:first-child {
 
   .course-intro h1 {
     font-size: 2.35rem;
+  }
+
+  .course-instructor {
+    grid-template-columns: 7rem minmax(0, 1fr);
+    gap: 1rem;
+  }
+
+  .course-instructor img {
+    width: 7rem;
   }
 
   .course-page table {

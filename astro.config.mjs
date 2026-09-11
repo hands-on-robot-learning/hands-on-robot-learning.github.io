@@ -16,7 +16,7 @@ export default defineConfig({
 				src: './src/assets/logo.svg',
 				replacesTitle: false,
 			},
-			favicon: '/favicon.svg',
+			favicon: '/favicon.svg?v=hrl',
 			editLink: {
 				baseUrl:
 					'https://github.com/hands-on-robot-learning/hands-on-robot-learning.github.io/edit/main/',
