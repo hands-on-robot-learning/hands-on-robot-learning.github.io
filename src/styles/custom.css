@@ -304,8 +304,8 @@ main:has(.course-page) > .content-panel:first-child {
 
 .course-schedule thead th:nth-child(4),
 .course-schedule td:nth-child(4) {
-  width: 4.5rem;
-  white-space: nowrap;
+  width: 9rem;
+  white-space: normal;
 }
 
 .course-schedule thead th:nth-child(5),

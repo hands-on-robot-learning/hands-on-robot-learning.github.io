@@ -20,6 +20,8 @@ next: false
 		<div><dt>Instructor</dt><dd><a href="https://krrish94.github.io/">Krishna Murthy Jatavallabhula</a></dd></div>
 		<div><dt>Course assistants</dt><dd>Xinyi Yin, Yinzhe Zhou, and Aleks Santari</dd></div>
 		<div><dt>Lecture</dt><dd>Ames 234, Thursdays 3 pm–5:30 pm</dd></div>
+		<div><dt>Instructor office hours</dt><dd>Thursdays, 12:00–1:00 PM (Hackerman 226E), please email ahead of time to confirm</dd></div>
+		<div><dt>CA office hours</dt><dd>Aleks Santari: Tuesdays at 6:00 PM<br />Xinyi Yin: Wednesdays at 11:00 AM</dd></div>
 	</dl>
 
 	<section id="about" className="course-section">
@@ -96,25 +98,33 @@ next: false
 					<tr className="course-module"><th colSpan="5">Module 2 · Data for robot learning</th></tr>
 					<tr>
 						<td>Sep 17</td>
-						<td>Data for robot learning: teleop and other sources</td>
-						<td>Teleoperation interfaces; leader–follower systems; GELLO; AR/VR teleoperation; UMI and variants; and other sources of robot data.</td>
+						<td>Data for robot learning: teleoperation and other sources</td>
+						<td>Data sources for robot learning; What does/should a demonstration contain; commanded-vs-realized poses; leader–follower teleoperation; GELLO and gravity compensation; Task-space teleoperation; Wearable interfaces and UMI; Dexterous and whole-body human retargeting; and Open problems in scalable robot data collection.</td>
+						<td><a href="/slides/lecture-03-data-for-robot-learning.pdf">Lecture 03 — Data for Robot Learning</a></td>
+						<td>
+							<ul className="course-resources">
+								<li><a href="https://wuphilipp.github.io/gello_site/">GELLO</a></li>
+								<li><a href="https://docs.nvidia.com/learning/physical-ai/sim-to-real-so-101/latest/07-calibrating-so101.html">NVIDIA SO-101 calibration guide</a></li>
+								<li><a href="https://real.stanford.edu/umi/">Universal Manipulation Interface (UMI)</a></li>
+								<li><a href="https://droid-dataset.github.io/">DROID</a></li>
+								<li><a href="https://proceedings.mlr.press/v305/xu25b.html">DexUMI</a></li>
+							</ul>
+						</td>
+					</tr>
+
+					<tr className="course-module"><th colSpan="5">Module 3 · Single-task imitation learning</th></tr>
+					<tr>
+						<td>Sep 24</td>
+						<td>Imitation learning and action chunking</td>
+						<td>Behavior cloning and action chunking. Imitation learning basics, covariate shift and compounding error, interactive imitation learning, and the action chunking transformer (ACT).</td>
 						<td></td>
 						<td></td>
 					</tr>
 
 					<tr className="course-standalone">
-						<td>Sep 24</td>
-						<td>SO-101 assembly and calibration</td>
-						<td>In-class build session: arm assembly, motor configuration, calibration, camera checks, and basic safety.</td>
-						<td></td>
-						<td></td>
-					</tr>
-
-					<tr className="course-module"><th colSpan="5">Module 3 · Single-task imitation learning</th></tr>
-					<tr>
 						<td>Oct 1</td>
-						<td>Imitation learning and action chunking</td>
-						<td>Behavior cloning; ALOHA; Action Chunking Transformers.</td>
+						<td>SO-101 assembly and calibration (in-class hands-on session).</td>
+						<td>In-class build session: arm assembly, motor configuration, calibration, camera checks, and basic safety.</td>
 						<td></td>
 						<td></td>
 					</tr>
