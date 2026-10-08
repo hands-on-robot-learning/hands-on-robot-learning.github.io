@@ -60,6 +60,7 @@ next: false
 	<section id="materials" className="course-section">
 		<h2>Course materials</h2>
 		<p><a href="/documents/hands-on-robot-learning-fall-2026-syllabus-and-policies.pdf">Syllabus and course policies</a> (PDF)</p>
+		<p>The syllabus PDF contains the original tentative calendar. See the <a href="#schedule">updated schedule below</a> for current class dates and assignment demos.</p>
 	</section>
 
 	<section id="schedule" className="course-section">
@@ -131,62 +132,75 @@ next: false
 					<tr>
 						<td>Oct 8</td>
 						<td>Generative policies</td>
-						<td>Multimodality; diffusion policies; flow matching.</td>
-						<td></td>
-						<td></td>
+						<td>Multimodality in robot learning; diffusion and flow matching; diffusion-model training and sampling; Diffusion Policy and conditioning; preprocessing, normalization, and closed-loop evaluation; relevant research on diffusion policies; action-chunk inference, prediction and execution horizons, real-time chunking, continuity, and reactivity.</td>
+						<td><a href="/slides/lecture-06-generative-policies.pdf">Lecture 06 — Generative Policies</a></td>
+						<td>
+							<ul className="course-resources">
+								<li><a href="/demos/week06/">Week 06 interactive demos</a></li>
+								<li><a href="https://hojonathanho.github.io/diffusion/">Denoising Diffusion Probabilistic Models (DDPM)</a></li>
+								<li><a href="https://diffusion-policy.cs.columbia.edu/">Diffusion Policy</a></li>
+								<li><a href="https://3d-diffusion-policy.github.io/">3D Diffusion Policy</a></li>
+								<li><a href="https://equidiff.github.io/">Equivariant Diffusion Policy</a></li>
+								<li><a href="https://cupid-curation.github.io/">CUPID: Curating Data your Robot Loves</a></li>
+								<li><a href="https://diffusion-steering.github.io/">Diffusion Steering with Latent Space RL (DSRL)</a></li>
+								<li><a href="https://lottery-tickets.rai-inst.com/">You’ve Got a Golden Ticket</a></li>
+								<li><a href="https://www.pi.website/research/real_time_chunking">Real-Time Action Chunking with Large Models</a></li>
+								<li><a href="https://alexander-soare.github.io/robotics/2025/08/05/smooth-as-butter-robot-policies.html">Smooth-As-Butter Robot Policies</a></li>
+							</ul>
+						</td>
 					</tr>
+
+					<tr className="course-module"><th colSpan="5">Module 4 · Generalist robot learning</th></tr>
 					<tr>
 						<td>Oct 15</td>
-						<td>Policy inference stack</td>
-						<td>Asynchronous observation and action; latency; real-time action chunking; temporal ensembling; and more.</td>
+						<td>Introduction to vision-language-action (VLA) models</td>
+						<td>From language and vision-language models to VLAs; multimodal observations and language conditioning; action representations and action heads; early architectures including the RT series, OpenVLA, and Octo; deployment constraints and failure modes.</td>
 						<td></td>
 						<td></td>
 					</tr>
 
 					<tr className="course-break"><td>Oct 22</td><td>No class</td><td>Fall Break.</td><td></td><td></td></tr>
-					<tr className="course-module"><th colSpan="5">Module 4 · Generalist robot learning</th></tr>
 					<tr>
 						<td>Oct 29</td>
-						<td>Introduction to vision-language-action (VLA) models</td>
-						<td>Early VLAs: the RT series, OpenVLA, and Octo; π<sub>0</sub> and variants; bilevel (hierarchical) policies; Large Behavior Models; and more.</td>
+						<td>VLA models, continued; Assignment 1 in-class demos</td>
+						<td>First half: π<sub>0</sub> and variants; hierarchical policies; action tokenization, fine-tuning, and inference. Second half: Assignment 1 demos of handcrafted manipulation skills.</td>
 						<td></td>
 						<td></td>
 					</tr>
-					<tr>
+					<tr className="course-standalone">
 						<td>Nov 5</td>
-						<td>VLA models continued</td>
-						<td>Action representations; tokenization; fine-tuning; inference.</td>
+						<td>Hands-on policy learning with LeRobot</td>
+						<td>Course-staff tutorial on policy-learning best practices: dataset preparation, training, checkpointing, deployment, debugging, and closed-loop evaluation.</td>
 						<td></td>
 						<td></td>
 					</tr>
-					<tr>
+					<tr className="course-standalone">
 						<td>Nov 12</td>
-						<td>Coding agents as policies</td>
-						<td>Code as Policies and variants such as CaP-X; ENPIRE and related systems.</td>
+						<td>Assignment 2 in-class demos — single-task policies</td>
+						<td>Demonstrate learned single-task policies; discuss task success, failure cases, and lessons from data collection, training, and deployment.</td>
 						<td></td>
 						<td></td>
 					</tr>
 					<tr>
 						<td>Nov 19</td>
-						<td>World models and policy learning</td>
-						<td>World models in robotics; action-centric versus goal-centric world-modeling frameworks; planning and action extraction; exemplar frameworks; reward and value models.</td>
+						<td>Coding agents as policies</td>
+						<td>Code as Policies and variants such as CaP-X; ENPIRE and related systems.</td>
 						<td></td>
 						<td></td>
 					</tr>
 					<tr className="course-break"><td>Nov 26</td><td>No class</td><td>Fall recess.</td><td></td><td></td></tr>
 
-					<tr className="course-module"><th colSpan="5">Module 5 · Evaluating robot models</th></tr>
 					<tr>
 						<td>Dec 3</td>
-						<td>Evaluating generalist robot models</td>
-						<td>Statistical significance testing; metrics for evaluating policies and world models.</td>
+						<td>World models and policy learning</td>
+						<td>Learned dynamics and world models in robotics; action-centric versus goal-centric frameworks; policy learning, planning, prediction, and action extraction; reward and value models; and evaluation.</td>
 						<td></td>
 						<td></td>
 					</tr>
 					<tr className="course-standalone">
 						<td>Dec 10</td>
-						<td>Final demos</td>
-						<td>Final policy evaluations, demos, and short presentations.</td>
+						<td>Assignment 3 / final demos</td>
+						<td>Multi-task policy evaluations, demos, and short presentations.</td>
 						<td></td>
 						<td></td>
 					</tr>

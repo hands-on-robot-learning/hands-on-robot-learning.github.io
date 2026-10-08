@@ -272,7 +272,7 @@ main:has(.course-page) > .content-panel:first-child {
 }
 
 .course-schedule {
-  min-width: 72rem;
+  min-width: 64rem;
 }
 
 .course-page table :is(th, td) {
