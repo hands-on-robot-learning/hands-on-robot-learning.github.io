@@ -7,6 +7,8 @@ export default defineConfig({
 	site: 'https://hands-on-robot-learning.github.io',
 	trailingSlash: 'always',
 	output: 'static',
+	// Preserve punctuation in assignment handouts copied verbatim from PDFs.
+	markdown: { smartypants: false },
 	integrations: [
 		starlight({
 			title: 'Hands-on Robot Learning',
@@ -28,7 +30,17 @@ export default defineConfig({
 				Header: './src/components/CourseHeader.astro',
 				Footer: './src/components/CourseFooter.astro',
 			},
-			sidebar: [],
+			sidebar: [
+				{ label: 'Course home', link: '/' },
+				{
+					label: 'Assignments',
+					items: [
+						{ label: 'Assignment 1', slug: 'assignments/assignment-1' },
+						{ label: 'Assignment 2', slug: 'assignments/assignment-2' },
+						{ label: 'Assignment 3', slug: 'assignments/assignment-3' },
+					],
+				},
+			],
 		}),
 	],
 });

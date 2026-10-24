@@ -18,10 +18,10 @@ next: false
 	<dl className="course-facts">
 		<div><dt>Course</dt><dd>EN.601.498 / EN.601.698</dd></div>
 		<div><dt>Instructor</dt><dd><a href="https://krrish94.github.io/">Krishna Murthy Jatavallabhula</a></dd></div>
-		<div><dt>Course assistants</dt><dd>Xinyi Yin, Yinzhe Zhou, and Aleks Santari</dd></div>
+		<div><dt>Course assistants</dt><dd>Xinyi Yin, Yinzhe (Steven) Zhou, and Aleks Santari</dd></div>
 		<div><dt>Lecture</dt><dd>Ames 234, Thursdays 3 pm–5:30 pm</dd></div>
 		<div><dt>Instructor office hours</dt><dd>Thursdays, 12:00–1:00 PM (Hackerman 226E), please email ahead of time to confirm</dd></div>
-		<div><dt>CA office hours</dt><dd>Aleks Santari: Tuesdays at 6:00 PM<br />Xinyi Yin: Wednesdays at 11:00 AM</dd></div>
+		<div><dt>CA office hours</dt><dd className="course-office-hours"><div>Xinyi Yin: Wednesdays, 2–3 pm<br />Shriver 001</div><div>Yinzhe (Steven) Zhou: Fridays, 9:30–10:30 am<br />Wyman Park building, 265W</div><div>Aleks Santari: Tuesdays, 6–7 pm<br />Malone 122</div></dd></div>
 	</dl>
 
 	<section id="about" className="course-section">
@@ -173,24 +173,24 @@ next: false
 					<tr className="course-break"><td>Oct 22</td><td>No class</td><td>Fall Break.</td><td></td><td></td></tr>
 					<tr>
 						<td>Oct 29</td>
-						<td>VLA models, continued; Assignment 1 in-class demos</td>
-						<td>First half: continued discussion of VLAs and multitask policies. Second half: Assignment 1 demos of handcrafted manipulation skills.</td>
+						<td>VLA models, continued</td>
+						<td>Continued discussion of VLAs and multitask policies.</td>
 						<td></td>
 						<td></td>
 					</tr>
 					<tr className="course-standalone">
 						<td>Nov 5</td>
-						<td>Hands-on policy learning with LeRobot</td>
-						<td>Course-staff tutorial on policy-learning best practices: dataset preparation, training, checkpointing, deployment, debugging, and closed-loop evaluation.</td>
+						<td>Hands-on policy learning with LeRobot; Assignment 1 in-class demos</td>
+						<td>Course-staff tutorial on policy-learning best practices: dataset preparation, training, checkpointing, deployment, debugging, and closed-loop evaluation. Assignment 1 demos of handcrafted manipulation skills.</td>
 						<td></td>
-						<td></td>
+						<td><a href="/assignments/assignment-1/">Assignment 1</a></td>
 					</tr>
 					<tr className="course-standalone">
 						<td>Nov 12</td>
 						<td>Assignment 2 in-class demos — single-task policies</td>
 						<td>Demonstrate learned single-task policies; discuss task success, failure cases, and lessons from data collection, training, and deployment.</td>
 						<td></td>
-						<td></td>
+						<td><a href="/assignments/assignment-2/">Assignment 2</a></td>
 					</tr>
 					<tr>
 						<td>Nov 19</td>
@@ -213,7 +213,7 @@ next: false
 						<td>Assignment 3 / final demos</td>
 						<td>Multi-task policy evaluations, demos, and short presentations.</td>
 						<td></td>
-						<td></td>
+						<td><a href="/assignments/assignment-3/">Assignment 3</a></td>
 					</tr>
 				</tbody>
 			</table>
@@ -222,15 +222,15 @@ next: false
 
 	<section id="assignments" className="course-section">
 		<h2>Assignments</h2>
-		<p>{'The course has four assignments. There are no written exams. Assignment details will be announced in class and posted both on Canvas and on this website.'}</p>
+		<p>The course has four assignments. There are no written exams. Assignment 1–3 handouts are available below as webpages and PDFs.</p>
 		<div className="course-table-wrap">
 			<table className="course-assignment-table">
-				<thead><tr><th>Assignment</th><th>Scope</th><th>Weight</th></tr></thead>
+				<thead><tr><th>Assignment</th><th>Scope</th><th>Materials</th><th>Weight</th></tr></thead>
 				<tbody>
-					<tr><td>A0 · Build and calibrate</td><td>Assemble the SO-101, configure the motors, calibrate the arm, and document a working setup.</td><td>5%</td></tr>
-					<tr><td>A1 · Handcrafted manipulation skill</td><td>Implement and evaluate a manipulation skill using an explicit perception-and-control pipeline.</td><td>10%</td></tr>
-					<tr><td>A2 · Single-task imitation learning</td><td>Collect demonstrations, train a task-specific policy, deploy it, and analyze its behavior.</td><td>30%</td></tr>
-					<tr><td>A3 · Multi-task policy learning</td><td>Train or adapt a policy across multiple tasks and evaluate where transfer helps or fails.</td><td>35%</td></tr>
+					<tr><td>A0 · Build and calibrate</td><td>Assemble the SO-101, configure the motors, calibrate the arm, and document a working setup.</td><td>—</td><td>5%</td></tr>
+					<tr><td>A1 · Handcrafted manipulation skill</td><td>Implement and evaluate a manipulation skill using an explicit perception-and-control pipeline.</td><td><a href="/assignments/assignment-1/" aria-label="Assignment 1 HTML">HTML</a> · <a href="/documents/assignments/assignment-1.pdf" aria-label="Assignment 1 PDF">PDF</a></td><td>10%</td></tr>
+					<tr><td>A2 · Single-task imitation learning</td><td>Collect demonstrations, train a task-specific policy, deploy it, and analyze its behavior.</td><td><a href="/assignments/assignment-2/" aria-label="Assignment 2 HTML">HTML</a> · <a href="/documents/assignments/assignment-2.pdf" aria-label="Assignment 2 PDF">PDF</a></td><td>30%</td></tr>
+					<tr><td>A3 · Multi-task robot manipulation solutions</td><td>Build a unified system that performs multiple tasks; demonstrate, explain, and analyze how it works.</td><td><a href="/assignments/assignment-3/" aria-label="Assignment 3 HTML">HTML</a> · <a href="/documents/assignments/assignment-3.pdf" aria-label="Assignment 3 PDF">PDF</a></td><td>35%</td></tr>
 				</tbody>
 			</table>
 		</div>
@@ -244,7 +244,7 @@ next: false
 					<tr><th>A0 · Build and calibrate</th><td>5%</td></tr>
 					<tr><th>A1 · Handcrafted manipulation skill</th><td>10%</td></tr>
 					<tr><th>A2 · Single-task imitation learning</th><td>30%</td></tr>
-					<tr><th>A3 · Multi-task policy learning</th><td>35%</td></tr>
+					<tr><th>A3 · Multi-task robot manipulation solutions</th><td>35%</td></tr>
 					<tr><th>Participation, team contribution, and individual assessment</th><td>20%</td></tr>
 					<tr className="grade-total"><th>Total</th><td>100%</td></tr>
 				</tbody>

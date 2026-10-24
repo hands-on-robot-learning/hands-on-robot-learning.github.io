@@ -111,12 +111,28 @@ main {
   margin-top: 1rem;
 }
 
-.sl-markdown-content > ul {
+.sl-markdown-content > :is(ul, ol) {
   max-width: 72ch;
 }
 
-.sl-markdown-content > ul li + li {
+.sl-markdown-content > :is(ul, ol) li + li {
   margin-top: 0.35rem;
+}
+
+.assignment-downloads {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--course-border);
+}
+
+.assignment-downloads a {
+  margin-top: 0;
+}
+
+.sl-markdown-content:has(.assignment-downloads) code {
+  overflow-wrap: anywhere;
 }
 
 /* The homepage supplies its own title as part of the two-column introduction. */
@@ -193,6 +209,10 @@ main:has(.course-page) > .content-panel:first-child {
   color: var(--sl-color-gray-2);
   font-size: 0.9rem;
   line-height: 1.45;
+}
+
+.course-office-hours > div + div {
+  margin-top: 0.65rem;
 }
 
 .course-section {
@@ -348,6 +368,11 @@ main:has(.course-page) > .content-panel:first-child {
   width: 18rem;
   color: var(--course-ink);
   font-weight: 550;
+}
+
+.course-assignment-table :is(th, td):nth-child(3) {
+  width: 7rem;
+  white-space: nowrap;
 }
 
 .course-assignment-table :is(th, td):last-child {
